@@ -1,0 +1,4 @@
+CIRCUITPY_WIFI_SSID = "FilamentFactory"
+CIRCUITPY_WIFI_PASSWORD = "EasySquash496*"
+ADAFRUIT_AIO_USERNAME = "lauradennyanderson"
+ADAFRUIT_AIO_KEY      = "aio_hRgf53W4DElwHSzbjcDVZKhHoYkc"
