@@ -19,23 +19,19 @@ from adafruit_display_shapes.roundrect import RoundRect
 import terminalio
 from adafruit_display_text import label
 
+from helpers import Gauge, BatteryIndicator
 
 # For 8.x.x and 9.x.x. When 8.x.x is discontinued as a stable release, change this.
-try:
-    from fourwire import FourWire
-except ImportError:
-    from displayio import FourWire
 
-# Used to ensure the display is free in CircuitPython
+from fourwire import FourWire
+
 displayio.release_displays()
 
 # Define the pins needed for display use
-# This pinout is for a Feather M4 and may be different for other boards
+
 spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16)
 epd_cs = board.GP12
 epd_dc = board.GP13
-
-
 # Create the displayio connection to the display pins
 display_bus = FourWire(
     spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000
@@ -53,7 +49,24 @@ display = adafruit_uc8151d.UC8151D(
 
 g = displayio.Group()
 
-text = "HELLO WORLD"
+# Set everything white
+white_bitmap = displayio.Bitmap(display.width, display.height, 1)
+
+# Create a two color palette
+white = displayio.Palette(1)
+white[0] = 0xffffff
+white_tilegrid = displayio.TileGrid(white_bitmap, pixel_shader=white)
+
+# Add the TileGrid to the Group
+g.append(white_tilegrid)
+
+roundrect = RoundRect(5, 5, 80, 20, 4, fill=0xFFFFFF, outline=0x000000, stroke=2)
+g.append(roundrect)
+
+roundrect2 = RoundRect(95, 5, 70, 20, 4, fill=0xFFFFFF, outline=0x000000, stroke=2)
+g.append(roundrect2)
+
+text = "Data Good"
 font = terminalio.FONT
 color = 0x000000
 
@@ -61,19 +74,49 @@ color = 0x000000
 text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
 
 # Set the location
-text_area.x = 100
-text_area.y = 80
+text_area.x = 20
+text_area.y = 15
 
 g.append(text_area)
+
+text = "Batt 76%"
+font = terminalio.FONT
+color = 0x000000
+
+# Create the text label
+text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
+
+# Set the location
+text_area.x = 105
+text_area.y = 15
+
+g.append(text_area)
+
+gauge2 = Gauge(x=50, y=80, left=50, right=120, max_alarm_val=100, units='F')
+gauge2.update(87)
+gauge_r2 = gauge2.render()
+g.append(gauge_r2)
+
+gauge = Gauge(x=148, y=80, max_alarm_val=60, units='lbs')
+gauge.update(90)
+gauge_r = gauge.render()
+g.append(gauge_r)
+
+gauge3 = Gauge(x=246, y=80, max_alarm_val=80, units='%RH')
+gauge3.update(50)
+gauge_r3 = gauge3.render()
+g.append(gauge_r3)
+
+b_ind2 = BatteryIndicator(x=230, y=5, scale=4)
+b_ind2.update(85)
+b_render2 = b_ind2.render()
+g.append(b_render2)
 
 # Show it
 display.root_group = g
 
-# Refresh the display to have it actually show the image
-# NOTE: Do not refresh eInk displays sooner than 180 seconds
 input("Press enter to refresh")
+print("start refresh")
 display.refresh()
 print("refreshed")
-
-time.sleep(180)
-
+time.sleep(12)
