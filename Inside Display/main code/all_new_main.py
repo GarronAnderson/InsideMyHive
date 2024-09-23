@@ -41,7 +41,7 @@ wifi.radio.connect(ssid, password)
 
 print("wifi conn")
 
-aio_un, aio_key = os.getenv('aio_username'), os.getenv('aio_key')
+aio_un, aio_key = os.getenv('ADAFRUIT_AIO_USERNAME'), os.getenv('ADAFRUIT_AIO_KEY')
 
 pool = socketpool.SocketPool(wifi.radio)
 requests = adafruit_requests.Session(pool, ssl.create_default_context())
@@ -54,8 +54,10 @@ TIME_URL += TIME_FORMAT
 
 print("connected to io")
 
-# LoRa
+# this releases the SPI, so it has to go here (solves reboot problems)
+displayio.release_displays()
 
+# LoRa
 spi = busio.SPI(board.GP18, board.GP19, board.GP16)
 rfm_cs = digitalio.DigitalInOut(board.GP21)
 rfm_reset = digitalio.DigitalInOut(board.GP20)
@@ -65,10 +67,6 @@ lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 print('got lora')
 
 # display
-
-# display
-displayio.release_displays()
-
 epd_cs = board.GP12
 epd_dc = board.GP13
 
@@ -87,6 +85,8 @@ display = adafruit_uc8151d.UC8151D(
     highlight_color=0xFF0000,
 )
 
+# display widgets
+
 weight_gauge = Gauge(x=50, y=80)
 hum_gauge = Gauge(x=148, y=80)
 temp_gauge = Gauge(x=246, y=80)
@@ -99,6 +99,8 @@ last_rx_box = DisplayBox(x=90, y=5, width=110)
 last_rx_time = "no rx yet"
 
 display_elems = [weight_gauge, hum_gauge, temp_gauge, batt_ind, data_stale_ind, last_rx_box]
+
+print('grabbing feeds')
 
 def get_feed(feed_id):
     try:
@@ -118,6 +120,8 @@ feed_keys = {"Battery %": batt_feed,
             "Scale RAW": scale_feed,
             "Temp F": hive_feed,
             "Relative Humidity": hive_feed}
+
+print('got feeds')
 
 def render_display():
     g = displayio.Group()
@@ -160,12 +164,13 @@ def update_indicator_boxes(last_good_tx, last_rx_time):
     last_rx_box.display(last_rx_time)
         
 def grab_datas():
+    print('attempting data rx')
     datas = []
     data = ''
     rx_time = time.time()
     
     while (data != "data done") and ((time.time() - rx_time) < 10):
-        data = lora.recieve(timeout=10)
+        data = lora.receive(timeout=10)
         if data:
             data = data.decode()
             rx_time = time.time()
@@ -177,6 +182,7 @@ def grab_datas():
     return datas[:-1], ((time.time() - rx_time) < 10)
         
 def aio_tx(datas):
+    print('running aio tx')
     for data in datas:
         k, v  = data.split(": ")
         feed_key = feed_keys[k]["key"]
@@ -184,25 +190,31 @@ def aio_tx(datas):
         io.send_data(feed_key, float(v))
         
 def get_time():
-    return requests.get(TIME_URL)
+    time_request = requests.get(TIME_URL)
+    return time_request.text
 
-print(f'Time: {get_time()}')
+print(f'Mainloop start time from AIO: {get_time()}')
     
-last_good_refresh = 0 # force refresh on start
+last_good_refresh = 0 # force display refresh on start
+last_good_tx = 0
+last_good_rx = 'N/A'
+have_new_data = False
 
 while True: # mainloop
-    # run rx cycle
+    print('run rx cycle')
     
-    data = lora.recieve(timeout=6) # allow 2 tx attempts
+    data = lora.receive(timeout=6) # allow 2 tx attempts
     if data: data = data.decode()
     
     if data == "data ready": # drop everything else and grab latest update
+        print('grabbing update')
         lora.send('data ready')
-        datas = grab_datas()
+        datas, have_new_data = grab_datas()
+        print(f'Latest datas: {datas}')
+        if not have_new_data: last_good_rx = "RX Timeout"
         last_rx_time = get_time()
-        have_new_datas = True
     
-        tx_aio()
+        if have_new_data: aio_tx(datas)
         
     # do we need to refresh display?
     time_since_refresh = time.time() - last_good_refresh
