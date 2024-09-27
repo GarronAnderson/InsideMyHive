@@ -24,6 +24,8 @@ import terminalio
 
 from helpers import Gauge, DisplayBox, BatteryIndicator
 
+import gc
+
 print("have imports")
 
 # === USER INPUT ===
@@ -155,13 +157,13 @@ def parse_to_display_elems(datas):
         elif k == "Temp F": temp_gauge.update(v)
         elif k == "Relative Humidity": hum_gauge.update(v)
         
-def update_indicator_boxes(last_good_tx, last_rx_time):
-    if (time.time() - last_good_tx) >= 6:
+def update_indicator_boxes(last_good_rx, last_good_rx_txt):
+    if (time.time() - last_good_rx) >= 6:
         data_stale_ind.alert("Data Stale")
     else:
         data_stale_ind.display("Data Good")
         
-    last_rx_box.display(last_rx_time)
+    last_rx_box.display(last_good_rx_txt)
         
 def grab_datas():
     print('attempting data rx')
@@ -173,6 +175,7 @@ def grab_datas():
         data = lora.receive(timeout=10)
         if data:
             data = data.decode()
+            print(data)
             rx_time = time.time()
             datas.append(data)
             lora.send(data)
@@ -196,23 +199,26 @@ def get_time():
 print(f'Mainloop start time from AIO: {get_time()}')
     
 last_good_refresh = 0 # force display refresh on start
-last_good_tx = 0
-last_good_rx = 'N/A'
+last_good_rx = 0
+last_good_rx_txt = 'N/A'
 have_new_data = False
+
+gc.collect()
 
 while True: # mainloop
     print('run rx cycle')
     
     data = lora.receive(timeout=6) # allow 2 tx attempts
     if data: data = data.decode()
+    if data: print(f'LoRa got: {data}')
     
     if data == "data ready": # drop everything else and grab latest update
         print('grabbing update')
         lora.send('data ready')
         datas, have_new_data = grab_datas()
         print(f'Latest datas: {datas}')
-        if not have_new_data: last_good_rx = "RX Timeout"
         last_rx_time = get_time()
+        if not have_new_data: last_good_rx_txt = "RX Timeout"
     
         if have_new_data: aio_tx(datas)
         
@@ -220,6 +226,8 @@ while True: # mainloop
     time_since_refresh = time.time() - last_good_refresh
     if (time_since_refresh >= 6 * 60) or have_new_data:
         if have_new_data: parse_to_display_elems(datas)
-        update_indicator_boxes(last_good_tx, last_rx_time)
+        update_indicator_boxes(last_good_rx, last_good_rx_txt)
+        gc.collect()
+        print(f'GC Free mem: {gc.mem_free()}')
         render_display()
         have_new_data = False
