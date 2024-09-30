@@ -126,10 +126,17 @@ feed_keys = {"Battery %": batt_feed,
 print('got feeds')
 
 def render_display():
+    gc.collect()
+    print(f'GC Free mem: {gc.mem_free()}')
+
     g = displayio.Group()
+    gc.collect()
     
+    print(f'group free mem: {gc.mem_free()}')
     # Set everything white
     white_bitmap = displayio.Bitmap(display.width, display.height, 1)
+    
+    print(f'bitmap Free mem: {gc.mem_free()}')
 
     # Create a two color palette
     white = displayio.Palette(1)
@@ -138,10 +145,17 @@ def render_display():
 
     # Add the TileGrid to the Group
     g.append(white_tilegrid)
+    del white_tilegrid
+    del white_bitmap
+    gc.collect()
+    
+    print(f'GC Free mem after collect: {gc.mem_free()}')
     
     for elem in display_elems:
         rendered = elem.render()
         g.append(rendered)
+        del rendered
+        gc.collect()
         
     display.root_group = g
     display.refresh()

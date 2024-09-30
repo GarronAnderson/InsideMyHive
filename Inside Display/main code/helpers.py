@@ -5,7 +5,7 @@ from adafruit_display_shapes.polygon import Polygon
 import displayio
 import terminalio
 from adafruit_display_text import label
-
+import gc
 
 class Gauge:
     def __init__(self, radius=30, x=0, y=0, max_alarm_val=101, left=0, right=100, units=''):
@@ -66,13 +66,24 @@ class Gauge:
         text_lbl_rgt.anchored_position = (self.x+20, self.y+27)
         
         g = displayio.Group()
+        
         g.append(text_val)
+        del text_val
         g.append(text_unit)
+        del text_unit
         g.append(text_lbl_left)
+        del text_lbl_left
         g.append(text_lbl_rgt)
+        del text_lbl_rgt
+        
         g.append(outer_arc)
+        del outer_arc
         g.append(alarm_arc)
+        del alarm_arc
         g.append(inner_arc)
+        del inner_arc
+        
+        gc.collect()
         
         return g
 
@@ -102,14 +113,21 @@ class BatteryIndicator:
         if self.val < (8/9)*100: # value less than the tip of the battery
             rect_1 = Rect(x=self.x, y=self.y, height=self.scale*4, width=int(round((self.val/100)*(self.scale*9),0)), fill=fill_color)
             g.append(rect_1)
+            del rect_1
             g.append(outer_poly)
+            del outer_poly
 
         else: # value in tip of battery
             rect_1 = Rect(x=self.x, y=self.y, height=self.scale*4, width=self.scale*8, fill=fill_color)
             rect_2 = Rect(x=self.x, y=self.y+self.scale, height=self.scale*2, width=int(round((self.val/100)*(self.scale*9),0)), fill=fill_color)
             g.append(rect_1)
+            del rect_1
             g.append(rect_2)
+            del rect_2
             g.append(outer_poly)
+            del outer_poly
+            
+        gc.collect()
         
         return g
     
@@ -137,7 +155,18 @@ class DisplayBox:
         
         roundrect = RoundRect(self.x, self.y, self.width, self.height, self.corner_r, fill=0xFFFFFF, outline=0x000000, stroke=2)
         text_area = label.Label(terminalio.FONT, text=self.text, color=text_color, background_color=0xFFFFFF)
-        # Set the location
-        text_area.x = 20
-        text_area.y = 15
         
+        text_area.x = self.x
+        text_area.y = self.y
+    
+        g = displayio.Group()
+        
+        g.append(roundrect)
+        del roundrect
+        
+        g.append(text_area)
+        del text_area
+        
+        gc.collect()
+        
+        return g
