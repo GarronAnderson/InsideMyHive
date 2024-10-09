@@ -1,12 +1,17 @@
 """
-Bee Box Monitor v0.2
+Bee Box Monitor v1.0
 By Garron Anderson, 2024
 """
 
 # --- USER INPUT ---
 
+
 DATA_SEND_INTERVAL = 20 # seconds
 AVERAGE_UPDATE_INTERVAL = 2 # seconds
+
+# real values, uncomment for actual run
+# DATA_SEND_INTERVAL = 300 # seconds, update every 5 minutes
+# AVERAGE_UPDATE_INTERVAL = 10 # seconds
 LORA_FREQ = 915.0
 
 # --- END USER INPUT ---
