@@ -1,4 +1,5 @@
-# bee box monitor inside full code
+# bee box monitor i
+# AIO transmit v1.0
 
 # import everything
 
@@ -17,6 +18,11 @@ import adafruit_requests
 from adafruit_io.adafruit_io import IO_HTTP, AdafruitIO_RequestError
 
 from adafruit_rfm9x import RFM9x
+
+from lcd import LCD
+from i2c_pcf8574_interface import I2CPCF8574Interface
+
+from lcd import CursorMode
 
 print("have imports")
 
@@ -61,6 +67,12 @@ rfm_reset = digitalio.DigitalInOut(board.GP20)
 
 lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 
+# display
+i2c = busio.I2C(board.GP1, board.GP0)
+lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
+lcd.clear()
+lcd.print("getting feeds")
+
 print("got lora")
 
 print("grabbing feeds")
@@ -85,24 +97,29 @@ def get_feed(feed_id):
 
 scale_feed = get_feed("hm-scale")
 batt_feed = get_feed("hm-batt")
-hive_feed = get_feed("hm-temp")
-hive_feed = get_feed("hm-humid")
+temp_feed = get_feed("hm-temp")
+hum_feed = get_feed("hm-humid")
 
 feed_keys = {
     "Battery %": batt_feed,  # for decoding when we rx data
     "Scale RAW": scale_feed,
-    "Temp F": hive_feed,
-    "Relative Humidity": hive_feed,
+    "Temp F": temp_feed,
+    "Relative Humidity": hum_feed,
 }
 
 print("got feeds")
-
+lcd.clear()
+lcd.print("got feeds")
 
 def grab_datas():
     """
     Recieve a data update from the outside unit.
     Returns [list of data], bool of successful RX
     """
+    lcd.set_cursor_pos(0,0)
+    lcd.print("                ")
+    lcd.set_cursor_pos(0,0)
+    lcd.print("RXing data")
 
     print("attempting data rx")
     datas = []
@@ -130,6 +147,11 @@ def aio_tx(datas):
     """
 
     print("running aio tx")
+    lcd.set_cursor_pos(0,0)
+    lcd.print("                ")
+    lcd.set_cursor_pos(0,0)
+    lcd.print("TXing to aio")
+
     for data in datas:
         k, v = data.split(": ")
         feed_key = feed_keys[k]["key"]
@@ -153,8 +175,19 @@ print(
 last_good_rx_txt = "N/A"
 have_new_data = False
 
+lcd.set_cursor_pos(1,0)
+lcd.print("                ")
+lcd.set_cursor_pos(1,0)
+lcd.print(f"Last RX {last_good_rx_txt}")
+        
+
 while True:  # mainloop
     print("run rx cycle")
+    lcd.set_cursor_pos(0,0)
+    lcd.print("                ")
+    lcd.set_cursor_pos(0,0)
+    lcd.print("rx cycle")
+
 
     data = lora.receive(timeout=6)  # allow 2 tx attempts
     if data:
@@ -168,10 +201,17 @@ while True:  # mainloop
         datas, have_new_data = grab_datas()
         print(f"Latest datas: {datas}")
         last_good_rx_txt = get_time()
+        
         if not have_new_data:
             last_good_rx_txt = "RX Timeout"
+            
         if have_new_data:
             aio_tx(datas)
             have_new_data = False
+            
+        lcd.set_cursor_pos(1,0)
+        lcd.print("                ")
+        lcd.set_cursor_pos(1,0)
+        lcd.print(f"Last RX {last_good_rx_txt}")
 
     print(f"last good rx: {last_good_rx_txt}")
