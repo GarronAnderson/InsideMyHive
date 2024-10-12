@@ -30,9 +30,7 @@ epd_dc = board.GP13
 
 
 # Create the displayio connection to the display pins
-display_bus = FourWire(
-    spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000
-)
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
 time.sleep(1)  # Wait a bit
 
 # Create the display object - the third color is red (0xff0000)

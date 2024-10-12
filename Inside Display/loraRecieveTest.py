@@ -19,7 +19,8 @@ lora = RFM9x(spi, rfm_cs, rfm_reset, 915.0)
 # --- end peripherals ---
 
 while True:
-    msg = ''
+    msg = ""
     msg = lora.receive(timeout=3)
-    print(f'Got: <{msg}>')
-    if msg: lora.send(msg)
+    print(f"Got: <{msg}>")
+    if msg:
+        lora.send(msg)

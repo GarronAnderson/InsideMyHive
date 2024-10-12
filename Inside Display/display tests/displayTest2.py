@@ -59,7 +59,7 @@ white_bitmap = displayio.Bitmap(display.width, display.height, 1)
 
 # Create a two color palette
 white = displayio.Palette(1)
-white[0] = 0xffffff
+white[0] = 0xFFFFFF
 white_tilegrid = displayio.TileGrid(white_bitmap, pixel_shader=white)
 
 # Add the TileGrid to the Group
@@ -108,7 +108,8 @@ display.root_group = g
 input("Press enter to refresh")
 print("start refresh")
 display.refresh()
-while display.busy: pass
+while display.busy:
+    pass
 print("refreshed")
 
 time.sleep(60)

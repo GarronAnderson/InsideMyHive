@@ -33,9 +33,7 @@ spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16)
 epd_cs = board.GP12
 epd_dc = board.GP13
 # Create the displayio connection to the display pins
-display_bus = FourWire(
-    spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000
-)
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
 time.sleep(1)  # Wait a bit
 
 # Create the display object - the third color is red (0xff0000)
@@ -54,7 +52,7 @@ white_bitmap = displayio.Bitmap(display.width, display.height, 1)
 
 # Create a two color palette
 white = displayio.Palette(1)
-white[0] = 0xffffff
+white[0] = 0xFFFFFF
 white_tilegrid = displayio.TileGrid(white_bitmap, pixel_shader=white)
 
 # Add the TileGrid to the Group
@@ -92,17 +90,17 @@ text_area.y = 15
 
 g.append(text_area)
 
-gauge2 = Gauge(x=50, y=80, left=50, right=120, max_alarm_val=100, units='F')
+gauge2 = Gauge(x=50, y=80, left=50, right=120, max_alarm_val=100, units="F")
 gauge2.update(87)
 gauge_r2 = gauge2.render()
 g.append(gauge_r2)
 
-gauge = Gauge(x=148, y=80, max_alarm_val=60, units='lbs')
+gauge = Gauge(x=148, y=80, max_alarm_val=60, units="lbs")
 gauge.update(90)
 gauge_r = gauge.render()
 g.append(gauge_r)
 
-gauge3 = Gauge(x=246, y=80, max_alarm_val=80, units='%RH')
+gauge3 = Gauge(x=246, y=80, max_alarm_val=80, units="%RH")
 gauge3.update(50)
 gauge_r3 = gauge3.render()
 g.append(gauge_r3)

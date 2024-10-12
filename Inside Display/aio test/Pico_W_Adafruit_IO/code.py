@@ -13,10 +13,12 @@ import adafruit_requests
 import adafruit_ahtx0
 from adafruit_io.adafruit_io import IO_HTTP, AdafruitIO_RequestError
 
-wifi.radio.connect(os.getenv('CIRCUITPY_WIFI_SSID'), os.getenv('CIRCUITPY_WIFI_PASSWORD'))
+wifi.radio.connect(
+    os.getenv("CIRCUITPY_WIFI_SSID"), os.getenv("CIRCUITPY_WIFI_PASSWORD")
+)
 
-aio_username = os.getenv('aio_username')
-aio_key = os.getenv('aio_key')
+aio_username = os.getenv("aio_username")
+aio_key = os.getenv("aio_key")
 
 pool = socketpool.SocketPool(wifi.radio)
 requests = adafruit_requests.Session(pool, ssl.create_default_context())
@@ -29,11 +31,11 @@ i2c = busio.I2C(board.GP1, board.GP0)
 aht20 = adafruit_ahtx0.AHTx0(i2c)
 
 try:
-# get feed
+    # get feed
     picowTemp_feed = io.get_feed("pitemp")
     picowHumid_feed = io.get_feed("pihumid")
 except AdafruitIO_RequestError:
-# if no feed exists, create one
+    # if no feed exists, create one
     picowTemp_feed = io.create_new_feed("pitemp")
     picowHumid_feed = io.create_new_feed("pihumid")
 
