@@ -153,10 +153,11 @@ def aio_tx(datas):
     lcd.print("TXing to aio")
 
     for data in datas:
-        k, v = data.split(": ")
-        feed_key = feed_keys[k]["key"]
-        print(f"Sending data {v} to feed {feed_key}")
-        io.send_data(feed_key, float(v))
+        if ": " in data:
+            k, v = data.split(": ")
+            feed_key = feed_keys[k]["key"]
+            print(f"Sending data {v} to feed {feed_key}")
+            io.send_data(feed_key, float(v))
 
 
 def get_time():
