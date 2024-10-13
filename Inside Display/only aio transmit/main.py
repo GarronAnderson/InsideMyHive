@@ -5,6 +5,7 @@
 
 import os
 import time
+import adafruit_logging as logging
 
 import board
 import busio
@@ -24,7 +25,13 @@ from i2c_pcf8574_interface import I2CPCF8574Interface
 
 from lcd import CursorMode
 
-print("have imports")
+import gc
+
+logger = logging.getLogger('test')
+
+logger.setLevel(logging.DEBUG)
+
+logger.info("have imports")
 
 # === USER INPUT ===
 
@@ -40,7 +47,7 @@ ssid, password = os.getenv("CIRCUITPY_WIFI_SSID"), os.getenv("CIRCUITPY_WIFI_PAS
 
 wifi.radio.connect(ssid, password)
 
-print("got wifi conn")
+logger.info("got wifi conn")
 
 # and AIO
 
@@ -55,7 +62,7 @@ TIME_URL = f"https://io.adafruit.com/api/v2/{aio_un}/integrations/time/strftime?
 TIME_FORMAT = "&fmt=%25I%3A%25M+%25P"
 TIME_URL += TIME_FORMAT
 
-print("connected to io")
+logger.info("connected to io")
 
 # this releases the SPI, so it has to go here (solves reboot problems)
 displayio.release_displays()
@@ -73,9 +80,9 @@ lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
 lcd.clear()
 lcd.print("getting feeds")
 
-print("got lora")
+logger.info("got lora")
 
-print("grabbing feeds")
+logger.info("grabbing feeds")
 
 
 def get_feed(feed_id):
@@ -107,7 +114,7 @@ feed_keys = {
     "Relative Humidity": hum_feed,
 }
 
-print("got feeds")
+logger.info("got feeds")
 lcd.clear()
 lcd.print("got feeds")
 
@@ -121,16 +128,22 @@ def grab_datas():
     lcd.set_cursor_pos(0,0)
     lcd.print("RXing data")
 
-    print("attempting data rx")
+    logger.info("RXing data")
     datas = []
     data = ""
     rx_time = time.time()
 
     while (data != "data done") and ((time.time() - rx_time) < 10):
         data = lora.receive(timeout=10)
+        logger.debug(f'LoRa raw: {data}')
         if data:
-            data = data.decode()
-            print(data)
+            try:
+                data = data.decode()
+            except UnicodeError:
+                logger.warning(f'got bad data: {data}')
+                continue # throw out this iteration, keep looping
+            
+            logger.debug(f'LoRa decoded: {data}')
             rx_time = time.time()
             datas.append(data)
             lora.send(data)
@@ -146,7 +159,7 @@ def aio_tx(datas):
     Needs a list of data.
     """
 
-    print("running aio tx")
+    logger.info("TXing to Adafruit IO")
     lcd.set_cursor_pos(0,0)
     lcd.print("                ")
     lcd.set_cursor_pos(0,0)
@@ -156,7 +169,7 @@ def aio_tx(datas):
         if ": " in data:
             k, v = data.split(": ")
             feed_key = feed_keys[k]["key"]
-            print(f"Sending data {v} to feed {feed_key}")
+            logger.debug(f"Sending data {v} to feed {feed_key}")
             io.send_data(feed_key, float(v))
 
 
@@ -169,7 +182,7 @@ def get_time():
     return time_request.text
 
 
-print(
+logger.info(
     f"Mainloop start time from AIO: {get_time()}"
 )  # this acts as a test of internet conn
 
@@ -183,7 +196,8 @@ lcd.print(f"Last RX {last_good_rx_txt}")
         
 
 while True:  # mainloop
-    print("run rx cycle")
+    logger.info("run rx cycle")
+    
     lcd.set_cursor_pos(0,0)
     lcd.print("                ")
     lcd.set_cursor_pos(0,0)
@@ -191,16 +205,20 @@ while True:  # mainloop
 
 
     data = lora.receive(timeout=6)  # allow 2 tx attempts
-    if data:
-        data = data.decode()
-    if data:
-        print(f"LoRa got: {data}")
+    logger.debug(f'Lora raw: {data}')
+    if data is not None:
+        try:
+            data = data.decode()
+        except UnicodeError:
+            logger.warning(f'got bad data: {data}')
+            continue # throw out this iteration, keep looping
+        logger.debug(f"LoRa decoded: {data}")
 
     if data == "data ready":  # drop everything else and grab latest update
-        print("grabbing update")
         lora.send("data ready")
         datas, have_new_data = grab_datas()
-        print(f"Latest datas: {datas}")
+        logger.debug(f"Latest datas: {datas}")
+        gc.collect()
         last_good_rx_txt = get_time()
         
         if not have_new_data:
@@ -215,4 +233,5 @@ while True:  # mainloop
         lcd.set_cursor_pos(1,0)
         lcd.print(f"Last RX {last_good_rx_txt}")
 
-    print(f"last good rx: {last_good_rx_txt}")
+    logger.info(f"last good rx: {last_good_rx_txt}")
+    logger.debug(f"gc mem free: {gc.mem_free()}")
