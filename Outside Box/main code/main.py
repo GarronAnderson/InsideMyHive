@@ -1,5 +1,5 @@
 """
-Bee Box Monitor v1.0
+Bee Box Monitor v1.2
 By Garron Anderson, 2024
 """
 
@@ -74,6 +74,8 @@ rfm_cs = digitalio.DigitalInOut(board.D6)
 rfm_reset = digitalio.DigitalInOut(board.D9)
 
 lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
+lora.tx_power = 23
+lora.spreading_factor = 10
 
 lora_good.on()
 
@@ -111,6 +113,7 @@ def send_w_ack(msg, timeout=2, max_fails=3):
     ack = ''
     fails = 0
     while fails < max_fails:
+        time.sleep(0.25)
         send(msg)
         lora_rx.on()
         print("waiting for ack")

@@ -1,11 +1,12 @@
-# bee box monitor i
-# AIO transmit v1.0
+# bee box monitor inside code
+# AIO transmit only v1.2
 
 # import everything
 
 import os
 import time
 import adafruit_logging as logging
+import supervisor
 
 import board
 import busio
@@ -34,6 +35,8 @@ logger.setLevel(logging.DEBUG)
 logger.info("have imports")
 
 # === USER INPUT ===
+
+DEBUG = True
 
 LORA_FREQ = 915.0  # MHz
 TIMEZONE = "America/Chicago"  # see https://worldtimeapi.org/api/timezone/
@@ -73,6 +76,8 @@ rfm_cs = digitalio.DigitalInOut(board.GP21)
 rfm_reset = digitalio.DigitalInOut(board.GP20)
 
 lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
+lora.tx_power = 23
+lora.spreading_factor = 12
 
 # display
 i2c = busio.I2C(board.GP1, board.GP0)
@@ -146,6 +151,7 @@ def grab_datas():
             logger.debug(f'LoRa decoded: {data}')
             rx_time = time.time()
             datas.append(data)
+            time.sleep(0.25)
             lora.send(data)
 
     lora.send("data done")  # Won't hurt to send this, even on a timeout fail.
@@ -196,42 +202,52 @@ lcd.print(f"Last RX {last_good_rx_txt}")
         
 
 while True:  # mainloop
-    logger.info("run rx cycle")
-    
-    lcd.set_cursor_pos(0,0)
-    lcd.print("                ")
-    lcd.set_cursor_pos(0,0)
-    lcd.print("rx cycle")
-
-
-    data = lora.receive(timeout=6)  # allow 2 tx attempts
-    logger.debug(f'Lora raw: {data}')
-    if data is not None:
-        try:
-            data = data.decode()
-        except UnicodeError:
-            logger.warning(f'got bad data: {data}')
-            continue # throw out this iteration, keep looping
-        logger.debug(f"LoRa decoded: {data}")
-
-    if data == "data ready":  # drop everything else and grab latest update
-        lora.send("data ready")
-        datas, have_new_data = grab_datas()
-        logger.debug(f"Latest datas: {datas}")
-        gc.collect()
-        last_good_rx_txt = get_time()
+    try:
+        logger.info("run rx cycle")
         
-        if not have_new_data:
-            last_good_rx_txt = "RX Timeout"
-            
-        if have_new_data:
-            aio_tx(datas)
-            have_new_data = False
-            
-        lcd.set_cursor_pos(1,0)
+        lcd.set_cursor_pos(0,0)
         lcd.print("                ")
-        lcd.set_cursor_pos(1,0)
-        lcd.print(f"Last RX {last_good_rx_txt}")
+        lcd.set_cursor_pos(0,0)
+        lcd.print("rx cycle")
 
-    logger.info(f"last good rx: {last_good_rx_txt}")
-    logger.debug(f"gc mem free: {gc.mem_free()}")
+
+        data = lora.receive(timeout=6)  # allow 2 tx attempts
+        logger.debug(f'Lora raw: {data}')
+        if data is not None:
+            try:
+                data = data.decode()
+            except UnicodeError:
+                logger.warning(f'got bad data: {data}')
+                continue # throw out this iteration, keep looping
+            logger.debug(f"LoRa decoded: {data}")
+
+        if data == "data ready":  # drop everything else and grab latest update
+            lora.send("data ready")
+            datas, have_new_data = grab_datas()
+            logger.debug(f"Latest datas: {datas}")
+            gc.collect()
+            last_good_rx_txt = get_time()
+            
+            if not have_new_data:
+                last_good_rx_txt = "Timeout"
+                
+            if have_new_data:
+                aio_tx(datas)
+                have_new_data = False
+                
+            lcd.set_cursor_pos(1,0)
+            lcd.print("                ")
+            lcd.set_cursor_pos(1,0)
+            lcd.print(f"Last RX {last_good_rx_txt}")
+
+        logger.info(f"last good rx: {last_good_rx_txt}")
+        logger.debug(f"gc mem free: {gc.mem_free()}")
+        
+    except MemoryError:
+        if DEBUG:
+            lcd.clear()
+            lcd.print("MemoryError\nReloading in 5s")
+            
+        logger.warning("MemoryError, reloading in 5 seconds")
+        time.sleep(5)
+        supervisor.reload()
