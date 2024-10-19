@@ -55,7 +55,7 @@ i2c = board.STEMMA_I2C()
 scale = NAU7802(i2c)
 temp = HTU21D(i2c)
 battery = MAX17048(i2c)
-
+chg_rate_avg = RunningAverage()
 
 # --- reset scale ---
 print("calibrate scale, remove weights")
@@ -75,7 +75,7 @@ rfm_reset = digitalio.DigitalInOut(board.D9)
 
 lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 lora.tx_power = 23
-lora.spreading_factor = 10
+lora.spreading_factor = 11
 
 lora_good.on()
 
@@ -95,6 +95,7 @@ def send(msg):
     Doesn't do anything fancy. Just sets the NeoPixel and prints to shell for debug.
     """
     lora_tx.on()
+    time.sleep(0.1)
     print(f"Sending <{msg}>")
     lora.send(msg)
     lora_tx.off()
@@ -113,7 +114,7 @@ def send_w_ack(msg, timeout=2, max_fails=3):
     ack = ''
     fails = 0
     while fails < max_fails:
-        time.sleep(0.25)
+        time.sleep(0.1)
         send(msg)
         lora_rx.on()
         print("waiting for ack")
@@ -171,7 +172,9 @@ def send_data():
     good_sends.append(send_w_ack(f"Battery %: {battery.cell_percent}"))
     good_sends.append(send_w_ack(f"Scale RAW: {scale_avg.avg}"))
     good_sends.append(send_w_ack(f"Temp F: {c_to_f(temp.temperature)}"))
-    good_sends.append(send_w_ack(f"Relative Humidity: {temp.relative_humidity}"))
+    good_sends.append(send_w_ack(f"Humidity: {temp.relative_humidity}"))
+    good_sends.append(send_w_ack(f"Batt Chg Rate: {chg_rate_avg.avg}"))
+
     send_w_ack('data done')
 
     if all(good_sends): # if all sends were good, update last_good_tx and reset scale avg
@@ -195,7 +198,7 @@ def update_batt_light(threshold=20):
 
 # program mainloop
 
-last_good_tx = time.time()
+last_good_tx = time.time() - DATA_SEND_INTERVAL
 
 while True:
     # update scale avg
@@ -207,6 +210,8 @@ while True:
     else:
         print(f'unreasonable reading: {scale_val}')
 
+    chg_rate_avg.update(battery.charge_rate)
+    
     # update led
     update_batt_light()
 
