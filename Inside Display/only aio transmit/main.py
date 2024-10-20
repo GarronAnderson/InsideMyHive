@@ -28,13 +28,13 @@ from i2c_pcf8574_interface import I2CPCF8574Interface
 
 logger = logging.getLogger('test')
 
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 logger.info("have imports")
 
 # === USER INPUT ===
 
-DEBUG = True
+LCD_DEBUG = True
 
 LORA_FREQ = 915.0  # MHz
 TIMEZONE = "America/Chicago"  # see https://worldtimeapi.org/api/timezone/
@@ -149,6 +149,12 @@ def grab_datas():
                 continue # throw out this iteration, keep looping
             logger.debug(f"LoRa decoded: {data}")
             
+            if LCD_DEBUG and data is not None:
+                lcd.set_cursor_pos(1,0)
+                lcd.print("                ")
+                lcd.set_cursor_pos(1,0)
+                lcd.print(data[:16])
+
             rx_time = time.time()
             datas.append(data)
             time.sleep(0.1)
@@ -235,6 +241,8 @@ while True:  # mainloop
             logger.debug(f"LoRa decoded: {data}")
 
         if data == "data ready":  # drop everything else and grab latest update
+            time.sleep(0.1)
+            logger.debug("sending ack")
             lora.send("data ready")
             datas, have_new_data = grab_datas()
             logger.debug(f"Latest datas: {datas}")
@@ -242,7 +250,7 @@ while True:  # mainloop
             last_good_rx_txt = get_time()
             
             if not have_new_data:
-                last_good_rx_txt = "Timeout"
+                last_good_rx_txt = "Timedout"
                 
             if have_new_data:
                 aio_tx(datas)
@@ -257,7 +265,7 @@ while True:  # mainloop
         logger.debug(f"gc mem free: {gc.mem_free()}")
         
     except MemoryError:
-        if DEBUG:
+        if LCD_DEBUG:
             lcd.clear()
             lcd.print("MemoryError\nReloading in 5s")
             
