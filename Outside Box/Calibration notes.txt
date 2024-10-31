@@ -1,0 +1,5 @@
+Started Calibration 10/30/24
+
+reset to 0
+add 50lbs
+initial value 1,162,820
