@@ -7,3 +7,28 @@ initial value 1,162,820
 10/31/24 6:45P
 
 plug in to ac power for calibration
+
+11/1/24
+
+switched back to powerbank for calibration
+
+11/2/24
+
+evening 2 1/8 in rain
+water intrusion
+
+11/3/24
+
+cleaned and dried parts
+
+11/4/24
+
+back up and running, MAX17048 seems dead
+
+11/5/24
+
+solar charger may be dead
+still getting data, using on board feather charger and USB-C pwr from bank
+
+
+

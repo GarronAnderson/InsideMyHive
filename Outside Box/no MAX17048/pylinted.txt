@@ -1,0 +1,23 @@
+************* Module main
+main.py:23:0: C0413: Import "import time" should be placed at the top of the module (wrong-import-position)
+main.py:25:0: E0401: Unable to import 'board' (import-error)
+main.py:25:0: C0413: Import "import board" should be placed at the top of the module (wrong-import-position)
+main.py:26:0: E0401: Unable to import 'busio' (import-error)
+main.py:26:0: C0413: Import "import busio" should be placed at the top of the module (wrong-import-position)
+main.py:27:0: E0401: Unable to import 'digitalio' (import-error)
+main.py:27:0: C0413: Import "import digitalio" should be placed at the top of the module (wrong-import-position)
+main.py:29:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+main.py:29:0: C0413: Import "from adafruit_rfm9x import RFM9x" should be placed at the top of the module (wrong-import-position)
+main.py:30:0: E0401: Unable to import 'cedargrove_nau7802' (import-error)
+main.py:30:0: C0413: Import "from cedargrove_nau7802 import NAU7802" should be placed at the top of the module (wrong-import-position)
+main.py:31:0: E0401: Unable to import 'adafruit_htu21d' (import-error)
+main.py:31:0: C0413: Import "from adafruit_htu21d import HTU21D" should be placed at the top of the module (wrong-import-position)
+main.py:32:0: E0401: Unable to import 'adafruit_max1704x' (import-error)
+main.py:32:0: C0413: Import "from adafruit_max1704x import MAX17048" should be placed at the top of the module (wrong-import-position)
+main.py:34:0: C0413: Import "from helpers import RunningAverage, StatusLED" should be placed at the top of the module (wrong-import-position)
+main.py:152:4: W0621: Redefining name 'last_good_tx' from outer scope (line 201) (redefined-outer-name)
+main.py:26:0: W0611: Unused import busio (unused-import)
+
+------------------------------------------------------------------
+Your code has been rated at 5.96/10 (previous run: 3.53/10, +2.43)
+

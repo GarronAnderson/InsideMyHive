@@ -205,6 +205,7 @@ def get_time():
     Grab a human-readable time string.
     """
 
+    logger.debug('attempting to get time from AIO')
     time_request = requests.get(TIME_URL)
     return time_request.text
 
@@ -264,11 +265,16 @@ while True:  # mainloop
         logger.info(f"last good rx: {last_good_rx_txt}")
         logger.debug(f"gc mem free: {gc.mem_free()}")
         
-    except MemoryError:
+    except (MemoryError, OSError): # catch Adafruit IO crashes with socket issues
         if LCD_DEBUG:
             lcd.clear()
-            lcd.print("MemoryError\nReloading in 5s")
+            lcd.print("AIO Error\nReloading in 2s")
             
-        logger.warning("MemoryError, reloading in 5 seconds")
-        time.sleep(5)
+        logger.warning("Adafruit IO Error, reloading in 2 seconds")
+        time.sleep(2)
+        
+        if LCD_DEBUG:
+            lcd.clear()
+            lcd.print("MemoryError\nReloading now")
+
         supervisor.reload()
