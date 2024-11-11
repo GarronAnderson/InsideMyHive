@@ -26,7 +26,7 @@ from adafruit_rfm9x import RFM9x
 from lcd import LCD
 from i2c_pcf8574_interface import I2CPCF8574Interface
 
-logger = logging.getLogger('test')
+logger = logging.getLogger("test")
 
 logger.setLevel(logging.DEBUG)
 
@@ -124,14 +124,15 @@ logger.info("got feeds")
 lcd.clear()
 lcd.print("got feeds")
 
+
 def grab_datas():
     """
     Recieve a data update from the outside unit.
     Returns [list of data], bool of successful RX
     """
-    lcd.set_cursor_pos(0,0)
+    lcd.set_cursor_pos(0, 0)
     lcd.print("                ")
-    lcd.set_cursor_pos(0,0)
+    lcd.set_cursor_pos(0, 0)
     lcd.print("RXing data")
 
     logger.info("RXing data")
@@ -145,20 +146,20 @@ def grab_datas():
             try:
                 data = data.decode()
             except UnicodeError:
-                logger.warning(f'got bad data: {data}')
-                continue # throw out this iteration, keep looping
+                logger.warning(f"got bad data: {data}")
+                continue  # throw out this iteration, keep looping
             logger.debug(f"LoRa decoded: {data}")
-            
+
             if LCD_DEBUG and data is not None:
-                lcd.set_cursor_pos(1,0)
+                lcd.set_cursor_pos(1, 0)
                 lcd.print("                ")
-                lcd.set_cursor_pos(1,0)
+                lcd.set_cursor_pos(1, 0)
                 lcd.print(data[:16])
 
             rx_time = time.time()
             datas.append(data)
             time.sleep(0.1)
-            logger.debug(f'LoRa sending ack')
+            logger.debug(f"LoRa sending ack")
             lora.send(data)
 
     lora.send("data done")  # Won't hurt to send this, even on a timeout fail.
@@ -173,9 +174,9 @@ def aio_tx(datas):
     """
 
     logger.info("TXing to Adafruit IO")
-    lcd.set_cursor_pos(0,0)
+    lcd.set_cursor_pos(0, 0)
     lcd.print("                ")
-    lcd.set_cursor_pos(0,0)
+    lcd.set_cursor_pos(0, 0)
     lcd.print("TXing to aio")
 
     batt_percent = 0
@@ -187,25 +188,28 @@ def aio_tx(datas):
             feed_key = feed_keys[k]["key"]
             logger.debug(f"Sending data {v} to feed {feed_key}")
             io.send_data(feed_key, float(v))
-            if k == 'Battery %': batt_percent = float(v)
-            if k == 'Batt Chg Rate': chg_rate = float(v)
-            
+            if k == "Battery %":
+                batt_percent = float(v)
+            if k == "Batt Chg Rate":
+                chg_rate = float(v)
+
     if chg_rate > 0:
-        ttd = (100-batt_percent) / chg_rate
+        ttd = (100 - batt_percent) / chg_rate
     elif chg_rate == 0:
         ttd = 0
     else:
         ttd = batt_percent / chg_rate
-    
+
     logger.debug(f"Sending data {ttd} to feed hm-ttd")
     io.send_data(ttd_feed["key"], ttd)
+
 
 def get_time():
     """
     Grab a human-readable time string.
     """
 
-    logger.debug('attempting to get time from AIO')
+    logger.debug("attempting to get time from AIO")
     time_request = requests.get(TIME_URL)
     return time_request.text
 
@@ -217,28 +221,27 @@ logger.info(
 last_good_rx_txt = "N/A"
 have_new_data = False
 
-lcd.set_cursor_pos(1,0)
+lcd.set_cursor_pos(1, 0)
 lcd.print("                ")
-lcd.set_cursor_pos(1,0)
+lcd.set_cursor_pos(1, 0)
 lcd.print(f"Last RX {last_good_rx_txt}")
 
 while True:  # mainloop
     try:
         logger.info("run rx cycle")
-        
-        lcd.set_cursor_pos(0,0)
-        lcd.print("                ")
-        lcd.set_cursor_pos(0,0)
-        lcd.print(f"rx cycle")
 
+        lcd.set_cursor_pos(0, 0)
+        lcd.print("                ")
+        lcd.set_cursor_pos(0, 0)
+        lcd.print(f"rx cycle")
 
         data = lora.receive(timeout=5)  # allow 2 tx attempts
         if data is not None:
             try:
                 data = data.decode()
             except UnicodeError:
-                logger.warning(f'got bad data: {data}')
-                continue # throw out this iteration, keep looping
+                logger.warning(f"got bad data: {data}")
+                continue  # throw out this iteration, keep looping
             logger.debug(f"LoRa decoded: {data}")
 
         if data == "data ready":  # drop everything else and grab latest update
@@ -249,30 +252,30 @@ while True:  # mainloop
             logger.debug(f"Latest datas: {datas}")
             gc.collect()
             last_good_rx_txt = get_time()
-            
+
             if not have_new_data:
                 last_good_rx_txt = "Timedout"
-                
+
             if have_new_data:
                 aio_tx(datas)
                 have_new_data = False
-                
-            lcd.set_cursor_pos(1,0)
+
+            lcd.set_cursor_pos(1, 0)
             lcd.print("                ")
-            lcd.set_cursor_pos(1,0)
+            lcd.set_cursor_pos(1, 0)
             lcd.print(f"Last RX {last_good_rx_txt}")
 
         logger.info(f"last good rx: {last_good_rx_txt}")
         logger.debug(f"gc mem free: {gc.mem_free()}")
-        
-    except (MemoryError, OSError): # catch Adafruit IO crashes with socket issues
+
+    except (MemoryError, OSError):  # catch Adafruit IO crashes with socket issues
         if LCD_DEBUG:
             lcd.clear()
             lcd.print("AIO Error\nReloading in 2s")
-            
+
         logger.warning("Adafruit IO Error, reloading in 2 seconds")
         time.sleep(2)
-        
+
         if LCD_DEBUG:
             lcd.clear()
             lcd.print("MemoryError\nReloading now")

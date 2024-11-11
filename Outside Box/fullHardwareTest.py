@@ -43,32 +43,36 @@ scale.channel = 1
 scale.calibrate("INTERNAL")
 scale.calibrate("OFFSET")
 
+
 def wait_for(msg):
     led[0] = (66, 245, 233)
     got = ""
     while got != msg:
         got = lora.receive(timeout=3)
-    led[0] = (0,255,0)
-    
+    led[0] = (0, 255, 0)
+
+
 def c_to_f(deg):
-    return (deg * (9/5)) + 32
+    return (deg * (9 / 5)) + 32
+
 
 def send(msg):
-    led[0] = (255,0,0)
+    led[0] = (255, 0, 0)
     print(f"Sending {msg}")
     lora.send(msg)
-    led[0] = (0,255,0)
-    
+    led[0] = (0, 255, 0)
+
+
 while True:
     send(f"Battery V: {battery.cell_voltage}")
-    wait_for('ack')
+    wait_for("ack")
     time.sleep(1)
     send(f"Scale: {scale.read()}")
-    wait_for('ack')
+    wait_for("ack")
     time.sleep(1)
     send(f"Temp: {c_to_f(temp.temperature)}")
-    wait_for('ack')
+    wait_for("ack")
     time.sleep(1)
     send(f"Relative Humidity: {temp.relative_humidity}")
-    wait_for('ack')
+    wait_for("ack")
     time.sleep(1)

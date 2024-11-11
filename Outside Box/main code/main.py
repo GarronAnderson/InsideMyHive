@@ -6,8 +6,8 @@ By Garron Anderson, 2024
 # --- USER INPUT ---
 
 
-DATA_SEND_INTERVAL = 20 # seconds
-AVERAGE_UPDATE_INTERVAL = 2 # seconds
+DATA_SEND_INTERVAL = 20  # seconds
+AVERAGE_UPDATE_INTERVAL = 2  # seconds
 
 # real values, uncomment for actual run
 # DATA_SEND_INTERVAL = 300 # seconds, update every 5 minutes
@@ -81,12 +81,14 @@ lora_good.on()
 
 # --- end peripherals ---
 
+
 def c_to_f(deg):
     """
     Convert degrees Celsius to Fahrenheit.
     """
 
-    return (deg * (9/5)) + 32
+    return (deg * (9 / 5)) + 32
+
 
 def send(msg):
     """
@@ -100,6 +102,7 @@ def send(msg):
     lora.send(msg)
     lora_tx.off()
 
+
 def send_w_ack(msg, timeout=2, max_fails=3):
     """
     Try to send a message with ack via LoRa. Wants the message back as ack.
@@ -111,7 +114,7 @@ def send_w_ack(msg, timeout=2, max_fails=3):
     Default timeout 12 sec. (3 fails @ 4 secs per fail).
     """
 
-    ack = ''
+    ack = ""
     fails = 0
     while fails < max_fails:
         time.sleep(0.1)
@@ -132,12 +135,12 @@ def send_w_ack(msg, timeout=2, max_fails=3):
         # alert user and retry
         lora_rx.blink(2)
 
-
     print("transmit failed, reached max fails with no good ack")
     print()
 
     lora_tx.blink(2)
     return False
+
 
 def send_data():
     """
@@ -151,16 +154,16 @@ def send_data():
     good_sends = [False]
     last_good_tx = 0
 
-    for i in range(3): # wait for inside ready
+    for i in range(3):  # wait for inside ready
         good_hail = send_w_ack("data ready")
-        if good_hail: # inside ready
-            print('good hail')
+        if good_hail:  # inside ready
+            print("good hail")
             break
 
-        print(f'failed hails: {i+1}')
-        time.sleep(10) # wait and retry
+        print(f"failed hails: {i+1}")
+        time.sleep(10)  # wait and retry
 
-    if not good_hail: # couldn't hail inside, flash led and exit
+    if not good_hail:  # couldn't hail inside, flash led and exit
         print("couldn't hail inside box, retrying")
         lora_rx.blink(4)
         return last_good_tx
@@ -175,15 +178,18 @@ def send_data():
     good_sends.append(send_w_ack(f"Humidity: {temp.relative_humidity}"))
     good_sends.append(send_w_ack(f"Batt Chg Rate: {chg_rate_avg.avg}"))
 
-    send_w_ack('data done')
+    send_w_ack("data done")
 
-    if all(good_sends): # if all sends were good, update last_good_tx and reset scale avg
+    if all(
+        good_sends
+    ):  # if all sends were good, update last_good_tx and reset scale avg
         scale_avg.reset()
         last_good_tx = time.time()
-    else: # missed a send
+    else:  # missed a send
         lora_tx.blink(4)
 
     return last_good_tx
+
 
 def update_batt_light(threshold=20):
     """
@@ -196,6 +202,7 @@ def update_batt_light(threshold=20):
     else:
         batt_low.off()
 
+
 # program mainloop
 
 last_good_tx = time.time() - DATA_SEND_INTERVAL
@@ -203,23 +210,23 @@ last_good_tx = time.time() - DATA_SEND_INTERVAL
 while True:
     # update scale avg
     scale_val = scale.read()
-    if scale_val > -500000: # only update if reasonable
-        print(f'update average: {scale_val}')
+    if scale_val > -500000:  # only update if reasonable
+        print(f"update average: {scale_val}")
         scale_avg.update(scale_val)
-        print(f'new avg: {scale_avg.avg}')
+        print(f"new avg: {scale_avg.avg}")
     else:
-        print(f'unreasonable reading: {scale_val}')
+        print(f"unreasonable reading: {scale_val}")
 
     chg_rate_avg.update(battery.charge_rate)
-    
+
     # update led
     update_batt_light()
 
-    print(f'time since last tx: {(time.time() - last_good_tx)}')
+    print(f"time since last tx: {(time.time() - last_good_tx)}")
     # try to tx data
     if (time.time() - last_good_tx) > DATA_SEND_INTERVAL:
         print("attempting data tx")
         last_good_tx = send_data()
 
-    print('loop wait')
-    time.sleep(AVERAGE_UPDATE_INTERVAL) # don't "flood" average
+    print("loop wait")
+    time.sleep(AVERAGE_UPDATE_INTERVAL)  # don't "flood" average
