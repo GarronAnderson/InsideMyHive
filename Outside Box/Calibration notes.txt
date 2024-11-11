@@ -30,5 +30,14 @@ back up and running, MAX17048 seems dead
 solar charger may be dead
 still getting data, using on board feather charger and USB-C pwr from bank
 
+11/9/24
+powerbank dead due to lithium swelling
+
+
+11/10/24
+used bigger battery, getting data again
+moved thermometer from inside box to outside for scale
+
+
 
 
