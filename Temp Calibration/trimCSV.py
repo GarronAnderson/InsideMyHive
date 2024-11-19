@@ -3,10 +3,10 @@ from datetime import datetime
 
 time_format = "%Y-%m-%d %H:%M:%S"
 
-start_time = "2024-10-31 00:00:00"
+start_time = "2024-11-11 00:00:00"
 start_time = datetime.strptime(start_time, time_format)
 
-end_time = "2024-11-2 00:00:00"
+end_time = "2024-11-19 00:00:00"
 end_time = datetime.strptime(end_time, time_format)
 
 for filename_in, filename_out in [
@@ -25,9 +25,9 @@ for filename_in, filename_out in [
                     line_count += 1
                     continue
 
-                val, date = row[1], row[3]
+                val, date = row[1], row[3][:-4]
 
-                date_parsed = datetime.strptime(date[:-4], time_format)
+                date_parsed = datetime.strptime(date, time_format)
 
                 if start_time < date_parsed < end_time:
                     csv_writer.writerow([val, date_parsed])
