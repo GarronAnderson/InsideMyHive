@@ -2,6 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 
+# ===== INPUT =====
+
+WEIGHT_ON_SCALE = 50.09 #  lbs, 50 before 11/21/2024
+
+# ===== END INPUT =====
+
 # === IMPORT DATA ===
 
 dtypes = [('vals', '<f8'), ('dates', 'datetime64[s]')]
@@ -60,11 +66,11 @@ def check_goodness(temp_vals, scale_data):
     
     #  corrected scale reading
     avg_cal_val = np.mean(scale_vals)
-    lbs_reading = (scale_vals * 50) / avg_cal_val
+    lbs_reading = (scale_vals * WEIGHT_ON_SCALE) / avg_cal_val
 
     corrected_scale = scale_vals - (temp_vals*coef[0])
     avg_cal_val = np.mean(corrected_scale)
-    lbs_reading_corrected = (corrected_scale * 50) / avg_cal_val
+    lbs_reading_corrected = (corrected_scale * WEIGHT_ON_SCALE) / avg_cal_val
 
     score = np.ptp(lbs_reading_corrected)
     
@@ -108,11 +114,11 @@ coef = fit_correction(best_estimates, scale_vals)
 
 #  corrected scale reading
 avg_cal_val = np.mean(scale_vals)
-lbs_reading = (scale_vals * 50) / avg_cal_val
+lbs_reading = (scale_vals * WEIGHT_ON_SCALE) / avg_cal_val
 
 corrected_scale = scale_vals - (best_estimates*coef[0])
 avg_cal_val = np.mean(corrected_scale)
-lbs_reading_corrected = (corrected_scale * 50) / avg_cal_val
+lbs_reading_corrected = (corrected_scale * WEIGHT_ON_SCALE) / avg_cal_val
 
 mapper = interp1d([min(scale_vals), max(scale_vals)], [max(temp_data['vals']), min(temp_data['vals'])])
 data_mapped = mapper(scale_vals)
