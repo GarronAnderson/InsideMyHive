@@ -110,7 +110,8 @@ batt_feed = get_feed("hm-batt")
 temp_feed = get_feed("hm-temp")
 hum_feed = get_feed("hm-humid")
 chg_feed = get_feed("hm-chg-rate")
-ttd_feed = get_feed("hm-time-to-discharge")
+#ttd_feed = get_feed("hm-time-to-discharge")
+cpu_feed = get_feed("hm-cpu-temp")
 
 feed_keys = {
     "Battery %": batt_feed,  # for decoding when we rx data
@@ -118,6 +119,7 @@ feed_keys = {
     "Temp F": temp_feed,
     "Humidity": hum_feed,
     "Batt Chg Rate": chg_feed,
+    "CPU T F": cpu_feed,
 }
 
 logger.info("got feeds")
@@ -201,7 +203,7 @@ def aio_tx(datas):
         ttd = batt_percent / chg_rate
 
     logger.debug(f"Sending data {ttd} to feed hm-ttd")
-    io.send_data(ttd_feed["key"], ttd)
+    #io.send_data(ttd_feed["key"], ttd)  # as I have no battery monitor, this is useless
 
 
 def get_time():
@@ -226,16 +228,20 @@ lcd.print("                ")
 lcd.set_cursor_pos(1, 0)
 lcd.print(f"Last RX {last_good_rx_txt}")
 
+def rotate_left(lst):
+    return lst[1:] + lst[:1]
+
+rx_cycle_str = "rx cycle    rx cycle    "
+
 while True:  # mainloop
     try:
         logger.info("run rx cycle")
 
         lcd.set_cursor_pos(0, 0)
-        lcd.print("                ")
-        lcd.set_cursor_pos(0, 0)
-        lcd.print(f"rx cycle")
+        rx_cycle_str = rotate_left(rx_cycle_str)
+        lcd.print(rx_cycle_str[:16])   
 
-        data = lora.receive(timeout=5)  # allow 2 tx attempts
+        data = lora.receive(timeout=0.7)
         if data is not None:
             try:
                 data = data.decode()

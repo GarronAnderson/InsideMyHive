@@ -25,12 +25,14 @@ import time
 import board
 import busio
 import digitalio
+import microcontroller
 
 from adafruit_rfm9x import RFM9x
 from cedargrove_nau7802 import NAU7802
 from adafruit_htu21d import HTU21D
 
 from helpers import RunningAverage, StatusLED
+
 
 # --- Set up peripherals ---
 
@@ -172,6 +174,7 @@ def send_data():
     good_sends.append(send_w_ack(f"Scale RAW: {scale_avg.avg}"))
     good_sends.append(send_w_ack(f"Temp F: {c_to_f(temp.temperature)}"))
     good_sends.append(send_w_ack(f"Humidity: {temp.relative_humidity}"))
+    good_sends.append(send_w_ack(f"CPU T F: {c_to_f(microcontroller.cpu.temperature}"))
 
     send_w_ack("data done")
 
