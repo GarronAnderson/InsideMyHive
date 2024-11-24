@@ -98,7 +98,7 @@ def estimate_r_range(scale_data, temp_data, r_min, r_max, r_step):
 # === PROCESS DATAS ===
 
 # run newtons
-r_vals, estimates = estimate_r_range(scale_data, temp_data, 0.005, 0.1, 0.001)
+r_vals, estimates = estimate_r_range(scale_data, temp_data, 0.005, 1, 0.01)
 
 scores = np.zeros(len(r_vals))
 for i, est in enumerate(estimates):
