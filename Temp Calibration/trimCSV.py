@@ -13,7 +13,6 @@ for filename_in, filename_out in [
     ("hm-temp.csv", "hm-temp-trimmed.csv"),
     ("hm-scale.csv", "hm-scale-trimmed.csv"),
     ("hm-cpu.csv", "hm-cpu-trimmed.csv"),
-
 ]:
     with open(filename_in, "r") as file_in:
         with open(filename_out, "w") as file_out:
