@@ -110,7 +110,7 @@ batt_feed = get_feed("hm-batt")
 temp_feed = get_feed("hm-temp")
 hum_feed = get_feed("hm-humid")
 chg_feed = get_feed("hm-chg-rate")
-# ttd_feed = get_feed("hm-time-to-discharge")
+#ttd_feed = get_feed("hm-time-to-discharge")
 cpu_feed = get_feed("hm-cpu-temp")
 
 feed_keys = {
@@ -128,6 +128,7 @@ lcd.print("got feeds")
 
 
 def grab_datas():
+    TIMEOUT = 15
     """
     Recieve a data update from the outside unit.
     Returns [list of data], bool of successful RX
@@ -142,8 +143,8 @@ def grab_datas():
     data = ""
     rx_time = time.time()
 
-    while (data != "data done") and ((time.time() - rx_time) < 10):
-        data = lora.receive(timeout=10)
+    while (data != "data done") and ((time.time() - rx_time) < TIMEOUT):
+        data = lora.receive(timeout=TIMEOUT)
         if data:
             try:
                 data = data.decode()
@@ -166,7 +167,7 @@ def grab_datas():
 
     lora.send("data done")  # Won't hurt to send this, even on a timeout fail.
 
-    return datas[:-1], ((time.time() - rx_time) < 10)
+    return datas[:-1], ((time.time() - rx_time) < TIMEOUT)
 
 
 def aio_tx(datas):
@@ -203,7 +204,7 @@ def aio_tx(datas):
         ttd = batt_percent / chg_rate
 
     logger.debug(f"Sending data {ttd} to feed hm-ttd")
-    # io.send_data(ttd_feed["key"], ttd)  # as I have no battery monitor, this is useless
+    #io.send_data(ttd_feed["key"], ttd)  # as I have no battery monitor, this is useless
 
 
 def get_time():
@@ -228,22 +229,20 @@ lcd.print("                ")
 lcd.set_cursor_pos(1, 0)
 lcd.print(f"Last RX {last_good_rx_txt}")
 
-
 def rotate_left(lst):
     return lst[1:] + lst[:1]
-
 
 rx_cycle_str = "rx cycle    rx cycle    "
 
 while True:  # mainloop
     try:
-        logger.info("run rx cycle")
+        #logger.info("run rx cycle")
 
         lcd.set_cursor_pos(0, 0)
         rx_cycle_str = rotate_left(rx_cycle_str)
-        lcd.print(rx_cycle_str[:16])
+        lcd.print(rx_cycle_str[:16])   
 
-        data = lora.receive(timeout=0.7)
+        data = lora.receive(timeout=1)
         if data is not None:
             try:
                 data = data.decode()
@@ -259,7 +258,6 @@ while True:  # mainloop
             datas, have_new_data = grab_datas()
             logger.debug(f"Latest datas: {datas}")
             gc.collect()
-            last_good_rx_txt = get_time()
 
             if not have_new_data:
                 last_good_rx_txt = "Timedout"
@@ -267,14 +265,15 @@ while True:  # mainloop
             if have_new_data:
                 aio_tx(datas)
                 have_new_data = False
+                last_good_rx_txt = get_time()
 
             lcd.set_cursor_pos(1, 0)
             lcd.print("                ")
             lcd.set_cursor_pos(1, 0)
             lcd.print(f"Last RX {last_good_rx_txt}")
 
-        logger.info(f"last good rx: {last_good_rx_txt}")
-        logger.debug(f"gc mem free: {gc.mem_free()}")
+        #logger.info(f"last good rx: {last_good_rx_txt}")
+        #logger.debug(f"gc mem free: {gc.mem_free()}")
 
     except (MemoryError, OSError):  # catch Adafruit IO crashes with socket issues
         if LCD_DEBUG:
@@ -286,6 +285,6 @@ while True:  # mainloop
 
         if LCD_DEBUG:
             lcd.clear()
-            lcd.print("MemoryError\nReloading now")
+            lcd.print("AIO Error\nReloading now")
 
         supervisor.reload()
