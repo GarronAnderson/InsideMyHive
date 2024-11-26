@@ -41,6 +41,6 @@ moved thermometer from inside box to outside for scale
 11/21/24
 added .09 lbs r-tech foam insulation between scale and weight
 
-
-
+11/24/24
+added Al strip for heat transfer
 

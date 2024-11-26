@@ -48,7 +48,7 @@ print(f"temp len  {len(temp_data)}")
 
 
 def run_temp_estimation(scale_data, temp_data, r, t0):
-    scale_temp = temp_data['vals'][0] + t0
+    scale_temp = temp_data["vals"][0] + t0
     state_estimates = np.zeros(len(temp_data))
     state_estimates[0] = scale_temp
 
@@ -152,26 +152,25 @@ print(f"BEST R VALUE:  {best_r}")
 print(f"BEST t0     :  {best_t0}")
 print(f"MAX DEVIATION: {np.ptp(lbs_reading_corrected)} lbs")
 
-plt.plot(temp_data["dates"], temp_data["vals"], label="temp data [deg F]")
-plt.plot(temp_data["dates"], best_estimates, label="est temps [deg F]")
-plt.plot(temp_data["dates"], data_mapped, label="scale data [mapped]")
-plt.legend(loc="upper left")
-plt.show()
+# plt.plot(temp_data["dates"], temp_data["vals"], label="temp data [deg F]")
+# plt.plot(temp_data["dates"], best_estimates, label="est temps [deg F]")
+# plt.plot(temp_data["dates"], data_mapped, label="scale data [mapped]")
+# plt.legend(loc="upper left")
+# plt.show()
 
 Y, X = np.meshgrid(t0_vals, r_vals)
-print(X.shape,Y.shape)
+print(X.shape, Y.shape)
 
 fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-surf = ax.plot_surface(X, Y, scores, cmap=cm.coolwarm,
-                       linewidth=0, antialiased=False)
-ax.set_ylabel('Delta T0 [deg F]')
-ax.set_xlabel('R val [no dim]')
-ax.set_zlabel('P2P dev [lbs]')
-
+surf = ax.plot_surface(X, Y, scores, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+ax.set_ylabel("Delta T0 [deg F]")
+ax.set_xlabel("R val [no dim]")
+ax.set_zlabel("P2P dev [lbs]")
 plt.show()
 
 plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
 plt.scatter(best_estimates, scale_data["vals"], label="est temp")
+plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
 plt.legend(loc="upper left")
 plt.show()
 
@@ -179,5 +178,9 @@ plt.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
 plt.plot(
     temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
 )
+plt.legend(loc="upper left")
+plt.show()
+
+plt.scatter(temp_data["vals"], best_estimates, label="temp datas")
 plt.legend(loc="upper left")
 plt.show()
