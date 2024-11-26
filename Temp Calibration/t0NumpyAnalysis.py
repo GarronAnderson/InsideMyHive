@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import cm
 from scipy.interpolate import interp1d
 
 # ===== INPUT =====
@@ -47,7 +48,7 @@ print(f"temp len  {len(temp_data)}")
 
 
 def run_temp_estimation(scale_data, temp_data, r, t0):
-    scale_temp = t0
+    scale_temp = temp_data['vals'][0] + t0
     state_estimates = np.zeros(len(temp_data))
     state_estimates[0] = scale_temp
 
@@ -106,7 +107,6 @@ def estimate_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t
     estimates = np.zeros((len(t0_vals), len(r_vals), len(temp_data)))
     for i, r in enumerate(r_vals):
         for j, t0 in enumerate(t0_vals):
-            raw_ests = run_temp_estimation(scale_data, temp_data, r, t0)
             estimates[j][i] = run_temp_estimation(scale_data, temp_data, r, t0)
 
     return r_vals, t0_vals, estimates
@@ -116,7 +116,7 @@ def estimate_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t
 
 # run newtons
 r_vals, t0_vals, estimates = estimate_r_t0(
-    scale_data, temp_data, 0.001, 0.5, 0.01, -10, 10, 0.5
+    scale_data, temp_data, 0.05, 0.2, 0.01, -5, 15, 0.5
 )
 
 scores = np.zeros((len(r_vals), len(t0_vals)))
@@ -128,8 +128,8 @@ for i, row in enumerate(estimates):
 
 best_r_index = np.unravel_index(scores.argmin(), scores.shape)
 
-best_r = r_vals[best_r_index[1]]
-best_t0 = t0_vals[best_r_index[0]]
+best_r = r_vals[best_r_index[0]]
+best_t0 = t0_vals[best_r_index[1]]
 
 best_estimates = run_temp_estimation(scale_data, temp_data, best_r, best_t0)
 coef = fit_correction(best_estimates, scale_vals)
@@ -144,19 +144,13 @@ avg_cal_val = np.mean(corrected_scale)
 lbs_reading_corrected = (corrected_scale * WEIGHT_ON_SCALE) / avg_cal_val
 
 mapper = interp1d(
-    [min(scale_vals), max(scale_vals)], [max(temp_data["vals"]), min(temp_data["vals"])]
-)
-data_mapped = mapper(scale_vals)
-
-plt.plot(temp_data["dates"], data_mapped, label="scale data [mapped]")
-plt.plot(temp_data["dates"], temp_data["vals"], label="temp data [deg F]")
-plt.legend(loc="upper left")
-plt.show()
-
-mapper = interp1d(
     [min(scale_vals), max(scale_vals)], [max(best_estimates), min(best_estimates)]
 )
 data_mapped = mapper(scale_vals)
+
+print(f"BEST R VALUE:  {best_r}")
+print(f"BEST t0     :  {best_t0}")
+print(f"MAX DEVIATION: {np.ptp(lbs_reading_corrected)} lbs")
 
 plt.plot(temp_data["dates"], temp_data["vals"], label="temp data [deg F]")
 plt.plot(temp_data["dates"], best_estimates, label="est temps [deg F]")
@@ -164,8 +158,16 @@ plt.plot(temp_data["dates"], data_mapped, label="scale data [mapped]")
 plt.legend(loc="upper left")
 plt.show()
 
-plt.plot(r_vals, scores, label="scores")
-plt.legend(loc="upper left")
+Y, X = np.meshgrid(t0_vals, r_vals)
+print(X.shape,Y.shape)
+
+fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+surf = ax.plot_surface(X, Y, scores, cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False)
+ax.set_ylabel('Delta T0 [deg F]')
+ax.set_xlabel('R val [no dim]')
+ax.set_zlabel('P2P dev [lbs]')
+
 plt.show()
 
 plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
@@ -179,12 +181,3 @@ plt.plot(
 )
 plt.legend(loc="upper left")
 plt.show()
-
-plt.plot(
-    temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
-)
-plt.legend(loc="upper left")
-plt.show()
-
-print(f"BEST R VALUE:  {best_r}")
-print(f"MAX DEVIATION: {np.ptp(lbs_reading_corrected)} lbs")
