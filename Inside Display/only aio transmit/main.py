@@ -77,6 +77,17 @@ lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 lora.tx_power = 23
 lora.spreading_factor = 11
 
+symbolDuration = 1000 / ( lora.signal_bandwidth / (1 << lora.spreading_factor) )
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1
+    print("low datarate on")
+else:
+    lora.low_datarate_optimize = 0
+    print("low datarate off")
+    
+lora.xmit_timeout = 10
+
+
 # display
 i2c = busio.I2C(board.GP1, board.GP0)
 lcd = LCD(I2CPCF8574Interface(i2c, 0x27), num_rows=2, num_cols=16)
@@ -242,7 +253,7 @@ while True:  # mainloop
         rx_cycle_str = rotate_left(rx_cycle_str)
         lcd.print(rx_cycle_str[:16])   
 
-        data = lora.receive(timeout=1)
+        data = lora.receive(timeout=5)
         if data is not None:
             try:
                 data = data.decode()

@@ -1,7 +1,7 @@
 Started Calibration 10/30/24
 
 reset to 0
-add 50lbs
+add 50lbs weight
 initial value 1,162,820
 
 10/31/24 6:45P
@@ -10,7 +10,7 @@ plug in to ac power for calibration
 
 11/1/24
 
-switched back to powerbank for calibration
+switched back to power bank for calibration
 
 11/2/24
 
@@ -31,16 +31,25 @@ solar charger may be dead
 still getting data, using on board feather charger and USB-C pwr from bank
 
 11/9/24
-powerbank dead due to lithium swelling
+power bank dead due to lithium swelling
 
 
 11/10/24
 used bigger battery, getting data again
 moved thermometer from inside box to outside for scale
 
+11/17/24
+built big solar panel array, installed
+
 11/21/24
 added .09 lbs r-tech foam insulation between scale and weight
 
+11/23/24
+soldered nice cable to solar array
+
 11/24/24
 added Al strip for heat transfer
+
+11/27/24
+during battery swap outside box ran full solar power
 

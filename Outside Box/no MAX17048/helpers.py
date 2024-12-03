@@ -39,7 +39,7 @@ class StatusLED:
         return f"Status LED Pin {self._pin}"
 
     def __repr__(self):
-        return f"StatusLED({self._pin}, active_low={self_active_low})"
+        return f"StatusLED({self._pin}, active_low={self.active_low})"
 
     def on(self):
         self._io.value = int(not self._active_low)

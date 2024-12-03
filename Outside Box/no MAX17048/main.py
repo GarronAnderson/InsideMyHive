@@ -1,5 +1,5 @@
 """
-Bee Box Monitor v1.2
+Bee Box Monitor
 By Garron Anderson, 2024
 """
 
@@ -10,7 +10,7 @@ By Garron Anderson, 2024
 # AVERAGE_UPDATE_INTERVAL = 2  # seconds
 
 # real values, uncomment for actual run
-DATA_SEND_INTERVAL = 120  # seconds, update every 5 minutes
+DATA_SEND_INTERVAL = 120  # seconds
 AVERAGE_UPDATE_INTERVAL = 10  # seconds
 LORA_FREQ = 915.0
 
@@ -19,11 +19,13 @@ LORA_FREQ = 915.0
 print("Bee Box Monitor")
 
 # Import Libraries
+# pylint: disable=import-error, wrong-import-position
+
 print("import libraries")
+
 import time
 
 import board
-import busio
 import digitalio
 import microcontroller
 
@@ -37,6 +39,7 @@ from helpers import RunningAverage, StatusLED
 # --- Set up peripherals ---
 
 # status leds
+
 # fmt: off
 batt_low   = StatusLED(board.A0)
 sens_good  = StatusLED(board.A1)
@@ -75,6 +78,16 @@ rfm_reset = digitalio.DigitalInOut(board.D9)
 lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 lora.tx_power = 23
 lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1
+    print("low datarate on")
+else:
+    lora.low_datarate_optimize = 0
+    print("low datarate off")
+
+lora.xmit_timeout = 10
 
 lora_good.on()
 
@@ -150,7 +163,6 @@ def send_data():
     Returns last_good_tx.
     If tx is bad, returns 0.
     """
-    good_sends = [False]
     last_good_tx = 0
 
     for i in range(3):  # wait for inside ready
@@ -174,7 +186,7 @@ def send_data():
     good_sends.append(send_w_ack(f"Scale RAW: {scale_avg.avg}"))
     good_sends.append(send_w_ack(f"Temp F: {c_to_f(temp.temperature)}"))
     good_sends.append(send_w_ack(f"Humidity: {temp.relative_humidity}"))
-    good_sends.append(send_w_ack(f"CPU T F: {c_to_f(microcontroller.cpu.temperature}"))
+    good_sends.append(send_w_ack(f"CPU T F: {c_to_f(microcontroller.cpu.temperature)}"))
 
     send_w_ack("data done")
 
@@ -195,6 +207,9 @@ last_good_tx = time.time() - DATA_SEND_INTERVAL
 
 while True:
     # update scale avg
+    sens_good.blink(1)
+    sens_good.on()
+
     scale_val = scale.read()
     if scale_val > -500000:  # only update if reasonable
         print(f"update average: {scale_val}")
@@ -204,10 +219,11 @@ while True:
         print(f"unreasonable reading: {scale_val}")
 
     print(f"time since last tx: {(time.time() - last_good_tx)}")
+
     # try to tx data
     if (time.time() - last_good_tx) > DATA_SEND_INTERVAL:
         print("attempting data tx")
         last_good_tx = send_data()
 
     print("loop wait")
-    time.sleep(AVERAGE_UPDATE_INTERVAL)  # don't "flood" average
+    time.sleep(AVERAGE_UPDATE_INTERVAL - 1.5)  # subtract light blink time

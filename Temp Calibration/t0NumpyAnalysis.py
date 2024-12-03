@@ -143,14 +143,20 @@ corrected_scale = scale_vals - (best_estimates * coef[0])
 avg_cal_val = np.mean(corrected_scale)
 lbs_reading_corrected = (corrected_scale * WEIGHT_ON_SCALE) / avg_cal_val
 
+simple_coef = fit_correction(temp_data['vals'], scale_vals)
+simple_corrected_scale = scale_vals - (temp_data['vals'] * simple_coef[0])
+simple_avg_cal_val = np.mean(simple_corrected_scale)
+lbs_reading_simple = (simple_corrected_scale * WEIGHT_ON_SCALE) / simple_avg_cal_val
+
 mapper = interp1d(
     [min(scale_vals), max(scale_vals)], [max(best_estimates), min(best_estimates)]
 )
 data_mapped = mapper(scale_vals)
 
-print(f"BEST R VALUE:  {best_r}")
-print(f"BEST t0     :  {best_t0}")
-print(f"MAX DEVIATION: {np.ptp(lbs_reading_corrected)} lbs")
+print(f"BEST R VALUE:         {best_r:.03f}")
+print(f"BEST t0     :         {best_t0:.03f}")
+print(f"MAX DEVIATION:        {np.ptp(lbs_reading_corrected):.03f} lbs")
+print(f"SIMPLE MAX DEVIATION: {np.ptp(lbs_reading_simple):.03f} lbs")
 
 # plt.plot(temp_data["dates"], temp_data["vals"], label="temp data [deg F]")
 # plt.plot(temp_data["dates"], best_estimates, label="est temps [deg F]")
@@ -177,6 +183,9 @@ plt.show()
 plt.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
 plt.plot(
     temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
+)
+plt.plot(
+    temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
 )
 plt.legend(loc="upper left")
 plt.show()
