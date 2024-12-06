@@ -6,12 +6,12 @@ By Garron Anderson, 2024
 # --- USER INPUT ---
 
 
-DATA_SEND_INTERVAL = 20  # seconds
-AVERAGE_UPDATE_INTERVAL = 2  # seconds
+#DATA_SEND_INTERVAL = 20  # seconds
+#AVERAGE_UPDATE_INTERVAL = 2  # seconds
 
 # real values, uncomment for actual run
-# DATA_SEND_INTERVAL = 300 # seconds, update every 5 minutes
-# AVERAGE_UPDATE_INTERVAL = 10 # seconds
+DATA_SEND_INTERVAL = 120 # seconds, update every 5 minutes
+AVERAGE_UPDATE_INTERVAL = 10 # seconds
 LORA_FREQ = 915.0
 
 # --- END USER INPUT ---
@@ -76,6 +76,16 @@ rfm_reset = digitalio.DigitalInOut(board.D9)
 lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 lora.tx_power = 23
 lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1
+    print("low datarate on")
+else:
+    lora.low_datarate_optimize = 0
+    print("low datarate off")
+
+lora.xmit_timeout = 10
 
 lora_good.on()
 
@@ -209,6 +219,9 @@ last_good_tx = time.time() - DATA_SEND_INTERVAL
 
 while True:
     # update scale avg
+    sens_good.blink(1)
+    sens_good.on()
+    
     scale_val = scale.read()
     if scale_val > -500000:  # only update if reasonable
         print(f"update average: {scale_val}")
@@ -229,4 +242,4 @@ while True:
         last_good_tx = send_data()
 
     print("loop wait")
-    time.sleep(AVERAGE_UPDATE_INTERVAL)  # don't "flood" average
+    time.sleep(AVERAGE_UPDATE_INTERVAL - 1.5)  # subtract light blink time

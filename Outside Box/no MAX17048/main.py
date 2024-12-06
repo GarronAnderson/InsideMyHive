@@ -1,5 +1,5 @@
 """
-Bee Box Monitor
+Bee Box Monitor no MAX17048
 By Garron Anderson, 2024
 """
 

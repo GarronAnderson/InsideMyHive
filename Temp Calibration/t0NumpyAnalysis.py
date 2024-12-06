@@ -174,22 +174,20 @@ ax.set_xlabel("R val [no dim]")
 ax.set_zlabel("P2P dev [lbs]")
 plt.show()
 
-plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
-plt.scatter(best_estimates, scale_data["vals"], label="est temp")
-plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
-plt.legend(loc="upper left")
-plt.show()
+fig, (ax1, ax2) = plt.subplots(1, 2)
+ax1.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
+ax1.scatter(best_estimates, scale_data["vals"], label="est temp")
+ax1.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
+ax1.legend(loc="upper left")
 
-plt.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
-plt.plot(
+ax2.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
+ax2.plot(
     temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
 )
-plt.plot(
+ax2.plot(
     temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
 )
-plt.legend(loc="upper left")
-plt.show()
+ax2.legend(loc="upper left")
 
-plt.scatter(temp_data["vals"], best_estimates, label="temp datas")
-plt.legend(loc="upper left")
-plt.show()
+fig.set_figwidth(12)
+fig.show()

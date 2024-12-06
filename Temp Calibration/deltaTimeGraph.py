@@ -49,8 +49,8 @@ tdiff_mins = tdiff_secs / 60
 
 hist = np.histogram(tdiff_mins, bins=250)
 
-bin_vals = hist[1][:-1]
-bin_data = hist[0]
+bin_vals = np.insert(hist[1][:-1], 0, 0)
+bin_data = np.insert(hist[0], 0, 0)
 
 datas = np.zeros(len(bin_data))
 
@@ -66,9 +66,9 @@ ax1.set_xlabel('Delta T between IO uploads [min]')
 # Add y-axis label
 ax1.set_ylabel('Delays Imposed [min]')
 #ax.hist(np.log(tdiff_mins))
-#ax.set_xlim(0, 45)
 
 ax2 = ax1.twinx()
+ax1.set_xlim(0, 60)
 
 ax2.plot(bin_vals, bin_data, 'g')
 
@@ -76,6 +76,8 @@ ax2.set_ylabel('Number of Delays')
 
 plt.xticks(range(0, int(max(bin_vals)), 30))
 plt.yticks(range(0, int(max(bin_data)), 30))
+
+ax1.set_xlim(0, 45)
 
 
 plt.show()
