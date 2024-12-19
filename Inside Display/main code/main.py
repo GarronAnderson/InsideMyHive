@@ -1,4 +1,4 @@
-# bee box monitor inside full code
+# bee box monitor inside with eink
 
 # import everything
 

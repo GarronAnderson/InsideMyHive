@@ -29,9 +29,10 @@ displayio.release_displays()
 
 # Define the pins needed for display use
 
-spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16)
-epd_cs = board.GP12
-epd_dc = board.GP13
+spi = board.SPI()
+epd_cs = board.D9
+epd_dc = board.D10
+
 # Create the displayio connection to the display pins
 display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
 time.sleep(1)  # Wait a bit

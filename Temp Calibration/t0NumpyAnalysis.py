@@ -14,30 +14,41 @@ WEIGHT_ON_SCALE = 50.09  #  lbs, 50 before 11/21/2024
 dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
 
 scale_data = np.genfromtxt("hm-scale-trimmed.csv", delimiter=",", dtype=dtypes)
-temp_data = np.genfromtxt("hm-temp-trimmed.csv", delimiter=",", dtype=dtypes)
+#temp_data = np.genfromtxt("hm-temp-trimmed.csv", delimiter=",", dtype=dtypes)
+temp_data = np.genfromtxt("hm-thermo-trimmed.csv", delimiter=",", dtype=dtypes)
+
 
 #  print(scale_data[:3])
 #  print(temp_data[:3])
 
 # === FILTER DATAS ===
 
+print(f'start {len(scale_data)}')
 
-def reject_outliers(data, m=2.0):
+
+def reject_outliers(data, m=2.75):
     data_vals = data["vals"]
     d = np.abs(data_vals - np.median(data_vals))
     mdev = np.median(d)
     s = d / mdev if mdev else np.zeros(len(d))
     return data[s < m]
 
-
+plt.plot(scale_data['dates'], scale_data['vals'])
 scale_data = reject_outliers(scale_data)
+plt.plot(scale_data['dates'], scale_data['vals'])
+plt.show()
 
-matched_dates = np.intersect1d(scale_data["dates"], temp_data["dates"])
-scale_indexes = np.searchsorted(scale_data["dates"], matched_dates)
-temp_indexes = np.searchsorted(temp_data["dates"], matched_dates)
+plt.plot(np.diff(scale_data['vals']))
+plt.show()
+#print(f'outlier rejection scale {len(scale_data)}')
+#print(f'outlier rejection temp {len(temp_data)}')
 
-scale_data = scale_data[scale_indexes]
-temp_data = temp_data[temp_indexes]
+#matched_dates = np.intersect1d(scale_data["dates"], temp_data["dates"])
+#scale_indexes = np.searchsorted(scale_data["dates"], matched_dates)
+#temp_indexes = np.searchsorted(temp_data["dates"], matched_dates)
+
+#scale_data = scale_data[scale_indexes]
+#temp_data = temp_data[temp_indexes]
 
 scale_vals = scale_data["vals"]
 

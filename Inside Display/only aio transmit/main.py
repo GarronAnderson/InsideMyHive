@@ -121,8 +121,9 @@ batt_feed = get_feed("hm-batt")
 temp_feed = get_feed("hm-temp")
 hum_feed = get_feed("hm-humid")
 chg_feed = get_feed("hm-chg-rate")
-#ttd_feed = get_feed("hm-time-to-discharge")
+ttd_feed = get_feed("hm-time-to-discharge")
 cpu_feed = get_feed("hm-cpu-temp")
+therm_feed = get_feed('hm-thermo')
 
 feed_keys = {
     "Battery %": batt_feed,  # for decoding when we rx data
@@ -131,6 +132,7 @@ feed_keys = {
     "Humidity": hum_feed,
     "Batt Chg Rate": chg_feed,
     "CPU T F": cpu_feed,
+    "Thermo T F": therm_feed
 }
 
 logger.info("got feeds")
@@ -215,7 +217,7 @@ def aio_tx(datas):
         ttd = batt_percent / chg_rate
 
     logger.debug(f"Sending data {ttd} to feed hm-ttd")
-    #io.send_data(ttd_feed["key"], ttd)  # as I have no battery monitor, this is useless
+    io.send_data(ttd_feed["key"], ttd)  # as I have no battery monitor, this is useless
 
 
 def get_time():

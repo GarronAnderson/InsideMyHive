@@ -30,6 +30,7 @@ from adafruit_rfm9x import RFM9x
 from cedargrove_nau7802 import NAU7802
 from adafruit_htu21d import HTU21D
 from adafruit_max1704x import MAX17048
+from adafruit_mcp9600 import MCP9600
 
 from helpers import RunningAverage, StatusLED
 
@@ -56,6 +57,7 @@ scale = NAU7802(i2c)
 temp = HTU21D(i2c)
 battery = MAX17048(i2c)
 chg_rate_avg = RunningAverage()
+thermocouple = MCP9600(i2c)
 
 # --- reset scale ---
 print("calibrate scale, remove weights")
@@ -104,7 +106,7 @@ def send(msg):
     """
     Send a message via LoRa.
 
-    Doesn't do anything fancy. Just sets the NeoPixel and prints to shell for debug.
+    Doesn't do anything fancy. Just sets the status LED and prints to shell for debug.
     """
     lora_tx.on()
     time.sleep(0.1)
@@ -187,6 +189,7 @@ def send_data():
     good_sends.append(send_w_ack(f"Temp F: {c_to_f(temp.temperature)}"))
     good_sends.append(send_w_ack(f"Humidity: {temp.relative_humidity}"))
     good_sends.append(send_w_ack(f"Batt Chg Rate: {chg_rate_avg.avg}"))
+    good_sends.append(send_w_ack(f"Thermo T F: {c_to_f(thermocouple.temperature)}"))
 
     send_w_ack("data done")
 

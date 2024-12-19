@@ -53,3 +53,12 @@ added Al strip for heat transfer
 11/27/24
 during battery swap outside box ran full solar power
 
+12/9/24
+got new solar charger, works great
+
+12/16/24
+added thermocouple, crash recovery
+
+12/17/24
+ASA solar panel mount snapped against grain, reprinting w/ solid infill
+
