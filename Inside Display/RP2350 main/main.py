@@ -25,7 +25,7 @@ from adafruit_io.adafruit_io import IO_HTTP, AdafruitIO_RequestError
 # LoRa
 from adafruit_rfm9x import RFM9x
 
-from helpers import StatusLed
+from helpers import StatusLED
 
 logger = logging.getLogger("test")
 logger.setLevel(logging.DEBUG)
@@ -36,7 +36,7 @@ logger.info("have imports")
 
 LORA_FREQ = 915.0  # MHz
 TIMEZONE = "America/Chicago"  # see https://worldtimeapi.org/api/timezone/
-RX_EXPECTED_TIMING = 6  # minutes
+RX_EXPECTED_TIMING = 2  # minutes, adds 30sec margin automatically
 
 # === END USER INPUT ===
 
@@ -93,6 +93,15 @@ sdcard = sdcardio.SDCard(spi, sd_cs)
 vfs = storage.VfsFat(sdcard)
 storage.mount(vfs, "/sd")
 
+try:
+    with open('/sd/reload.json', "r") as f:
+        crashed = json.load(f)
+except (OSError, ValueError):
+    crashed = {'needs_retransmit': False}
+    
+if crashed['needs_retransmit']:
+    crash_led.on()
+
 # LoRa
 
 rfm_cs = digitalio.DigitalInOut(board.D25)
@@ -125,12 +134,14 @@ def get_feed(feed_id):
     except AdafruitIO_RequestError:
         # if no feed exists, create one
         feed = io.create_new_feed(feed_id)
+        
+    io_led.blink(1, delay=0.2, initial_delay=0)
 
     return feed
 
 # grab the feeds
 logger.debug("getting feeds")
-io_led.blink(2, delay=0.1)
+io_led.blink(2)
 
 scale_feed = get_feed("hm-scale")
 batt_feed = get_feed("hm-batt")
@@ -180,8 +191,8 @@ def grab_datas():
 
             rx_time = time.time()
             datas.append(data)
-            tx_led.on()
             time.sleep(0.1)
+            tx_led.on()
             logger.debug(f"LoRa sending ack")
             lora.send(data)
             tx_led.off()
@@ -197,7 +208,6 @@ def aio_tx(datas):
     Needs a list of data.
     """
     
-    io_tx_led.on()
     logger.info("TXing to Adafruit IO")
 
     batt_percent = 0
@@ -208,6 +218,7 @@ def aio_tx(datas):
             k, v = data.split(": ")
             feed_key = feed_keys[k]["key"]
             logger.debug(f"Sending data {v} to feed {feed_key}")
+            io_tx_led.blink(1, delay=0.25, initial_delay=0)
             io.send_data(feed_key, float(v))
             if k == "Battery %":
                 batt_percent = float(v)
@@ -229,18 +240,10 @@ def get_time():
     """
     Grab a human-readable time string.
     """
-
-    logger.debug("attempting to get time from AIO")
     time_request = wifi.get(TIME_URL)
     return time_request.text
 
 logger.debug("doing crash recovery")
-
-try:
-    with open('/sd/reload.json', "r") as f:
-        crashed = json.load(f)
-except (OSError, ValueError):
-    crashed = {'needs_retransmit': False}
 
 if crashed['needs_retransmit']:
     crash_led.on()
@@ -248,24 +251,24 @@ if crashed['needs_retransmit']:
         aio_tx(crashed['datas'])
     except:
         supervisor.reload()
-    last_good_rx_txt = crashed['last_good_rx_txt']
     data = {'needs_retransmit': False}
     with open('/sd/reload.json', 'w') as f:
         json.dump(data, f)
+        
+    last_good_rx = time.time()
     crash_led.off()
 else:
     logger.debug("no recovery needed")
-    last_good_rx_txt = "N/A"
+    last_good_rx = 0
 
 
 logger.info(f"Mainloop start time from AIO: {get_time()}")
 
 last_good_refresh = 0  # force display refresh on start
-last_good_rx = 0
 have_new_data = False
 
 while True:
-    rx_led.blink(1, delay=0.25)
+    rx_led.blink(1, delay=0.15, initial_delay=0)
     data = lora.receive(timeout=5)
     if data is not None:
         try:
@@ -288,19 +291,19 @@ while True:
         try:
             aio_tx(datas)
             have_new_data = False
+            logger.info(f'Good RX and TX at {get_time()}')
         except (MemoryError, OSError):
             crash_led.on()
             logger.critical("AIO Error, reloading")
             
-            data = {'datas': datas, 'last_good_rx_txt': last_good_rx_txt, 'needs_retransmit': True}
+            data = {'datas': datas, 'needs_retransmit': True}
             with open('/sd/reload.json', 'w') as f:
                 json.dump(data, f)
             
-            crash_led.off()
             supervisor.reload()
             
-    if (time.time() - last_good_rx) > (3 * 60):
+    if (time.time() - last_good_rx) > ((RX_EXPECTED_TIMING * 60) + 30):
         stale_led.on()
-        logger.debug("data stale")
+        logger.info(f"data {(time.time() - last_good_rx)//60} mins {(time.time() - last_good_rx) % 60} secs stale")
     else:
         stale_led.off()
