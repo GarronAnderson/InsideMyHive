@@ -2,10 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from scipy.interpolate import interp1d
+from scipy.signal import medfilt
 
 # ===== INPUT =====
 
 WEIGHT_ON_SCALE = 50.09  #  lbs, 50 before 11/21/2024
+
+BAD_TIMING_THRESHOLD = 7 # seconds
 
 # ===== END INPUT =====
 
@@ -25,30 +28,28 @@ temp_data = np.genfromtxt("hm-thermo-trimmed.csv", delimiter=",", dtype=dtypes)
 
 print(f'start {len(scale_data)}')
 
+filtered_data = np.empty_like(scale_data)
+filtered_data["vals"] = medfilt(scale_data['vals'], kernel_size=3)
+filtered_data["dates"] = scale_data["dates"]
 
-def reject_outliers(data, m=2.75):
-    data_vals = data["vals"]
-    d = np.abs(data_vals - np.median(data_vals))
-    mdev = np.median(d)
-    s = d / mdev if mdev else np.zeros(len(d))
-    return data[s < m]
+scale_data = filtered_data
 
-plt.plot(scale_data['dates'], scale_data['vals'])
-scale_data = reject_outliers(scale_data)
-plt.plot(scale_data['dates'], scale_data['vals'])
-plt.show()
+match_indexes = np.zeros(len(scale_data))
+match_scores = np.zeros(len(scale_data))
 
-plt.plot(np.diff(scale_data['vals']))
-plt.show()
-#print(f'outlier rejection scale {len(scale_data)}')
-#print(f'outlier rejection temp {len(temp_data)}')
+for scale_ind in range(len(scale_data)):
+    scores = np.zeros(len(temp_data))
+    for temp_ind in range(len(temp_data)):
+        scores[temp_ind] = np.abs((scale_data['dates'][scale_ind] - temp_data['dates'][temp_ind]) / np.timedelta64(1, 's'))
+    
+    match_indexes[scale_ind] = np.argmin(scores)
+    match_scores[scale_ind] = np.min(scores)
+    
+match_indexes = match_indexes[match_scores < BAD_TIMING_THRESHOLD]
+        
+scale_data = scale_data[match_indexes.astype(np.int64)]
+temp_data = temp_data[match_indexes.astype(np.int64)]
 
-#matched_dates = np.intersect1d(scale_data["dates"], temp_data["dates"])
-#scale_indexes = np.searchsorted(scale_data["dates"], matched_dates)
-#temp_indexes = np.searchsorted(temp_data["dates"], matched_dates)
-
-#scale_data = scale_data[scale_indexes]
-#temp_data = temp_data[temp_indexes]
 
 scale_vals = scale_data["vals"]
 
@@ -94,23 +95,6 @@ def check_goodness(temp_vals):
     return score
 
 
-def plot_visualizations(
-    temp_vals, scale_vals, lbs_reading, lbs_reading_corrected, coef
-):
-    #  scatter temp/scale
-    plt.plot(
-        temp_vals, scale_vals, "o", temp_vals, coef[0] * temp_vals + coef[1], "--k"
-    )
-    plt.show()
-
-    plt.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
-    plt.plot(
-        temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
-    )
-    plt.legend(loc="upper left")
-    plt.show()
-
-
 def estimate_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step):
     r_vals = np.arange(r_min, r_max, r_step)
     t0_vals = np.arange(t0_min, t0_max, t0_step)
@@ -127,7 +111,7 @@ def estimate_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t
 
 # run newtons
 r_vals, t0_vals, estimates = estimate_r_t0(
-    scale_data, temp_data, 0.05, 0.2, 0.01, -5, 15, 0.5
+    scale_data, temp_data, 0.0025, 0.05, 0.001, -15, 15, 0.5
 )
 
 scores = np.zeros((len(r_vals), len(t0_vals)))

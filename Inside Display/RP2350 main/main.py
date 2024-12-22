@@ -25,9 +25,7 @@ from adafruit_io.adafruit_io import IO_HTTP, AdafruitIO_RequestError
 # LoRa
 from adafruit_rfm9x import RFM9x
 
-import adafruit_uc8151d
-from fourwire import FourWire
-from helpers import *
+from helpers import StatusLed
 
 logger = logging.getLogger("test")
 logger.setLevel(logging.DEBUG)
@@ -41,6 +39,17 @@ TIMEZONE = "America/Chicago"  # see https://worldtimeapi.org/api/timezone/
 RX_EXPECTED_TIMING = 6  # minutes
 
 # === END USER INPUT ===
+
+# status leds
+# fmt: off
+wifi_led  = StatusLED(board.A0)
+io_led    = StatusLED(board.A1)
+stale_led = StatusLED(board.A2)
+rx_led    = StatusLED(board.A3)
+tx_led    = StatusLED(board.D10)
+io_tx_led = StatusLED(board.D9)
+crash_led = StatusLED(board.D6)
+# fmt: on
 
 # this releases the SPI, so it has to go here (solves reboot problems)
 displayio.release_displays()
@@ -74,6 +83,7 @@ TIME_FORMAT = "&fmt=%25I%3A%25M+%25P"
 TIME_URL += TIME_FORMAT
 
 logger.info("connected to io")
+wifi_led.on()
 
 # SD
 
@@ -120,6 +130,7 @@ def get_feed(feed_id):
 
 # grab the feeds
 logger.debug("getting feeds")
+io_led.blink(2, delay=0.1)
 
 scale_feed = get_feed("hm-scale")
 batt_feed = get_feed("hm-batt")
@@ -131,6 +142,7 @@ cpu_feed = get_feed("hm-cpu-temp")
 therm_feed = get_feed("hm-thermo")
 
 logger.debug("got feeds")
+io_led.on()
 
 feed_keys = {
     "Battery %": batt_feed,  # for decoding when we rx data
@@ -155,7 +167,9 @@ def grab_datas():
     rx_time = time.time()
 
     while (data != "data done") and ((time.time() - rx_time) < TIMEOUT):
+        rx_led.on()
         data = lora.receive(timeout=TIMEOUT)
+        rx_led.off()
         if data:
             try:
                 data = data.decode()
@@ -166,9 +180,11 @@ def grab_datas():
 
             rx_time = time.time()
             datas.append(data)
+            tx_led.on()
             time.sleep(0.1)
             logger.debug(f"LoRa sending ack")
             lora.send(data)
+            tx_led.off()
 
     lora.send("data done")  # Won't hurt to send this, even on a timeout fail.
 
@@ -180,7 +196,8 @@ def aio_tx(datas):
     TX data to AIO.
     Needs a list of data.
     """
-
+    
+    io_tx_led.on()
     logger.info("TXing to Adafruit IO")
 
     batt_percent = 0
@@ -206,6 +223,7 @@ def aio_tx(datas):
 
     logger.debug(f"Sending data {ttd} to feed hm-ttd")
     io.send_data(ttd_feed["key"], ttd)
+    io_tx_led.off()
     
 def get_time():
     """
@@ -225,6 +243,7 @@ except (OSError, ValueError):
     crashed = {'needs_retransmit': False}
 
 if crashed['needs_retransmit']:
+    crash_led.on()
     try:
         aio_tx(crashed['datas'])
     except:
@@ -233,6 +252,7 @@ if crashed['needs_retransmit']:
     data = {'needs_retransmit': False}
     with open('/sd/reload.json', 'w') as f:
         json.dump(data, f)
+    crash_led.off()
 else:
     logger.debug("no recovery needed")
     last_good_rx_txt = "N/A"
@@ -245,6 +265,7 @@ last_good_rx = 0
 have_new_data = False
 
 while True:
+    rx_led.blink(1, delay=0.25)
     data = lora.receive(timeout=5)
     if data is not None:
         try:
@@ -255,20 +276,31 @@ while True:
         logger.debug(f"LoRa decoded: {data}")
 
     if data == 'data ready':
+        tx_led.on()
         time.sleep(0.1)
         lora.send('data ready')
+        tx_led.off()
         datas, have_new_data = grab_datas()
         logger.debug(f'latest datas: {datas}')
+        last_good_rx = time.time()
     
     if have_new_data:
         try:
             aio_tx(datas)
             have_new_data = False
         except (MemoryError, OSError):
+            crash_led.on()
             logger.critical("AIO Error, reloading")
             
             data = {'datas': datas, 'last_good_rx_txt': last_good_rx_txt, 'needs_retransmit': True}
             with open('/sd/reload.json', 'w') as f:
                 json.dump(data, f)
             
+            crash_led.off()
             supervisor.reload()
+            
+    if (time.time() - last_good_rx) > (3 * 60):
+        stale_led.on()
+        logger.debug("data stale")
+    else:
+        stale_led.off()
