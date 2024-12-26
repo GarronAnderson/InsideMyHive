@@ -3,7 +3,7 @@ from datetime import datetime
 
 time_format = "%Y-%m-%d %H:%M:%S"
 
-start_time = "2024-12-20 00:00:00"
+start_time = "2024-12-17 00:00:00"
 start_time = datetime.strptime(start_time, time_format)
 
 end_time = "2024-12-21 00:00:00"
@@ -14,6 +14,7 @@ for filename_in, filename_out in [
     ("hm-scale.csv", "hm-scale-trimmed.csv"),
     ("hm-cpu.csv", "hm-cpu-trimmed.csv"),
     ("hm-thermo.csv", "hm-thermo-trimmed.csv"),
+    ("hm-batt.csv", "hm-batt-trimmed.csv"),
 ]:
     with open(filename_in, "r") as file_in:
         with open(filename_out, "w") as file_out:
