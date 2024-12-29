@@ -27,13 +27,17 @@ START_TIME = "2024-01-01T00:00:00"
 END_TIME = "2025-01-01T00:00:00"
 
 # replace this with the location in which you would like to store the data
-DESTINATION = r"C:\Users\mfdal\Desktop\Projects\Garron\01 Bee Box Monitor\Temp Calibration"
+DESTINATION = (
+    r"C:\Users\mfdal\Desktop\Projects\Garron\01 Bee Box Monitor\Temp Calibration"
+)
 
 #   (label, Adafruit IO API feed key, file name )
 # add a row for every feed you want to download
-FEEDS = (("Temp Data", "hm-temp", "hm_temp.csv"),
-         ("Scale Data", "hm-scale", "hm_scale.csv"),
-         ("CPU Temp", "hm-cpu-temp", "hm_cpu.csv"),)
+FEEDS = (
+    ("Temp Data", "hm-temp", "hm_temp.csv"),
+    ("Scale Data", "hm-scale", "hm_scale.csv"),
+    ("CPU Temp", "hm-cpu-temp", "hm_cpu.csv"),
+)
 
 with open("settings.toml", "r") as f:
     data = toml.load(f)
@@ -62,8 +66,9 @@ def short_csv(record):
     # guaranteed properly escaped CSV rows
     row = StringIO()
     writer = csv.writer(row)
-    writer.writerow([record['created_epoch'], record['value']])
+    writer.writerow([record["created_epoch"], record["value"]])
     return row.getvalue().strip()
+
 
 def short_json(record):
     """
@@ -71,6 +76,7 @@ def short_json(record):
     """
     # properly generated JSON rows with "t" (created at timestamp) and "v" (value) keys
     return json.dumps({"t": record["created_at"], "v": record["value"]})
+
 
 TRANSFORM = None
 

@@ -60,8 +60,8 @@ esp32_reset = digitalio.DigitalInOut(board.D12)
 esp32_ready = digitalio.DigitalInOut(board.D11)
 
 secrets = {
-    'ssid' : os.getenv("CIRCUITPY_WIFI_SSID"),
-    'password' : os.getenv("CIRCUITPY_WIFI_PASSWORD"),
+    "ssid": os.getenv("CIRCUITPY_WIFI_SSID"),
+    "password": os.getenv("CIRCUITPY_WIFI_PASSWORD"),
 }
 
 spi = board.SPI()
@@ -94,12 +94,12 @@ vfs = storage.VfsFat(sdcard)
 storage.mount(vfs, "/sd")
 
 try:
-    with open('/sd/reload.json', "r") as f:
+    with open("/sd/reload.json", "r") as f:
         crashed = json.load(f)
 except (OSError, ValueError):
-    crashed = {'needs_retransmit': False}
-    
-if crashed['needs_retransmit']:
+    crashed = {"needs_retransmit": False}
+
+if crashed["needs_retransmit"]:
     crash_led.on()
 
 # LoRa
@@ -111,17 +111,18 @@ lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 lora.tx_power = 23
 lora.spreading_factor = 11
 
-symbolDuration = 1000 / ( lora.signal_bandwidth / (1 << lora.spreading_factor) )
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
 if symbolDuration > 16:
     lora.low_datarate_optimize = 1
     logger.debug("low datarate on")
 else:
     lora.low_datarate_optimize = 0
     logger.debug("low datarate off")
-    
+
 lora.xmit_timeout = 10
 
 logger.debug("got lora")
+
 
 def get_feed(feed_id):
     """
@@ -134,10 +135,11 @@ def get_feed(feed_id):
     except AdafruitIO_RequestError:
         # if no feed exists, create one
         feed = io.create_new_feed(feed_id)
-        
+
     io_led.blink(1, delay=0.2, initial_delay=0)
 
     return feed
+
 
 # grab the feeds
 logger.debug("getting feeds")
@@ -164,7 +166,8 @@ feed_keys = {
     "CPU T F": cpu_feed,
     "Thermo T F": therm_feed,
 }
-    
+
+
 def grab_datas():
     TIMEOUT = 15
     """
@@ -207,7 +210,7 @@ def aio_tx(datas):
     TX data to AIO.
     Needs a list of data.
     """
-    
+
     logger.info("TXing to Adafruit IO")
 
     batt_percent = 0
@@ -235,7 +238,8 @@ def aio_tx(datas):
     logger.debug(f"Sending data {ttd} to feed hm-ttd")
     io.send_data(ttd_feed["key"], ttd)
     io_tx_led.off()
-    
+
+
 def get_time():
     """
     Grab a human-readable time string.
@@ -243,18 +247,19 @@ def get_time():
     time_request = wifi.get(TIME_URL)
     return time_request.text
 
+
 logger.debug("doing crash recovery")
 
-if crashed['needs_retransmit']:
+if crashed["needs_retransmit"]:
     crash_led.on()
     try:
-        aio_tx(crashed['datas'])
+        aio_tx(crashed["datas"])
     except:
         supervisor.reload()
-    data = {'needs_retransmit': False}
-    with open('/sd/reload.json', 'w') as f:
+    data = {"needs_retransmit": False}
+    with open("/sd/reload.json", "w") as f:
         json.dump(data, f)
-        
+
     last_good_rx = time.time()
     crash_led.off()
 else:
@@ -278,32 +283,34 @@ while True:
             continue  # throw out this iteration, keep looping
         logger.debug(f"LoRa decoded: {data}")
 
-    if data == 'data ready':
+    if data == "data ready":
         tx_led.on()
         time.sleep(0.1)
-        lora.send('data ready')
+        lora.send("data ready")
         tx_led.off()
         datas, have_new_data = grab_datas()
-        logger.debug(f'latest datas: {datas}')
+        logger.debug(f"latest datas: {datas}")
         last_good_rx = time.time()
-    
+
     if have_new_data:
         try:
             aio_tx(datas)
             have_new_data = False
-            logger.info(f'Good RX and TX at {get_time()}')
+            logger.info(f"Good RX and TX at {get_time()}")
         except (MemoryError, OSError):
             crash_led.on()
             logger.critical("AIO Error, reloading")
-            
-            data = {'datas': datas, 'needs_retransmit': True}
-            with open('/sd/reload.json', 'w') as f:
+
+            data = {"datas": datas, "needs_retransmit": True}
+            with open("/sd/reload.json", "w") as f:
                 json.dump(data, f)
-            
+
             supervisor.reload()
-            
+
     if (time.time() - last_good_rx) > ((RX_EXPECTED_TIMING * 60) + 30):
         stale_led.on()
-        logger.info(f"data {(time.time() - last_good_rx)//60} mins {(time.time() - last_good_rx) % 60} secs stale")
+        logger.info(
+            f"data {(time.time() - last_good_rx)//60} mins {(time.time() - last_good_rx) % 60} secs stale"
+        )
     else:
         stale_led.off()

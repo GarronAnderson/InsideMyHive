@@ -4,11 +4,12 @@ from datetime import datetime
 input_time_format = "%Y-%m-%d"
 time_format = "%Y-%m-%d %H:%M:%S"
 
-start_time = "2024-12-24"
-end_time = "2024-12-25"
+start_time = "2024-12-19"
+end_time = "2024-12-21"
 
 start_time = datetime.strptime(start_time, input_time_format)
 end_time = datetime.strptime(end_time, input_time_format)
+
 
 def trim(start_time, end_time):
     for filename_in, filename_out in [
@@ -20,7 +21,7 @@ def trim(start_time, end_time):
     ]:
         with open(filename_in, "r") as file_in:
             with open(filename_out, "w") as file_out:
-                if __name__ == '__main__':
+                if __name__ == "__main__":
                     print(f"File: {filename_in}")
                 csv_reader = csv.reader(file_in)
                 csv_writer = csv.writer(file_out)
@@ -39,9 +40,10 @@ def trim(start_time, end_time):
                         csv_writer.writerow([val, date_parsed])
 
                     line_count += 1
-                    if __name__ == '__main__':
+                    if __name__ == "__main__":
                         if line_count % 1000 == 0:
                             print(f"Parsed {line_count} rows")
-                            
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     trim(start_time, end_time)

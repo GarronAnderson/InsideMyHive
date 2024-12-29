@@ -38,14 +38,14 @@ lora = RFM9x(spi, rfm_cs, rfm_reset, 915.0)
 lora.tx_power = 23
 lora.spreading_factor = 11
 
-symbolDuration = 1000 / ( lora.signal_bandwidth / (1 << lora.spreading_factor) )
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
 if symbolDuration > 16:
     lora.low_datarate_optimize = 1
     print("low datarate on")
 else:
     lora.low_datarate_optimize = 0
     print("low datarate off")
-    
+
 lora.xmit_timeout = 10
 
 sd_cs = board.D5
@@ -60,10 +60,10 @@ print("mainloop start")
 
 test_msg = "range test"
 
-f = open('/sd/rangeData.csv', 'w')
+f = open("/sd/rangeData.csv", "w")
 writer = csv.writer(f)
 
-writer.writerow(['time', 'rssi', 'snr'])
+writer.writerow(["time", "rssi", "snr"])
 
 try:
     while True:
@@ -74,23 +74,22 @@ try:
         rx_led.on()
         msg = lora.receive(timeout=5)
         rx_led.off()
-        
+
         if msg is None:
             print("no ack")
         else:
             msg = msg.decode()
-            
+
         if msg == test_msg:
-            print('got good ack')
-            print(f'RSSI: {lora.last_rssi} dBm')
-            print(f'SNR:  {lora.last_snr} dB\n')
+            print("got good ack")
+            print(f"RSSI: {lora.last_rssi} dBm")
+            print(f"SNR:  {lora.last_snr} dB\n")
             writer.writerow([time.time(), lora.last_rssi, lora.last_snr])
         else:
-            print('bad ack')
-            
+            print("bad ack")
+
         time.sleep(5)
 except:
-    print('caught')
+    print("caught")
     f.close()
     sys.exit()
-    

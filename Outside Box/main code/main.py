@@ -6,12 +6,12 @@ By Garron Anderson, 2024
 # --- USER INPUT ---
 
 
-#DATA_SEND_INTERVAL = 20  # seconds
-#AVERAGE_UPDATE_INTERVAL = 2  # seconds
+# DATA_SEND_INTERVAL = 20  # seconds
+# AVERAGE_UPDATE_INTERVAL = 2  # seconds
 
 # real values, uncomment for actual run
-DATA_SEND_INTERVAL = 120 # seconds, update every 5 minutes
-AVERAGE_UPDATE_INTERVAL = 10 # seconds
+DATA_SEND_INTERVAL = 120  # seconds, update every 5 minutes
+AVERAGE_UPDATE_INTERVAL = 10  # seconds
 LORA_FREQ = 915.0
 
 # --- END USER INPUT ---
@@ -224,7 +224,7 @@ while True:
     # update scale avg
     sens_good.blink(1)
     sens_good.on()
-    
+
     scale_val = scale.read()
     if scale_val > -500000:  # only update if reasonable
         print(f"update average: {scale_val}")

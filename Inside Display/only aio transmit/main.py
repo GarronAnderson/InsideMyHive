@@ -77,14 +77,14 @@ lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
 lora.tx_power = 23
 lora.spreading_factor = 11
 
-symbolDuration = 1000 / ( lora.signal_bandwidth / (1 << lora.spreading_factor) )
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
 if symbolDuration > 16:
     lora.low_datarate_optimize = 1
     print("low datarate on")
 else:
     lora.low_datarate_optimize = 0
     print("low datarate off")
-    
+
 lora.xmit_timeout = 10
 
 
@@ -123,7 +123,7 @@ hum_feed = get_feed("hm-humid")
 chg_feed = get_feed("hm-chg-rate")
 ttd_feed = get_feed("hm-time-to-discharge")
 cpu_feed = get_feed("hm-cpu-temp")
-therm_feed = get_feed('hm-thermo')
+therm_feed = get_feed("hm-thermo")
 
 feed_keys = {
     "Battery %": batt_feed,  # for decoding when we rx data
@@ -132,7 +132,7 @@ feed_keys = {
     "Humidity": hum_feed,
     "Batt Chg Rate": chg_feed,
     "CPU T F": cpu_feed,
-    "Thermo T F": therm_feed
+    "Thermo T F": therm_feed,
 }
 
 logger.info("got feeds")
@@ -242,18 +242,20 @@ lcd.print("                ")
 lcd.set_cursor_pos(1, 0)
 lcd.print(f"Last RX {last_good_rx_txt}")
 
+
 def rotate_left(lst):
     return lst[1:] + lst[:1]
+
 
 rx_cycle_str = "rx cycle    rx cycle    "
 
 while True:  # mainloop
     try:
-        #logger.info("run rx cycle")
+        # logger.info("run rx cycle")
 
         lcd.set_cursor_pos(0, 0)
         rx_cycle_str = rotate_left(rx_cycle_str)
-        lcd.print(rx_cycle_str[:16])   
+        lcd.print(rx_cycle_str[:16])
 
         data = lora.receive(timeout=5)
         if data is not None:
@@ -285,8 +287,8 @@ while True:  # mainloop
             lcd.set_cursor_pos(1, 0)
             lcd.print(f"Last RX {last_good_rx_txt}")
 
-        #logger.info(f"last good rx: {last_good_rx_txt}")
-        #logger.debug(f"gc mem free: {gc.mem_free()}")
+        # logger.info(f"last good rx: {last_good_rx_txt}")
+        # logger.debug(f"gc mem free: {gc.mem_free()}")
 
     except (MemoryError, OSError):  # catch Adafruit IO crashes with socket issues
         if LCD_DEBUG:

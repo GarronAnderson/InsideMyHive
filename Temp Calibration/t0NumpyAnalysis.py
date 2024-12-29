@@ -8,7 +8,7 @@ from scipy.signal import medfilt
 
 WEIGHT_ON_SCALE = 50.09  #  lbs, 50 before 11/21/2024
 
-BAD_TIMING_THRESHOLD = 10 # seconds
+BAD_TIMING_THRESHOLD = 10  # seconds
 
 r_min, r_max, r_step, t0_min, t0_max, t0_step = 0.0025, 0.05, 0.001, -12, 15, 0.5
 
@@ -16,14 +16,16 @@ r_min, r_max, r_step, t0_min, t0_max, t0_step = 0.0025, 0.05, 0.001, -12, 15, 0.
 
 # === IMPORT DATA ===
 
+
 def import_data(scale_file, temp_file):
 
     dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
 
     scale_data = np.genfromtxt(scale_file, delimiter=",", dtype=dtypes)
     temp_data = np.genfromtxt(temp_file, delimiter=",", dtype=dtypes)
-    
+
     return scale_data, temp_data
+
 
 def filter_and_match(scale_data, temp_data):
     """
@@ -31,7 +33,7 @@ def filter_and_match(scale_data, temp_data):
     Matches timestamps to the accuracy above.
     """
     filtered_data = np.empty_like(scale_data)
-    filtered_data["vals"] = medfilt(scale_data['vals'], kernel_size=7)
+    filtered_data["vals"] = medfilt(scale_data["vals"], kernel_size=7)
     filtered_data["dates"] = scale_data["dates"]
 
     scale_data = filtered_data
@@ -42,19 +44,23 @@ def filter_and_match(scale_data, temp_data):
     for scale_ind in range(len(scale_data)):
         scores = np.zeros(len(temp_data))
         for temp_ind in range(len(temp_data)):
-            scores[temp_ind] = np.abs((scale_data['dates'][scale_ind] - temp_data['dates'][temp_ind]) / np.timedelta64(1, 's'))
-        
+            scores[temp_ind] = np.abs(
+                (scale_data["dates"][scale_ind] - temp_data["dates"][temp_ind])
+                / np.timedelta64(1, "s")
+            )
+
         match_indexes[scale_ind] = np.argmin(scores)
         match_scores[scale_ind] = np.min(scores)
-        
+
     match_indexes = match_indexes[match_scores < BAD_TIMING_THRESHOLD]
 
     match_indexes = match_indexes[match_indexes < min(len(temp_data), len(scale_data))]
-            
+
     scale_data = scale_data[match_indexes.astype(np.int64)]
     temp_data = temp_data[match_indexes.astype(np.int64)]
-    
+
     return scale_data, temp_data
+
 
 def run_temp_estimation(scale_data, temp_data, r, t0):
     scale_temp = temp_data["vals"][0] + t0
@@ -71,19 +77,19 @@ def run_temp_estimation(scale_data, temp_data, r, t0):
 
 
 def fit_correction(temp_data, scale_data):
-    coef = np.polyfit(temp_data, scale_data['vals'], 1)
+    coef = np.polyfit(temp_data, scale_data["vals"], 1)
     return coef
 
 
 def check_goodness(scale_data, temp_vals):
-    scale_data['vals'] = scale_data["vals"]
+    scale_data["vals"] = scale_data["vals"]
     coef = fit_correction(temp_vals, scale_data)
 
     #  corrected scale reading
-    avg_cal_val = np.mean(scale_data['vals'])
-    lbs_reading = (scale_data['vals'] * WEIGHT_ON_SCALE) / avg_cal_val
+    avg_cal_val = np.mean(scale_data["vals"])
+    lbs_reading = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
 
-    corrected_scale = scale_data['vals'] - (temp_vals * coef[0])
+    corrected_scale = scale_data["vals"] - (temp_vals * coef[0])
     avg_cal_val = np.mean(corrected_scale)
     lbs_reading_corrected = (corrected_scale * WEIGHT_ON_SCALE) / avg_cal_val
 
@@ -103,9 +109,12 @@ def estimate_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t
 
     return r_vals, t0_vals, estimates
 
-def find_best_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step):
-    r_vals, t0_vals, estimates = estimate_r_t0(
+
+def find_best_r_t0(
     scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
+):
+    r_vals, t0_vals, estimates = estimate_r_t0(
+        scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
     )
 
     scores = np.zeros((len(r_vals), len(t0_vals)))
@@ -114,71 +123,76 @@ def find_best_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, 
         for j, est in enumerate(row):
             scores[j][i] = check_goodness(scale_data, est)
 
-
     best_r_index = np.unravel_index(scores.argmin(), scores.shape)
 
     best_r = r_vals[best_r_index[0]]
     best_t0 = t0_vals[best_r_index[1]]
-    
+
     return r_vals, t0_vals, scores, best_r, best_t0
+
 
 def correct_readings(scale_data, temp_data, best_r, best_t0):
     best_estimates = run_temp_estimation(scale_data, temp_data, best_r, best_t0)
     coef = fit_correction(best_estimates, scale_data)
 
-    avg_cal_val = np.mean(scale_data['vals'])
-    lbs_reading = (scale_data['vals'] * WEIGHT_ON_SCALE) / avg_cal_val
+    avg_cal_val = np.mean(scale_data["vals"])
+    lbs_reading = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
 
-    corrected_scale = scale_data['vals'] - (best_estimates * coef[0])
+    corrected_scale = scale_data["vals"] - (best_estimates * coef[0])
     avg_cal_val = np.mean(corrected_scale)
     lbs_reading_corrected = (corrected_scale * WEIGHT_ON_SCALE) / avg_cal_val
 
-    simple_coef = fit_correction(temp_data['vals'], scale_data)
-    simple_corrected_scale = scale_data['vals'] - (temp_data['vals'] * simple_coef[0])
+    simple_coef = fit_correction(temp_data["vals"], scale_data)
+    simple_corrected_scale = scale_data["vals"] - (temp_data["vals"] * simple_coef[0])
     simple_avg_cal_val = np.mean(simple_corrected_scale)
     lbs_reading_simple = (simple_corrected_scale * WEIGHT_ON_SCALE) / simple_avg_cal_val
-    
+
     return lbs_reading, lbs_reading_corrected, lbs_reading_simple
 
 
 # USE THIS CODE WHEN NOT IMPORTING
 
 if __name__ == "__main__":
-    scale_data, temp_data = import_data('hm-scale-trimmed.csv', 'hm-temp-trimmed.csv')
+    scale_data, temp_data = import_data("hm-scale-trimmed.csv", "hm-thermo-trimmed.csv")
 
     scale_data, temp_data = filter_and_match(scale_data, temp_data)
 
-    scale_data['vals'] = scale_data['vals']
+    scale_data["vals"] = scale_data["vals"]
 
-    r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step)
+    r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
+        scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
+    )
 
-    lbs_reading, lbs_reading_corrected, lbs_reading_simple = correct_readings(scale_data, temp_data, best_r, best_t0)
+    lbs_reading, lbs_reading_corrected, lbs_reading_simple = correct_readings(
+        scale_data, temp_data, best_r, best_t0
+    )
     _, lbs_reading_t0_0, _ = correct_readings(scale_data, temp_data, best_r, 0)
 
     best_estimates = run_temp_estimation(scale_data, temp_data, best_r, best_t0)
     coef = fit_correction(best_estimates, scale_data)
 
     mapper = interp1d(
-        [min(scale_data['vals']), max(scale_data['vals'])], [max(best_estimates), min(best_estimates)]
+        [min(scale_data["vals"]), max(scale_data["vals"])],
+        [max(best_estimates), min(best_estimates)],
     )
-    data_mapped = mapper(scale_data['vals'])
+    data_mapped = mapper(scale_data["vals"])
 
     print(f"BEST R VALUE:            {best_r:.03f}")
     print(f"BEST t0     :            {best_t0:.03f}")
-    print(f'NO CORRECTION DEVIATION: {np.ptp(lbs_reading):.03f}')
+    print(f"NO CORRECTION DEVIATION: {np.ptp(lbs_reading):.03f} lbs")
     print(f"MAX DEVIATION:           {np.ptp(lbs_reading_corrected):.03f} lbs")
     print(f"SIMPLE MAX DEVIATION:    {np.ptp(lbs_reading_simple):.03f} lbs")
-    print(f'NO t0 DEVIATION:         {np.ptp(lbs_reading_t0_0):.03f} lbs')
+    print(f"NO t0 DEVIATION:         {np.ptp(lbs_reading_t0_0):.03f} lbs")
     Y, X = np.meshgrid(t0_vals, r_vals)
 
-
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-    surf = ax.plot_surface(X, Y, scores, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+    surf = ax.plot_surface(
+        X, Y, scores, cmap=cm.coolwarm, linewidth=0, antialiased=False
+    )
     ax.set_ylabel("Delta T0 [deg F]")
     ax.set_xlabel("R val [no dim]")
     ax.set_zlabel("P2P dev [lbs]")
     plt.show()
-
 
     plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
     plt.scatter(best_estimates, scale_data["vals"], label="est temp")
@@ -193,8 +207,6 @@ if __name__ == "__main__":
     plt.plot(
         temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
     )
-    plt.plot(
-        temp_data['dates'], lbs_reading_t0_0, label='no t0 correction [lbs]'
-    )
+    plt.plot(temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]")
     plt.legend(loc="upper left")
     plt.show()

@@ -14,9 +14,9 @@ print(f"temp len  {len(temp_data)}")
 
 # === DATAS READY ===
 
-tdiff = np.diff(temp_data['dates'])
+tdiff = np.diff(temp_data["dates"])
 
-tdiff_secs = tdiff / np.timedelta64(1, 's')
+tdiff_secs = tdiff / np.timedelta64(1, "s")
 tdiff_mins = tdiff_secs / 60
 
 
@@ -34,16 +34,16 @@ fig, ax1 = plt.subplots()
 
 ax1.plot(bin_vals, datas)
 
-ax1.set_xlabel('Delta T between IO uploads [min]')
+ax1.set_xlabel("Delta T between IO uploads [min]")
 
 # Add y-axis label
-ax1.set_ylabel('Delays Imposed [min]')
-#ax.hist(np.log(tdiff_mins))
+ax1.set_ylabel("Delays Imposed [min]")
+# ax.hist(np.log(tdiff_mins))
 
 ax2 = ax1.twinx()
 
-ax2.plot(bin_vals, bin_data, 'g')
+ax2.plot(bin_vals, bin_data, "g")
 
-ax2.set_ylabel('Number of Delays')
+ax2.set_ylabel("Number of Delays")
 
 plt.show()

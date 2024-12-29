@@ -45,11 +45,10 @@ while True:
     lora_good.blink(1)
     lora_good.on()
     msg = lora.receive(timeout=5)
-    
+
     if msg is not None:
         msg = msg.decode()
         lora_tx.on()
         time.sleep(0.1)
         lora.send(msg)
         lora_tx.off()
-    
