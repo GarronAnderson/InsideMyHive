@@ -153,7 +153,7 @@ def correct_readings(scale_data, temp_data, best_r, best_t0):
 # USE THIS CODE WHEN NOT IMPORTING
 
 if __name__ == "__main__":
-    scale_data, temp_data = import_data("hm-scale-trimmed.csv", "hm-thermo-trimmed.csv")
+    scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-thermo-trimmed.csv")
 
     scale_data, temp_data = filter_and_match(scale_data, temp_data)
 

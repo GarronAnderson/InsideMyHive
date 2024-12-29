@@ -11,8 +11,8 @@ WEIGHT_ON_SCALE = 50.09  #  lbs, 50 before 11/21/2024
 
 dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
 
-old_scale_data = np.genfromtxt("hm-old-scale-trimmed.csv", delimiter=",", dtype=dtypes)
-old_temp_data = np.genfromtxt("hm-old-temp-trimmed.csv", delimiter=",", dtype=dtypes)
+old_scale_data = np.genfromtxt(r"Data\hm-old-scale-trimmed.csv", delimiter=",", dtype=dtypes)
+old_temp_data = np.genfromtxt(r"Data\hm-old-temp-trimmed.csv", delimiter=",", dtype=dtypes)
 
 #  print(old_scale_data[:3])
 #  print(old_temp_data[:3])

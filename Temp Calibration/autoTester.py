@@ -16,7 +16,7 @@ from trimCSV import *
 start_time = "2024-11-27"  # YYYY-MM-DD
 end_time = "2024-12-25"
 
-out_file = "autoTest.csv"
+out_file = r"Data\autoTest.csv"
 
 # === END USER INPUT ===
 
@@ -51,7 +51,7 @@ with open(out_file, "w", newline="") as f:
         trim(start_time, end_time)
 
         scale_data, temp_data = import_data(
-            "hm-scale-trimmed.csv", "hm-temp-trimmed.csv"
+            r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
         )
 
         if (scale_data.size > 10) and (temp_data.size > 10):
@@ -115,7 +115,7 @@ with open(out_file, "w", newline="") as f:
             trim(start_time, end_time)
 
             scale_data, temp_data = import_data(
-                "hm-scale-trimmed.csv", "hm-thermo-trimmed.csv"
+                r"Data\hm-scale-trimmed.csv", r"Data\hm-thermo-trimmed.csv"
             )
 
             if (scale_data.size > 10) and (temp_data.size > 10):

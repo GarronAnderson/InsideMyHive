@@ -13,11 +13,11 @@ end_time = datetime.strptime(end_time, input_time_format)
 
 def trim(start_time, end_time):
     for filename_in, filename_out in [
-        ("hm-temp.csv", "hm-temp-trimmed.csv"),
-        ("hm-scale.csv", "hm-scale-trimmed.csv"),
-        ("hm-cpu.csv", "hm-cpu-trimmed.csv"),
-        ("hm-thermo.csv", "hm-thermo-trimmed.csv"),
-        ("hm-batt.csv", "hm-batt-trimmed.csv"),
+        (r"Data\hm-temp.csv", r"Data\hm-temp-trimmed.csv"),
+        (r"Data\hm-scale.csv", r"Data\hm-scale-trimmed.csv"),
+        (r"Data\hm-cpu.csv", r"Data\hm-cpu-trimmed.csv"),
+        (r"Data\hm-thermo.csv", r"Data\hm-thermo-trimmed.csv"),
+        (r"Data\hm-batt.csv", r"Data\hm-batt-trimmed.csv"),
     ]:
         with open(filename_in, "r") as file_in:
             with open(filename_out, "w") as file_out:

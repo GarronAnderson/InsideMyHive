@@ -1,6 +1,6 @@
 import csv
 
-for filename in ["hm-temp-trimmed.csv", "hm-scale-trimmed.csv"]:
+for filename in [r"Data\hm-temp-trimmed.csv", r"Data\hm-scale-trimmed.csv"]:
     with open(filename, "r") as file:
         csv_reader = csv.reader(file)
         line_count = 0

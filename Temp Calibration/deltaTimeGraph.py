@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
 
-scale_data = np.genfromtxt("hm-scale-trimmed.csv", delimiter=",", dtype=dtypes)
-temp_data = np.genfromtxt("hm-temp-trimmed.csv", delimiter=",", dtype=dtypes)
+scale_data = np.genfromtxt(r"Data\hm-scale-trimmed.csv", delimiter=",", dtype=dtypes)
+temp_data = np.genfromtxt(r"Data\hm-temp-trimmed.csv", delimiter=",", dtype=dtypes)
 
 
 print(f"scale len {len(scale_data)}")

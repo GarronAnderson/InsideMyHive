@@ -10,7 +10,7 @@ window_size = 20
 
 dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
 
-batt_data = np.genfromtxt("hm-batt-trimmed.csv", delimiter=",", dtype=dtypes)
+batt_data = np.genfromtxt(r"Data\hm-batt-trimmed.csv", delimiter=",", dtype=dtypes)
 
 diffs = (
     np.diff(batt_data["vals"]) / np.diff(batt_data["dates"]).astype(np.float64) * 3600
