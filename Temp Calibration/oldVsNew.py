@@ -1,87 +1,67 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.signal import medfilt
 
-# ===== INPUT =====
-
-WEIGHT_ON_SCALE = 50.09  #  lbs, 50 before 11/21/2024
-
-# ===== END INPUT =====
-
-# === IMPORT DATA ===
-
-dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
-
-old_scale_data = np.genfromtxt(r"Data\hm-old-scale-trimmed.csv", delimiter=",", dtype=dtypes)
-old_temp_data = np.genfromtxt(r"Data\hm-old-temp-trimmed.csv", delimiter=",", dtype=dtypes)
-
-#  print(old_scale_data[:3])
-#  print(old_temp_data[:3])
-
-# === FILTER DATAS ===
+BAD_TIMING_THRESHOLD = 10  # seconds
 
 
-def reject_outliers(data, m=2.0):
-    data_vals = data["vals"]
-    d = np.abs(data_vals - np.median(data_vals))
-    mdev = np.median(d)
-    s = d / mdev if mdev else np.zeros(len(d))
-    return data[s < m]
+def import_data(scale_file, temp_file):
+
+    dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
+
+    scale_data = np.genfromtxt(scale_file, delimiter=",", dtype=dtypes)
+    temp_data = np.genfromtxt(temp_file, delimiter=",", dtype=dtypes)
+
+    return scale_data, temp_data
 
 
-old_scale_data = reject_outliers(old_scale_data)
+def filter_and_match(scale_data, temp_data):
+    """
+    Remove outliers with a median filter.
+    Matches timestamps to the accuracy above.
+    """
+    filtered_data = np.empty_like(scale_data)
+    filtered_data["vals"] = medfilt(scale_data["vals"], kernel_size=7)
+    filtered_data["dates"] = scale_data["dates"]
 
-matched_dates = np.intersect1d(old_scale_data["dates"], old_temp_data["dates"])
-scale_indexes = np.searchsorted(old_scale_data["dates"], matched_dates)
-temp_indexes = np.searchsorted(old_temp_data["dates"], matched_dates)
+    scale_data = filtered_data
 
-old_scale_data = old_scale_data[scale_indexes]
-old_temp_data = old_temp_data[temp_indexes]
+    match_indexes = np.zeros(len(scale_data))
+    match_scores = np.zeros(len(scale_data))
 
-old_scale_vals = old_scale_data["vals"]
+    for scale_ind in range(len(scale_data)):
+        scores = np.zeros(len(temp_data))
+        for temp_ind in range(len(temp_data)):
+            scores[temp_ind] = np.abs(
+                (scale_data["dates"][scale_ind] - temp_data["dates"][temp_ind])
+                / np.timedelta64(1, "s")
+            )
 
-print(f"old scale len {len(old_scale_data)}")
-print(f"old temp len  {len(old_temp_data)}")
+        match_indexes[scale_ind] = np.argmin(scores)
+        match_scores[scale_ind] = np.min(scores)
 
-scale_data = np.genfromtxt("hm-scale-trimmed.csv", delimiter=",", dtype=dtypes)
-temp_data = np.genfromtxt("hm-temp-trimmed.csv", delimiter=",", dtype=dtypes)
+    match_indexes = match_indexes[match_scores < BAD_TIMING_THRESHOLD]
 
-scale_data = reject_outliers(scale_data)
+    match_indexes = match_indexes[match_indexes < min(len(temp_data), len(scale_data))]
 
-matched_dates = np.intersect1d(scale_data["dates"], temp_data["dates"])
-scale_indexes = np.searchsorted(scale_data["dates"], matched_dates)
-temp_indexes = np.searchsorted(temp_data["dates"], matched_dates)
+    scale_data = scale_data[match_indexes.astype(np.int64)]
+    temp_data = temp_data[match_indexes.astype(np.int64)]
 
-scale_data = scale_data[scale_indexes]
-temp_data = temp_data[temp_indexes]
+    return scale_data, temp_data
 
-scale_vals = scale_data["vals"]
+old_scale_data, old_temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
+old_scale_data, old_temp_data = filter_and_match(old_scale_data, old_temp_data)
 
-print(f"scale len {len(scale_data)}")
-print(f"temp len  {len(temp_data)}")
+#scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
+#scale_data, temp_data = filter_and_match(scale_data, temp_data)
 
-# cpu temp stuff
-
-cpu_scale_data = np.genfromtxt("hm-scale-trimmed.csv", delimiter=",", dtype=dtypes)
-cpu_temp_data = np.genfromtxt("hm-cpu-trimmed.csv", delimiter=",", dtype=dtypes)
-
-cpu_scale_data = reject_outliers(cpu_scale_data)
-
-matched_dates = np.intersect1d(cpu_scale_data["dates"], cpu_temp_data["dates"])
-scale_indexes = np.searchsorted(cpu_scale_data["dates"], matched_dates)
-temp_indexes = np.searchsorted(cpu_temp_data["dates"], matched_dates)
-
-cpu_scale_data = cpu_scale_data[scale_indexes]
-cpu_temp_data = cpu_temp_data[temp_indexes]
-
-cpu_scale_vals = cpu_scale_data["vals"]
-
-print(f"cpu scale len {len(cpu_scale_data)}")
-print(f"cpu temp len  {len(cpu_temp_data)}")
+thermo_scale_data, thermo_temp_data = import_data(r"Data\hm-thermo-scale-trimmed.csv", r"Data\hm-thermo-temp-trimmed.csv")
+thermo_scale_data, thermo_temp_data = filter_and_match(thermo_scale_data, thermo_temp_data)
 
 # === DATAS READY ===
 
-plt.scatter(old_temp_data["vals"], old_scale_vals, label="outside temp data")
-plt.scatter(temp_data["vals"], scale_vals, label="scale temp data")
-# plt.scatter(cpu_temp_data['vals'], cpu_scale_vals, label='cpu data')
+plt.scatter(old_temp_data["vals"], old_scale_data['vals'], label="outside temp data")
+#plt.scatter(temp_data["vals"], scale_data['vals'], label="scale temp data")
+plt.scatter(thermo_temp_data['vals'], thermo_scale_data['vals'], label='thermo data')
 plt.legend(loc="upper left")
 plt.show()

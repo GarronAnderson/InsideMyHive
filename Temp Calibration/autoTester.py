@@ -13,10 +13,10 @@ from trimCSV import *
 
 # === USER INPUT ===
 
-start_time = "2024-11-27"  # YYYY-MM-DD
-end_time = "2024-12-25"
+start_time = "2024-10-18"  # YYYY-MM-DD
+end_time = "2024-11-10"
 
-out_file = r"Data\autoTest.csv"
+out_file = r"Data\autoTestSoftwareVersion2.csv"
 
 # === END USER INPUT ===
 

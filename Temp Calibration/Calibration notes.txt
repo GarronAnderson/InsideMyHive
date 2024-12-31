@@ -62,6 +62,6 @@ added thermocouple, crash recovery
 12/17/24
 ASA solar panel mount snapped against grain, reprinting w/ solid infill
 
-12/25/24v
+12/25/24
 battery test
 

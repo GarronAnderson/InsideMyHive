@@ -28,7 +28,7 @@ from adafruit_rfm9x import RFM9x
 from helpers import StatusLED
 
 logger = logging.getLogger("test")
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 logger.info("have imports")
 
@@ -284,6 +284,7 @@ while True:
         logger.debug(f"LoRa decoded: {data}")
 
     if data == "data ready":
+        rx_start = time.time()
         tx_led.on()
         time.sleep(0.1)
         lora.send("data ready")
@@ -291,6 +292,7 @@ while True:
         datas, have_new_data = grab_datas()
         logger.debug(f"latest datas: {datas}")
         last_good_rx = time.time()
+        logger.info(f"rx took {last_good_tx - rx_start} secs")
 
     if have_new_data:
         try:
@@ -299,7 +301,7 @@ while True:
             logger.info(f"Good RX and TX at {get_time()}")
         except (MemoryError, OSError):
             crash_led.on()
-            logger.critical("AIO Error, reloading")
+            logger.error("AIO Error, reloading")
 
             data = {"datas": datas, "needs_retransmit": True}
             with open("/sd/reload.json", "w") as f:
