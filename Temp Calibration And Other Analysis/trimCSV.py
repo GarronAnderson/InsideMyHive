@@ -4,8 +4,8 @@ from datetime import datetime
 input_time_format = "%Y-%m-%d"
 time_format = "%Y-%m-%d %H:%M:%S"
 
-start_time = "2024-12-27"
-end_time = "2024-12-28"
+start_time = "2024-12-28"
+end_time = "2024-12-29"
 
 start_time = datetime.strptime(start_time, input_time_format)
 end_time = datetime.strptime(end_time, input_time_format)
@@ -13,8 +13,8 @@ end_time = datetime.strptime(end_time, input_time_format)
 
 def trim(start_time, end_time):
     for filename_in, filename_out in [
-        (r"Data\hm-temp-old-backup.csv", r"Data\hm-temp-trimmed.csv"),
-        (r"Data\hm-scale-old-backup.csv", r"Data\hm-scale-trimmed.csv"),
+        (r"Data\hm-temp.csv", r"Data\hm-temp-trimmed.csv"),
+        (r"Data\hm-scale.csv", r"Data\hm-scale-trimmed.csv"),
         (r"Data\hm-cpu.csv", r"Data\hm-cpu-trimmed.csv"),
         (r"Data\hm-thermo.csv", r"Data\hm-thermo-trimmed.csv"),
         (r"Data\hm-batt.csv", r"Data\hm-batt-trimmed.csv"),

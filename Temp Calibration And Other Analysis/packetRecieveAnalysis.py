@@ -10,8 +10,10 @@ from trimCSV import *
 
 BAD_TIMING_THRESHOLD = 10  # seconds
 
-start_time = "2024-11-22"  # YYYY-MM-DD
-end_time = "2024-12-30"
+PACKETS_PER_DAY = 2618
+
+start_time = "2024-10-10"  # YYYY-MM-DD
+end_time = "2024-11-10"
 
 out_file = r"Data\timingAnalysis.csv"
 
@@ -110,8 +112,8 @@ with open(out_file, "w", newline="") as f:
                     str(end_time)[:10],
                     num_scale,
                     num_temp,
-                    (num_scale/644),
+                    (num_scale/PACKETS_PER_DAY),
                     num_after_match,
-                    (num_after_match/644),
+                    (num_after_match/PACKETS_PER_DAY),
                 ]
             )
