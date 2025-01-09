@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="11in"
+   height="8.5in"
+   viewBox="0 0 279.4 215.9"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="Wiring Diagram SVG.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="in"
+     inkscape:zoom="1.0064759"
+     inkscape:cx="551.9258"
+     inkscape:cy="543.97727"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g53" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ff0000;fill-opacity:0;stroke:#000000;stroke-width:0.657388;stroke-dasharray:5.2591, 0.657388;stroke-opacity:1"
+       id="rect1"
+       width="198.69026"
+       height="135.0619"
+       x="43.622459"
+       y="35.18116"
+       ry="12.087252"
+       rx="11.900719" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ff0000;fill-opacity:0;stroke:#000000;stroke-width:0.685;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="180.29266"
+       y="52.039291"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';stroke-width:0.685;stroke-dasharray:none;stroke-dashoffset:0"
+         x="180.29266"
+         y="52.039291" /></text>
+    <g
+       id="g8"
+       transform="translate(1.2537668,-13.164551)">
+      <rect
+         style="fill:#ff0000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48, 0.685001;stroke-opacity:1"
+         id="rect2"
+         width="63.302067"
+         height="41.567451"
+         x="167.89989"
+         y="56.509998"
+         rx="11.900719"
+         ry="12.087252" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#6e6e6e;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="199.48962"
+         y="62.243202"
+         id="text3"><tspan
+           sodipodi:role="line"
+           id="tspan3"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke-width:0.685"
+           x="199.48962"
+           y="62.243202">BQ25185</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="225.39198"
+       y="55.435326"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="stroke-width:0.685"
+         x="225.39198"
+         y="55.435326">DC</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.685"
+         x="225.39198"
+         y="61.167953"
+         id="tspan5">IN</tspan></text>
+    <g
+       id="g7"
+       transform="translate(1.2537668,-12.210107)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="176.32355"
+         y="70.094131"
+         id="text6"><tspan
+           sodipodi:role="line"
+           id="tspan6"
+           style="stroke-width:0.685"
+           x="176.32355"
+           y="70.094131">BATT</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="176.4579"
+         y="85.85173"
+         id="text7"><tspan
+           sodipodi:role="line"
+           id="tspan7"
+           style="stroke-width:0.685"
+           x="176.4579"
+           y="85.85173">LOAD</tspan></text>
+    </g>
+    <rect
+       style="fill:#ff0000;fill-opacity:0;stroke:#000000;stroke-width:0.685;stroke-dasharray:5.48, 0.685;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8"
+       width="40.509598"
+       height="26.600723"
+       x="106.98234"
+       y="41.999554"
+       rx="7.6157598"
+       ry="7.7351298" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#6e6e6e;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="127.1498"
+       y="51.111397"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke-width:0.685"
+         x="127.1498"
+         y="51.111397">MAX17048</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke-width:0.685"
+         x="127.1498"
+         y="56.970436"
+         id="tspan34">BATTERY</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke-width:0.685"
+         x="127.1498"
+         y="62.829475"
+         id="tspan35">MONITOR</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48001, 0.685001;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect12"
+       width="34.911224"
+       height="27.847475"
+       x="64.65905"
+       y="42.086422"
+       rx="11.900719"
+       ry="12.087252" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="82.226631"
+       y="54.851318"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         style="stroke-width:0.685;stroke-dasharray:none"
+         x="82.226631"
+         y="54.851318">4400 mAh</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.685;stroke-dasharray:none"
+         x="82.226631"
+         y="60.583946"
+         id="tspan13">LiPo</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48001, 0.685001;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect13"
+       width="36.063873"
+       height="19.202599"
+       x="56.777905"
+       y="146.11981"
+       rx="6.7137847"
+       ry="6.7137847" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="75.311157"
+       y="151.31834"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         style="stroke-width:0.685"
+         x="75.311157"
+         y="151.31834">NAU7802</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="74.455482"
+       y="161.82697"
+       id="text15"><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         style="stroke-width:0.685"
+         x="74.455482"
+         y="161.82697">SCALE</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#ff0000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 260.21625,55.418243 h 7.30013 V 12.770119 h -64.1643"
+       id="path19" />
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48001, 0.685001;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect19"
+       width="46.298187"
+       height="24.013584"
+       x="157.29317"
+       y="2.3962512"
+       rx="7.6157594"
+       ry="7.7351298" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="180.32011"
+       y="10.373499"
+       id="text19"><tspan
+         sodipodi:role="line"
+         id="tspan19"
+         style="stroke-width:0.685;stroke-dasharray:none"
+         x="180.32011"
+         y="10.373499">SOLAR</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.685;stroke-dasharray:none"
+         x="180.32011"
+         y="16.106125"
+         id="tspan20">PANEL</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.685;stroke-dasharray:none"
+         x="180.32011"
+         y="21.838749"
+         id="tspan21">ARRAY</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.87167;stroke-dasharray:6.97336, 0.87167;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect21"
+       width="61.619892"
+       height="25.547688"
+       x="101.24837"
+       y="139.6814"
+       rx="4.9435287"
+       ry="5.6295819" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="132.18007"
+       y="154.1739"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan22"
+         style="stroke-width:0.685"
+         x="132.18007"
+         y="154.1739">Adafruit Feather RP2040</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.87167;stroke-dasharray:6.97336, 0.87167;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect22"
+       width="61.619892"
+       height="25.547688"
+       x="101.24837"
+       y="110.5775"
+       rx="4.9435287"
+       ry="5.6295819" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="132.18007"
+       y="125.07013"
+       id="text23"><tspan
+         sodipodi:role="line"
+         id="tspan23"
+         style="stroke-width:0.685"
+         x="132.18007"
+         y="125.07013">Adafruit LoRa Featherwing</tspan></text>
+    <path
+       style="fill:#008000;fill-opacity:0;stroke:#008000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 110.37149,135.91178 v 3.65006"
+       id="path23" />
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#ff00ff;stroke-width:0.702709;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 100.57395,119.00622 H 40.933916"
+       id="path24" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="29.606432"
+       y="115.15138"
+       id="text24"><tspan
+         sodipodi:role="line"
+         id="tspan24"
+         style="stroke-width:0.685"
+         x="29.606432"
+         y="115.15138">ANTENNA</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 41.299009,118.97534 v 1.87089 H 16.790395 L 15.38723,120.19142 H 4.9102639 l -0.7015823,-0.70159 v -1.26285 h -0.046772"
+       id="path25" />
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 41.290741,118.65684 v -1.87089 H 16.782127 l -1.403165,0.65481 H 4.9019957 l -0.7015823,0.70159 v 1.26285 h -0.046772"
+       id="path26" />
+    <path
+       style="fill:#008000;fill-opacity:0;stroke:#008000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 92.93189,158.02087 h 8.20208"
+       id="path27" />
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48001, 0.685001;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect28"
+       width="36.063873"
+       height="19.202599"
+       x="-113.95765"
+       y="48.126003"
+       rx="6.7137847"
+       ry="6.7137847"
+       transform="rotate(-90)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="-95.424393"
+       y="53.324551"
+       id="text28"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan28"
+         style="stroke-width:0.685"
+         x="-95.424393"
+         y="53.324551">MCP9601</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="-96.280067"
+       y="60.129208"
+       id="text29"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan29"
+         style="stroke-width:0.685"
+         x="-96.280067"
+         y="60.129208">THERMO-</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.685"
+         x="-96.280067"
+         y="65.861839"
+         id="tspan30">COUPLE</tspan></text>
+    <path
+       style="fill:#008000;fill-opacity:0;stroke:#008000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 56.732946,153.27299 h -5.015065 v -11.12718 l 3.447857,-3.44786 v -17.08257 l -1.935201,-1.11729 v -2.48729 l 2.279058,-1.31581 v -3.07237"
+       id="path30" />
+    <path
+       style="fill:#008000;fill-opacity:0;stroke:#008000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 56.419506,77.89026 V 71.307985 H 103.12232 V 55.792623 h 3.7613"
+       id="path31" />
+    <g
+       id="g35"
+       transform="translate(1.2537668,-13.164551)">
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 241.09637,63.011642 h 7.87646 l 3.3619,3.361901 h 6.43564 v 5.475097 0"
+         id="path16" />
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 241.09637,75.210308 h 7.87646 l 3.3619,-3.361901 h 6.43564 v -5.475097 0"
+         id="path17" />
+    </g>
+    <path
+       style="fill:#ff0000;fill-opacity:0;stroke:#ff0000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 232.59157,55.095723 h 9.8485"
+       id="path18" />
+    <path
+       style="fill:#ff0000;fill-opacity:0;stroke:#ff0000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 169.03279,69.284319 h -3.76783 V 107.1842 l 3.43537,3.43537 v 57.51474 h -18.06339 v -2.75463"
+       id="path32" />
+    <path
+       style="fill:#ff0000;fill-opacity:0;stroke:#ff0000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 169.25442,56.651023 h -5.09764 L 147.64484,40.139087 h -11.41429 v 1.662276"
+       id="path33" />
+    <path
+       style="fill:#ff0000;fill-opacity:0;stroke:#ff0000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 117.16979,42.022999 V 38.255174 H 85.254093 v 3.546189"
+       id="path34" />
+    <g
+       id="g36"
+       transform="matrix(-1,0,0,1,284.4891,81.202855)">
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 241.09637,63.011642 h 7.87646 l 3.3619,3.361901 h 6.43564 v 5.475097 0"
+         id="path35" />
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 241.09637,75.210308 h 7.87646 l 3.3619,-3.361901 h 6.43564 v -5.475097 0"
+         id="path36" />
+    </g>
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#0000ff;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 70.626069,165.47467 v 2.88127 H 54.668223 l -7.42483,-7.42483 v -6.09501 h -3.878644"
+       id="path37" />
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#0000ff;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 67.523155,98.762009 H 72.6208 v 15.514571 l -2.425566,2.42557 v 3.93372 l 2.660425,1.536 v 20.03094 H 57.992775 l -2.77046,2.77046 -1.440639,1.44064 h -3.989461 -5.984192"
+       id="path38" />
+    <g
+       id="g38"
+       transform="translate(1.2537668,-13.164551)">
+      <rect
+         style="fill:#ff0000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48, 0.685001;stroke-opacity:1"
+         id="rect38"
+         width="63.302067"
+         height="41.567451"
+         x="167.89989"
+         y="56.509998"
+         rx="11.900719"
+         ry="12.087252" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#6e6e6e;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="199.48962"
+         y="62.243202"
+         id="text38"><tspan
+           sodipodi:role="line"
+           id="tspan38"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke-width:0.685"
+           x="199.48962"
+           y="62.243202">BQ25185</tspan></text>
+    </g>
+    <rect
+       style="fill:#ff0000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48, 0.685001;stroke-opacity:1"
+       id="rect39"
+       width="63.302067"
+       height="41.567451"
+       x="173.14311"
+       y="119.36685"
+       rx="11.900719"
+       ry="12.087252" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:'Futura Hv BT';-inkscape-font-specification:'Futura Hv BT';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#6e6e6e;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="204.73285"
+       y="125.10005"
+       id="text39"><tspan
+         sodipodi:role="line"
+         id="tspan39"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke-width:0.685"
+         x="204.73285"
+         y="125.10005">STATUS LIGHTS</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#ffff00;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 215.13323,84.79889 v 34.3537"
+       id="path39" />
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#ffff00;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 147.9773,110.50876 v -7.31402 h 12.63329 l 2.21637,-2.21637 h 5.54092 l 1.49896,2.59628 h 22.4378 v 15.57794"
+       id="path40" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#008000;fill-opacity:0;stroke:#ff0000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="18.806501"
+       y="181.48274"
+       id="text40"><tspan
+         sodipodi:role="line"
+         id="tspan40"
+         style="stroke-width:0.685"
+         x="18.806501"
+         y="181.48274">POWER</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#ff00ff;stroke:#ff00ff;stroke-width:0.685"
+         x="18.806501"
+         y="187.21536"
+         id="tspan41">RADIO</tspan><tspan
+         sodipodi:role="line"
+         style="stroke:#ffff00;stroke-width:0.685"
+         x="18.806501"
+         y="192.948"
+         id="tspan42">STATUS</tspan><tspan
+         sodipodi:role="line"
+         style="stroke:#0000ff;stroke-width:0.685"
+         x="18.806501"
+         y="198.68062"
+         id="tspan43">SENSORS</tspan><tspan
+         sodipodi:role="line"
+         style="stroke:#008000;stroke-width:0.685"
+         x="18.806501"
+         y="204.41324"
+         id="tspan44">I2C</tspan></text>
+    <path
+       style="fill:#ff00ff;fill-opacity:0;stroke:#008000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 147.47432,57.281468 h 5.01506 v 12.755745 l -6.42911,6.429116 H 82.892142 v 36.568411 l -2.951599,2.9516 v 5.43314 l 2.866168,1.65478 v 18.35569 l -3.154177,3.15418 h -20.24144 l -4.732054,4.73205 h -1.577089 l -0.377058,-0.65308 h -2.383192 l -0.65524,0.65524 h -5.949643"
+       id="path44" />
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:5.48001, 0.685001;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect44"
+       width="36.063873"
+       height="19.202599"
+       x="56.777905"
+       y="183.16098"
+       rx="6.7137847"
+       ry="6.7137847" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="74.734856"
+       y="188.63045"
+       id="text45"><tspan
+         sodipodi:role="line"
+         id="tspan45"
+         style="stroke-width:0.685"
+         x="74.734856"
+         y="188.63045">HTU21D-F</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.685"
+         x="74.734856"
+         y="194.36307"
+         id="tspan46">TEMP</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.685"
+         x="74.734856"
+         y="200.0957"
+         id="tspan47">HUMIDITY</tspan></text>
+    <g
+       id="g52"
+       transform="translate(105.64125,23.325819)">
+      <rect
+         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:1.16542;stroke-dasharray:9.32338, 1.16542;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect47"
+         width="50.470982"
+         height="7.202858"
+         x="93.218361"
+         y="183.11459"
+         rx="3.0950551"
+         ry="2.1774023" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="118.43472"
+         y="188.63045"
+         id="text50"><tspan
+           sodipodi:role="line"
+           style="stroke-width:0.685"
+           x="118.43472"
+           y="188.63045"
+           id="tspan50">SCALE</tspan></text>
+    </g>
+    <g
+       id="g53"
+       transform="translate(104.32685,12.810581)">
+      <rect
+         style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:1.16542;stroke-dasharray:9.32338, 1.16542;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect52"
+         width="50.470982"
+         height="7.202858"
+         x="93.218361"
+         y="183.11459"
+         rx="3.0950551"
+         ry="2.1774023" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.5861px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.685001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="118.43472"
+         y="188.63045"
+         id="text52"><tspan
+           sodipodi:role="line"
+           style="stroke-width:0.685"
+           x="118.43472"
+           y="188.63045"
+           id="tspan52">HIVE</tspan></text>
+    </g>
+  </g>
+</svg>

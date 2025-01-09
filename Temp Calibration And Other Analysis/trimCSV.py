@@ -4,8 +4,8 @@ from datetime import datetime
 input_time_format = "%Y-%m-%d"
 time_format = "%Y-%m-%d %H:%M:%S"
 
-start_time = "2024-12-28"
-end_time = "2024-12-29"
+start_time = "2024-12-31"
+end_time = "2025-01-02"
 
 start_time = datetime.strptime(start_time, input_time_format)
 end_time = datetime.strptime(end_time, input_time_format)

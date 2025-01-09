@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 from matplotlib import cm
 from scipy.interpolate import interp1d
 from scipy.signal import medfilt
@@ -10,7 +11,7 @@ WEIGHT_ON_SCALE = 50.09  #  lbs, 50 before 11/21/2024
 
 BAD_TIMING_THRESHOLD = 10  # seconds
 
-r_min, r_max, r_step, t0_min, t0_max, t0_step = 0.0025, 0.05, 0.001, -12, 15, 0.5
+r_min, r_max, r_step, t0_min, t0_max, t0_step = 0.0025, 0.015, 0.0001, -12, 15, 0.5
 
 # ===== END INPUT =====
 
@@ -149,14 +150,52 @@ def correct_readings(scale_data, temp_data, best_r, best_t0):
 
     return lbs_reading, lbs_reading_corrected, lbs_reading_simple
 
+def plot():
+    Y, X = np.meshgrid(t0_vals, r_vals)
+    
+    date_fmt = mdates.DateFormatter('%m/%d %H')
+    hrs = mdates.HourLocator(interval=4)
+
+    fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+    surf = ax.plot_surface(
+        X, Y, scores, cmap=cm.coolwarm, linewidth=0, antialiased=False
+    )
+    ax.set_ylabel("Delta T0 [deg F]")
+    ax.set_xlabel("R val [no dim]")
+    ax.set_zlabel("P2P dev [lbs]")
+    plt.show()
+
+    plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
+    plt.scatter(best_estimates, scale_data["vals"], label="est temp")
+    plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
+    plt.legend(loc="upper left")
+    plt.show()
+
+    fig, ax = plt.subplots()
+    ax.xaxis.set_major_locator(hrs)
+    ax.xaxis.set_major_formatter(date_fmt)
+    plt.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
+    plt.plot(
+        temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
+    )
+    plt.plot(
+        temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
+    )
+    plt.plot(temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]")
+    plt.legend(loc="upper left")
+    plt.show()
+
 
 # USE THIS CODE WHEN NOT IMPORTING
 
 if __name__ == "__main__":
-    scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-thermo-trimmed.csv")
+    print('importing')
+    scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
 
+    print('filtering and matching')
     scale_data, temp_data = filter_and_match(scale_data, temp_data)
-
+    
+    print('finding best r, t0')
     r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
         scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
     )
@@ -181,30 +220,5 @@ if __name__ == "__main__":
     print(f"MAX DEVIATION:           {np.ptp(lbs_reading_corrected):.03f} lbs")
     print(f"SIMPLE MAX DEVIATION:    {np.ptp(lbs_reading_simple):.03f} lbs")
     print(f"NO t0 DEVIATION:         {np.ptp(lbs_reading_t0_0):.03f} lbs")
-    Y, X = np.meshgrid(t0_vals, r_vals)
-
-    fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-    surf = ax.plot_surface(
-        X, Y, scores, cmap=cm.coolwarm, linewidth=0, antialiased=False
-    )
-    ax.set_ylabel("Delta T0 [deg F]")
-    ax.set_xlabel("R val [no dim]")
-    ax.set_zlabel("P2P dev [lbs]")
-    plt.show()
-
-    plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
-    plt.scatter(best_estimates, scale_data["vals"], label="est temp")
-    plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
-    plt.legend(loc="upper left")
-    plt.show()
-
-    plt.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
-    plt.plot(
-        temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
-    )
-    plt.plot(
-        temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
-    )
-    plt.plot(temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]")
-    plt.legend(loc="upper left")
-    plt.show()
+    
+    plot()
