@@ -16,12 +16,14 @@ import matplotlib.dates as mdates
 
 # === USER INPUT ===
 
-start_time = "2024-12-17"  # YYYY-MM-DD
-end_time = "2025-01-8" # ditto
+start_time = "2024-12-10"  # YYYY-MM-DD
+end_time = "2025-01-12" # ditto
 
-out_file = r"Data\autoTestTwoDays.csv"
+out_file = r"Data\autoTestTwoDaysMoreData.csv"
 
 DAYS_PER_SIM = 2
+
+PACKETS_PER_DAY = 644
 
 # === END USER INPUT ===
 
@@ -48,7 +50,12 @@ with open(out_file, "w", newline="") as f:
             "P2P corrected",
             "P2P simple",
             "P2P no t0",
+            "degrees per lb",
+            "offset",
             "data points",
+            "temp raw ptp",
+            "temp corr ptp",
+            "percentage correct after match",
         ]
     )
 
@@ -64,6 +71,11 @@ with open(out_file, "w", newline="") as f:
         if (scale_data.size > 10) and (temp_data.size > 10):
             print('filtering and matching')
             scale_data, temp_data = filter_and_match(scale_data, temp_data)
+            
+            num_after_match = scale_data.size
+            
+            avg_cal_val = np.mean(scale_data["vals"])
+            scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
             
             print('finding best r, t0')
 
@@ -95,7 +107,12 @@ with open(out_file, "w", newline="") as f:
                     corr_ptp,
                     simple_ptp,
                     t0_0_ptp,
+                    coef[0],
+                    coef[1],
                     len(scale_data),
+                    np.ptp(temp_data['vals']),
+                    np.ptp(best_estimates),
+                    (num_after_match/PACKETS_PER_DAY),
                 ]
             )
 
@@ -124,7 +141,16 @@ with open(out_file, "w", newline="") as f:
             plt.legend(loc="upper left")
             plt.savefig(f"images/{str(start_time)[:10]} to {str(end_time)[:10]} temp data correction")
             plt.clf()
-
+            
+            plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
+            plt.scatter(best_estimates, scale_data["vals"], label="est temp")
+            plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
+            plt.xlabel('temperature [deg F]')
+            plt.ylabel('reading [lbs]')
+            plt.legend(loc="upper left")
+            plt.savefig(f'images/{str(start_time)[:10]} to {str(end_time)[:10]} temp data correction loop')
+            plt.clf()
+            
     for start_time, end_time in date_pairs:
         if start_time > datetime(2024, 12, 17, 0, 0, 0):
             print(f"Running with {str(start_time)[:10]} to {str(end_time)[:10]} thermo")
@@ -138,6 +164,11 @@ with open(out_file, "w", newline="") as f:
             if (scale_data.size > 10) and (temp_data.size > 10):
                 print('filtering and matching')
                 scale_data, temp_data = filter_and_match(scale_data, temp_data)
+                
+                num_after_match = scale_data.shape
+                
+                avg_cal_val = np.mean(scale_data["vals"])
+                scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
                 
                 print('finding best r, t0')
                 r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
@@ -183,6 +214,15 @@ with open(out_file, "w", newline="") as f:
                 plt.legend(loc="upper left")
                 plt.savefig(f"images/{str(start_time)[:10]} to {str(end_time)[:10]} thermo data correction")
                 plt.clf()
+                
+                plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
+                plt.scatter(best_estimates, scale_data["vals"], label="est temp")
+                plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
+                plt.xlabel('temperature [deg F]')
+                plt.ylabel('reading [lbs]')
+                plt.legend(loc="upper left")
+                plt.savefig(f'images/{str(start_time)[:10]} to {str(end_time)[:10]} thermo data correction loop')
+                plt.clf()
 
                 writer.writerow(
                     [
@@ -195,7 +235,12 @@ with open(out_file, "w", newline="") as f:
                         corr_ptp,
                         simple_ptp,
                         t0_0_ptp,
+                        coef[0],
+                        coef[1],
                         len(scale_data),
+                        np.ptp(temp_data['vals']),
+                        np.ptp(best_estimates),
+                        (num_after_match/PACKETS_PER_DAY),
                     ]
                 )
 

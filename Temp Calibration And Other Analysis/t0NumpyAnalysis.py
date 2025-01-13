@@ -168,6 +168,8 @@ def plot():
     plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
     plt.scatter(best_estimates, scale_data["vals"], label="est temp")
     plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
+    plt.xlabel('temperature [deg F]')
+    plt.ylabel('reading [lbs]')
     plt.legend(loc="upper left")
     plt.show()
 
@@ -182,6 +184,8 @@ def plot():
         temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
     )
     plt.plot(temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]")
+    plt.xlabel('date')
+    plt.ylabel('reading [lbs]')
     plt.legend(loc="upper left")
     plt.show()
 
@@ -194,6 +198,9 @@ if __name__ == "__main__":
 
     print('filtering and matching')
     scale_data, temp_data = filter_and_match(scale_data, temp_data)
+    
+    avg_cal_val = np.mean(scale_data["vals"])
+    scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
     
     print('finding best r, t0')
     r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(

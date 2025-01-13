@@ -10,7 +10,7 @@ from trimCSV import *
 
 BAD_TIMING_THRESHOLD = 10  # seconds
 
-PACKETS_PER_DAY = 2618
+PACKETS_PER_DAY = 644
 
 start_time = "2024-10-10"  # YYYY-MM-DD
 end_time = "2024-11-10"
