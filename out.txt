@@ -1,0 +1,2031 @@
+************* Module Inside Display.loraRecieveTest
+Inside Display\loraRecieveTest.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\loraRecieveTest.py:1:0: C0103: Module name "loraRecieveTest" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\loraRecieveTest.py:5:0: E0401: Unable to import 'board' (import-error)
+Inside Display\loraRecieveTest.py:6:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\loraRecieveTest.py:7:0: E0401: Unable to import 'digitalio' (import-error)
+Inside Display\loraRecieveTest.py:9:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Inside Display\loraRecieveTest.py:22:4: C0103: Constant name "msg" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\loraRecieveTest.py:3:0: W0611: Unused import time (unused-import)
+************* Module Inside Display.aio test.Pico_W_Adafruit_IO.code
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:7:0: E0401: Unable to import 'wifi' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:8:0: E0401: Unable to import 'socketpool' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:9:0: E0401: Unable to import 'microcontroller' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:10:0: E0401: Unable to import 'board' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:11:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:12:0: E0401: Unable to import 'adafruit_requests' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:13:0: E0401: Unable to import 'adafruit_ahtx0' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:14:0: E0401: Unable to import 'adafruit_io.adafruit_io' (import-error)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:46:0: C0103: Constant name "clock" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:57:22: C0209: Formatting a regular string which could be an f-string (consider-using-f-string)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:60:18: C0209: Formatting a regular string which could be an f-string (consider-using-f-string)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:61:18: C0209: Formatting a regular string which could be an f-string (consider-using-f-string)
+Inside Display\aio test\Pico_W_Adafruit_IO\code.py:65:12: C0103: Constant name "clock" doesn't conform to UPPER_CASE naming style (invalid-name)
+************* Module Inside Display.display tests.displayTest
+Inside Display\display tests\displayTest.py:1:0: C0103: Module name "displayTest" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\display tests\displayTest.py:11:0: E0401: Unable to import 'board' (import-error)
+Inside Display\display tests\displayTest.py:12:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\display tests\displayTest.py:13:0: E0401: Unable to import 'adafruit_uc8151d' (import-error)
+Inside Display\display tests\displayTest.py:14:0: E0401: Unable to import 'busio' (import-error)
+************* Module Inside Display.display tests.displayTest2
+Inside Display\display tests\displayTest2.py:1:0: C0103: Module name "displayTest2" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\display tests\displayTest2.py:11:0: E0401: Unable to import 'board' (import-error)
+Inside Display\display tests\displayTest2.py:12:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\display tests\displayTest2.py:13:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\display tests\displayTest2.py:14:0: E0401: Unable to import 'adafruit_uc8151d' (import-error)
+Inside Display\display tests\displayTest2.py:15:0: E0401: Unable to import 'adafruit_display_shapes.rect' (import-error)
+Inside Display\display tests\displayTest2.py:16:0: E0401: Unable to import 'adafruit_display_shapes.circle' (import-error)
+Inside Display\display tests\displayTest2.py:17:0: E0401: Unable to import 'adafruit_display_shapes.arc' (import-error)
+Inside Display\display tests\displayTest2.py:18:0: E0401: Unable to import 'adafruit_display_shapes.roundrect' (import-error)
+Inside Display\display tests\displayTest2.py:19:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\display tests\displayTest2.py:20:0: E0401: Unable to import 'adafruit_display_text' (import-error)
+Inside Display\display tests\displayTest2.py:74:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest2.py:76:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest2.py:87:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest2.py:89:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest2.py:15:0: W0611: Unused Rect imported from adafruit_display_shapes.rect (unused-import)
+Inside Display\display tests\displayTest2.py:16:0: W0611: Unused Circle imported from adafruit_display_shapes.circle (unused-import)
+************* Module Inside Display.display tests.displayTest3
+Inside Display\display tests\displayTest3.py:1:0: C0103: Module name "displayTest3" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\display tests\displayTest3.py:11:0: E0401: Unable to import 'board' (import-error)
+Inside Display\display tests\displayTest3.py:12:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\display tests\displayTest3.py:13:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\display tests\displayTest3.py:14:0: E0401: Unable to import 'adafruit_uc8151d' (import-error)
+Inside Display\display tests\displayTest3.py:15:0: E0401: Unable to import 'adafruit_display_shapes.rect' (import-error)
+Inside Display\display tests\displayTest3.py:16:0: E0401: Unable to import 'adafruit_display_shapes.circle' (import-error)
+Inside Display\display tests\displayTest3.py:17:0: E0401: Unable to import 'adafruit_display_shapes.arc' (import-error)
+Inside Display\display tests\displayTest3.py:18:0: E0401: Unable to import 'adafruit_display_shapes.roundrect' (import-error)
+Inside Display\display tests\displayTest3.py:19:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\display tests\displayTest3.py:20:0: E0401: Unable to import 'adafruit_display_text' (import-error)
+Inside Display\display tests\displayTest3.py:22:0: E0401: Unable to import 'helpers' (import-error)
+Inside Display\display tests\displayTest3.py:26:0: E0401: Unable to import 'fourwire' (import-error)
+Inside Display\display tests\displayTest3.py:67:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest3.py:69:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest3.py:80:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest3.py:82:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest3.py:96:0: C0103: Constant name "val_percent" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest3.py:97:0: C0103: Constant name "val" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest3.py:15:0: W0611: Unused Rect imported from adafruit_display_shapes.rect (unused-import)
+Inside Display\display tests\displayTest3.py:16:0: W0611: Unused Circle imported from adafruit_display_shapes.circle (unused-import)
+************* Module Inside Display.display tests.displayTest4
+Inside Display\display tests\displayTest4.py:1:0: C0103: Module name "displayTest4" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\display tests\displayTest4.py:11:0: E0401: Unable to import 'board' (import-error)
+Inside Display\display tests\displayTest4.py:12:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\display tests\displayTest4.py:13:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\display tests\displayTest4.py:14:0: E0401: Unable to import 'adafruit_uc8151d' (import-error)
+Inside Display\display tests\displayTest4.py:15:0: E0401: Unable to import 'adafruit_display_shapes.rect' (import-error)
+Inside Display\display tests\displayTest4.py:16:0: E0401: Unable to import 'adafruit_display_shapes.circle' (import-error)
+Inside Display\display tests\displayTest4.py:17:0: E0401: Unable to import 'adafruit_display_shapes.arc' (import-error)
+Inside Display\display tests\displayTest4.py:18:0: E0401: Unable to import 'adafruit_display_shapes.roundrect' (import-error)
+Inside Display\display tests\displayTest4.py:19:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\display tests\displayTest4.py:20:0: E0401: Unable to import 'adafruit_display_text' (import-error)
+Inside Display\display tests\displayTest4.py:22:0: E0401: Unable to import 'helpers' (import-error)
+Inside Display\display tests\displayTest4.py:26:0: E0401: Unable to import 'fourwire' (import-error)
+Inside Display\display tests\displayTest4.py:67:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest4.py:69:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest4.py:80:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest4.py:82:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest4.py:15:0: W0611: Unused Rect imported from adafruit_display_shapes.rect (unused-import)
+Inside Display\display tests\displayTest4.py:16:0: W0611: Unused Circle imported from adafruit_display_shapes.circle (unused-import)
+Inside Display\display tests\displayTest4.py:17:0: W0611: Unused Arc imported from adafruit_display_shapes.arc (unused-import)
+************* Module Inside Display.display tests.displayTest5
+Inside Display\display tests\displayTest5.py:1:0: C0103: Module name "displayTest5" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\display tests\displayTest5.py:11:0: E0401: Unable to import 'board' (import-error)
+Inside Display\display tests\displayTest5.py:12:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\display tests\displayTest5.py:13:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\display tests\displayTest5.py:14:0: E0401: Unable to import 'adafruit_uc8151d' (import-error)
+Inside Display\display tests\displayTest5.py:15:0: E0401: Unable to import 'adafruit_display_shapes.rect' (import-error)
+Inside Display\display tests\displayTest5.py:16:0: E0401: Unable to import 'adafruit_display_shapes.circle' (import-error)
+Inside Display\display tests\displayTest5.py:17:0: E0401: Unable to import 'adafruit_display_shapes.arc' (import-error)
+Inside Display\display tests\displayTest5.py:18:0: E0401: Unable to import 'adafruit_display_shapes.roundrect' (import-error)
+Inside Display\display tests\displayTest5.py:19:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\display tests\displayTest5.py:20:0: E0401: Unable to import 'adafruit_display_text' (import-error)
+Inside Display\display tests\displayTest5.py:22:0: E0401: Unable to import 'helpers' (import-error)
+Inside Display\display tests\displayTest5.py:26:0: E0401: Unable to import 'fourwire' (import-error)
+Inside Display\display tests\displayTest5.py:68:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest5.py:70:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest5.py:81:0: C0103: Constant name "text" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest5.py:83:0: C0103: Constant name "color" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\display tests\displayTest5.py:13:0: W0611: Unused import busio (unused-import)
+Inside Display\display tests\displayTest5.py:15:0: W0611: Unused Rect imported from adafruit_display_shapes.rect (unused-import)
+Inside Display\display tests\displayTest5.py:16:0: W0611: Unused Circle imported from adafruit_display_shapes.circle (unused-import)
+Inside Display\display tests\displayTest5.py:17:0: W0611: Unused Arc imported from adafruit_display_shapes.arc (unused-import)
+************* Module Inside Display.display tests.displayTestMemoryProblem
+Inside Display\display tests\displayTestMemoryProblem.py:1:0: C0103: Module name "displayTestMemoryProblem" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\display tests\displayTestMemoryProblem.py:11:0: E0401: Unable to import 'board' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:12:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:13:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:14:0: E0401: Unable to import 'adafruit_uc8151d' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:15:0: E0401: Unable to import 'adafruit_display_shapes.rect' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:16:0: E0401: Unable to import 'adafruit_display_shapes.circle' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:17:0: E0401: Unable to import 'adafruit_display_shapes.arc' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:18:0: E0401: Unable to import 'adafruit_display_shapes.roundrect' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:19:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:20:0: E0401: Unable to import 'adafruit_display_text' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:22:0: E0401: Unable to import 'helpers' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:28:0: E0401: Unable to import 'fourwire' (import-error)
+Inside Display\display tests\displayTestMemoryProblem.py:50:25: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\display tests\displayTestMemoryProblem.py:64:26: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\display tests\displayTestMemoryProblem.py:72:25: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\display tests\displayTestMemoryProblem.py:24:0: C0411: standard import "gc" should be placed before third party imports "board", "displayio", "busio" (...) "terminalio", "adafruit_display_text.label", "helpers.Gauge" (wrong-import-order)
+Inside Display\display tests\displayTestMemoryProblem.py:15:0: W0611: Unused Rect imported from adafruit_display_shapes.rect (unused-import)
+Inside Display\display tests\displayTestMemoryProblem.py:16:0: W0611: Unused Circle imported from adafruit_display_shapes.circle (unused-import)
+Inside Display\display tests\displayTestMemoryProblem.py:17:0: W0611: Unused Arc imported from adafruit_display_shapes.arc (unused-import)
+Inside Display\display tests\displayTestMemoryProblem.py:18:0: W0611: Unused RoundRect imported from adafruit_display_shapes.roundrect (unused-import)
+Inside Display\display tests\displayTestMemoryProblem.py:19:0: W0611: Unused import terminalio (unused-import)
+Inside Display\display tests\displayTestMemoryProblem.py:20:0: W0611: Unused label imported from adafruit_display_text (unused-import)
+Inside Display\display tests\displayTestMemoryProblem.py:22:0: W0611: Unused BatteryIndicator imported from helpers (unused-import)
+************* Module Inside Display.main code.helpers
+Inside Display\main code\helpers.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\main code\helpers.py:1:0: E0401: Unable to import 'adafruit_display_shapes.arc' (import-error)
+Inside Display\main code\helpers.py:2:0: E0401: Unable to import 'adafruit_display_shapes.rect' (import-error)
+Inside Display\main code\helpers.py:3:0: E0401: Unable to import 'adafruit_display_shapes.roundrect' (import-error)
+Inside Display\main code\helpers.py:4:0: E0401: Unable to import 'adafruit_display_shapes.polygon' (import-error)
+Inside Display\main code\helpers.py:5:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\main code\helpers.py:6:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\main code\helpers.py:7:0: E0401: Unable to import 'adafruit_display_text' (import-error)
+Inside Display\main code\helpers.py:11:0: C0115: Missing class docstring (missing-class-docstring)
+Inside Display\main code\helpers.py:11:0: R0902: Too many instance attributes (8/7) (too-many-instance-attributes)
+Inside Display\main code\helpers.py:12:4: R0913: Too many arguments (8/5) (too-many-arguments)
+Inside Display\main code\helpers.py:12:4: R0917: Too many positional arguments (8/5) (too-many-positional-arguments)
+Inside Display\main code\helpers.py:25:20: C0103: Argument name "leftMin" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\main code\helpers.py:25:29: C0103: Argument name "leftMax" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\main code\helpers.py:25:38: C0103: Argument name "rightMin" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\main code\helpers.py:25:48: C0103: Argument name "rightMax" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\main code\helpers.py:27:8: C0103: Variable name "leftSpan" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\main code\helpers.py:28:8: C0103: Variable name "rightSpan" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\main code\helpers.py:31:8: C0103: Variable name "valueScaled" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\main code\helpers.py:36:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\helpers.py:39:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\helpers.py:126:0: C0115: Missing class docstring (missing-class-docstring)
+Inside Display\main code\helpers.py:141:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\helpers.py:144:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\helpers.py:192:0: C0115: Missing class docstring (missing-class-docstring)
+Inside Display\main code\helpers.py:193:4: R0913: Too many arguments (6/5) (too-many-arguments)
+Inside Display\main code\helpers.py:193:4: R0917: Too many positional arguments (6/5) (too-many-positional-arguments)
+Inside Display\main code\helpers.py:203:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\helpers.py:207:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\helpers.py:211:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\helpers.py:8:0: C0411: standard import "gc" should be placed before third party imports "adafruit_display_shapes.arc.Arc", "adafruit_display_shapes.rect.Rect", "adafruit_display_shapes.roundrect.RoundRect" (...) "displayio", "terminalio", "adafruit_display_text.label" (wrong-import-order)
+************* Module Inside Display.main code.main
+Inside Display\main code\main.py:53:0: C0301: Line too long (114/100) (line-too-long)
+Inside Display\main code\main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\main code\main.py:8:0: E0401: Unable to import 'board' (import-error)
+Inside Display\main code\main.py:9:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\main code\main.py:10:0: E0401: Unable to import 'digitalio' (import-error)
+Inside Display\main code\main.py:11:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\main code\main.py:14:0: E0401: Unable to import 'wifi' (import-error)
+Inside Display\main code\main.py:15:0: E0401: Unable to import 'socketpool' (import-error)
+Inside Display\main code\main.py:16:0: E0401: Unable to import 'adafruit_requests' (import-error)
+Inside Display\main code\main.py:17:0: E0401: Unable to import 'adafruit_io.adafruit_io' (import-error)
+Inside Display\main code\main.py:19:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Inside Display\main code\main.py:21:0: E0401: Unable to import 'adafruit_uc8151d' (import-error)
+Inside Display\main code\main.py:22:0: E0401: Unable to import 'fourwire' (import-error)
+Inside Display\main code\main.py:23:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\main code\main.py:25:0: E0401: Unable to import 'helpers' (import-error)
+Inside Display\main code\main.py:99:0: C0103: Constant name "last_rx_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\main code\main.py:113:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\main.py:138:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\main.py:140:26: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\main code\main.py:145:29: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\main code\main.py:149:30: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\main code\main.py:162:40: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\main code\main.py:176:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\main.py:176:27: W0621: Redefining name 'datas' from outer scope (line 254) (redefined-outer-name)
+Inside Display\main code\main.py:177:8: W0621: Redefining name 'data' from outer scope (line 245) (redefined-outer-name)
+Inside Display\main code\main.py:190:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\main.py:190:27: W0621: Redefining name 'last_good_rx' from outer scope (line 236) (redefined-outer-name)
+Inside Display\main code\main.py:190:41: W0621: Redefining name 'last_good_rx_txt' from outer scope (line 237) (redefined-outer-name)
+Inside Display\main code\main.py:199:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\main.py:201:4: W0621: Redefining name 'datas' from outer scope (line 254) (redefined-outer-name)
+Inside Display\main code\main.py:202:4: W0621: Redefining name 'data' from outer scope (line 245) (redefined-outer-name)
+Inside Display\main code\main.py:219:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\main.py:219:11: W0621: Redefining name 'datas' from outer scope (line 254) (redefined-outer-name)
+Inside Display\main code\main.py:221:8: W0621: Redefining name 'data' from outer scope (line 245) (redefined-outer-name)
+Inside Display\main code\main.py:228:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\main code\main.py:235:0: C0103: Constant name "last_good_refresh" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\main code\main.py:236:0: C0103: Constant name "last_good_rx" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\main code\main.py:237:0: C0103: Constant name "last_good_rx_txt" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\main code\main.py:238:0: C0103: Constant name "have_new_data" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\main code\main.py:258:12: C0103: Constant name "last_good_rx_txt" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\main code\main.py:270:30: E1101: Module 'gc' has no 'mem_free' member (no-member)
+Inside Display\main code\main.py:272:8: C0103: Constant name "have_new_data" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\main code\main.py:13:0: C0411: standard import "ssl" should be placed before third party imports "board", "busio", "digitalio", "displayio" (wrong-import-order)
+Inside Display\main code\main.py:27:0: C0411: standard import "gc" should be placed before third party imports "board", "busio", "digitalio" (...) "fourwire.FourWire", "terminalio", "helpers.Gauge" (wrong-import-order)
+Inside Display\main code\main.py:23:0: W0611: Unused import terminalio (unused-import)
+************* Module Inside Display.only aio transmit.crashTestDummy
+Inside Display\only aio transmit\crashTestDummy.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\only aio transmit\crashTestDummy.py:1:0: C0103: Module name "crashTestDummy" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\only aio transmit\crashTestDummy.py:4:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\only aio transmit\crashTestDummy.py:5:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Inside Display\only aio transmit\crashTestDummy.py:9:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\only aio transmit\crashTestDummy.py:11:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+************* Module Inside Display.only aio transmit.main
+Inside Display\only aio transmit\main.py:62:0: C0301: Line too long (154/100) (line-too-long)
+Inside Display\only aio transmit\main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\only aio transmit\main.py:10:0: E0401: Unable to import 'adafruit_logging' (import-error)
+Inside Display\only aio transmit\main.py:11:0: E0401: Unable to import 'supervisor' (import-error)
+Inside Display\only aio transmit\main.py:13:0: E0401: Unable to import 'board' (import-error)
+Inside Display\only aio transmit\main.py:14:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\only aio transmit\main.py:15:0: E0401: Unable to import 'digitalio' (import-error)
+Inside Display\only aio transmit\main.py:16:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\only aio transmit\main.py:19:0: E0401: Unable to import 'wifi' (import-error)
+Inside Display\only aio transmit\main.py:20:0: E0401: Unable to import 'socketpool' (import-error)
+Inside Display\only aio transmit\main.py:21:0: E0401: Unable to import 'adafruit_requests' (import-error)
+Inside Display\only aio transmit\main.py:22:0: E0401: Unable to import 'adafruit_io.adafruit_io' (import-error)
+Inside Display\only aio transmit\main.py:24:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Inside Display\only aio transmit\main.py:26:0: E0401: Unable to import 'lcd' (import-error)
+Inside Display\only aio transmit\main.py:27:0: E0401: Unable to import 'i2c_pcf8574_interface' (import-error)
+Inside Display\only aio transmit\main.py:143:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\only aio transmit\main.py:155:4: W0621: Redefining name 'datas' from outer scope (line 273) (redefined-outer-name)
+Inside Display\only aio transmit\main.py:156:4: W0621: Redefining name 'data' from outer scope (line 260) (redefined-outer-name)
+Inside Display\only aio transmit\main.py:144:4: C0103: Variable name "TIMEOUT" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\only aio transmit\main.py:145:4: W0105: String statement has no effect (pointless-string-statement)
+Inside Display\only aio transmit\main.py:178:25: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
+Inside Display\only aio transmit\main.py:186:11: W0621: Redefining name 'datas' from outer scope (line 273) (redefined-outer-name)
+Inside Display\only aio transmit\main.py:201:8: W0621: Redefining name 'data' from outer scope (line 260) (redefined-outer-name)
+Inside Display\only aio transmit\main.py:237:0: C0103: Constant name "last_good_rx_txt" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\only aio transmit\main.py:238:0: C0103: Constant name "have_new_data" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\only aio transmit\main.py:246:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\only aio transmit\main.py:250:0: C0103: Constant name "rx_cycle_str" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\only aio transmit\main.py:257:8: C0103: Constant name "rx_cycle_str" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\only aio transmit\main.py:278:16: C0103: Constant name "last_good_rx_txt" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\only aio transmit\main.py:282:16: C0103: Constant name "have_new_data" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\only aio transmit\main.py:18:0: C0411: standard import "ssl" should be placed before third party imports "adafruit_logging", "supervisor", "board", "busio", "digitalio", "displayio" (wrong-import-order)
+************* Module Inside Display.RP2350 main.airSupportTest
+Inside Display\RP2350 main\airSupportTest.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\RP2350 main\airSupportTest.py:1:0: C0103: Module name "airSupportTest" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\RP2350 main\airSupportTest.py:2:0: E0401: Unable to import 'board' (import-error)
+Inside Display\RP2350 main\airSupportTest.py:3:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\RP2350 main\airSupportTest.py:4:0: E0401: Unable to import 'neopixel' (import-error)
+Inside Display\RP2350 main\airSupportTest.py:7:0: E0401: Unable to import 'adafruit_esp32spi' (import-error)
+Inside Display\RP2350 main\airSupportTest.py:8:0: E0401: Unable to import 'adafruit_io.adafruit_io' (import-error)
+Inside Display\RP2350 main\airSupportTest.py:9:0: E0401: Unable to import 'digitalio' (import-error)
+Inside Display\RP2350 main\airSupportTest.py:30:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\airSupportTest.py:5:0: C0411: standard import "os" should be placed before third party imports "board", "busio", "neopixel" (wrong-import-order)
+Inside Display\RP2350 main\airSupportTest.py:1:0: W0611: Unused import time (unused-import)
+************* Module Inside Display.RP2350 main.crashTestDummy
+Inside Display\RP2350 main\crashTestDummy.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\RP2350 main\crashTestDummy.py:1:0: C0103: Module name "crashTestDummy" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\RP2350 main\crashTestDummy.py:3:0: E0401: Unable to import 'board' (import-error)
+Inside Display\RP2350 main\crashTestDummy.py:4:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\RP2350 main\crashTestDummy.py:5:0: E0401: Unable to import 'sdcardio' (import-error)
+Inside Display\RP2350 main\crashTestDummy.py:6:0: E0401: Unable to import 'storage' (import-error)
+Inside Display\RP2350 main\crashTestDummy.py:12:30: E0602: Undefined variable 'cs' (undefined-variable)
+Inside Display\RP2350 main\crashTestDummy.py:17:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\crashTestDummy.py:18:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Inside Display\RP2350 main\crashTestDummy.py:22:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\crashTestDummy.py:24:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Inside Display\RP2350 main\crashTestDummy.py:4:0: W0611: Unused import busio (unused-import)
+************* Module Inside Display.RP2350 main.main
+Inside Display\RP2350 main\main.py:81:0: C0301: Line too long (154/100) (line-too-long)
+Inside Display\RP2350 main\main.py:315:0: C0301: Line too long (106/100) (line-too-long)
+Inside Display\RP2350 main\main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\RP2350 main\main.py:9:0: E0401: Unable to import 'board' (import-error)
+Inside Display\RP2350 main\main.py:10:0: E0401: Unable to import 'busio' (import-error)
+Inside Display\RP2350 main\main.py:11:0: E0401: Unable to import 'digitalio' (import-error)
+Inside Display\RP2350 main\main.py:12:0: E0401: Unable to import 'terminalio' (import-error)
+Inside Display\RP2350 main\main.py:13:0: E0401: Unable to import 'displayio' (import-error)
+Inside Display\RP2350 main\main.py:14:0: E0401: Unable to import 'neopixel' (import-error)
+Inside Display\RP2350 main\main.py:15:0: E0401: Unable to import 'sdcardio' (import-error)
+Inside Display\RP2350 main\main.py:16:0: E0401: Unable to import 'storage' (import-error)
+Inside Display\RP2350 main\main.py:17:0: E0401: Unable to import 'adafruit_logging' (import-error)
+Inside Display\RP2350 main\main.py:18:0: E0401: Unable to import 'adafruit_requests' (import-error)
+Inside Display\RP2350 main\main.py:19:0: E0401: Unable to import 'supervisor' (import-error)
+Inside Display\RP2350 main\main.py:22:0: E0401: Unable to import 'adafruit_esp32spi' (import-error)
+Inside Display\RP2350 main\main.py:23:0: E0401: Unable to import 'adafruit_io.adafruit_io' (import-error)
+Inside Display\RP2350 main\main.py:26:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Inside Display\RP2350 main\main.py:28:0: E0401: Unable to import 'helpers' (import-error)
+Inside Display\RP2350 main\main.py:97:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Inside Display\RP2350 main\main.py:171:0: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\main.py:179:4: W0621: Redefining name 'datas' from outer scope (line 292) (redefined-outer-name)
+Inside Display\RP2350 main\main.py:180:4: W0621: Redefining name 'data' from outer scope (line 259) (redefined-outer-name)
+Inside Display\RP2350 main\main.py:172:4: C0103: Variable name "TIMEOUT" doesn't conform to snake_case naming style (invalid-name)
+Inside Display\RP2350 main\main.py:173:4: W0105: String statement has no effect (pointless-string-statement)
+Inside Display\RP2350 main\main.py:199:25: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
+Inside Display\RP2350 main\main.py:208:11: W0621: Redefining name 'datas' from outer scope (line 292) (redefined-outer-name)
+Inside Display\RP2350 main\main.py:219:8: W0621: Redefining name 'data' from outer scope (line 259) (redefined-outer-name)
+Inside Display\RP2350 main\main.py:257:4: W0702: No exception type(s) specified (bare-except)
+Inside Display\RP2350 main\main.py:260:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Inside Display\RP2350 main\main.py:267:4: C0103: Constant name "last_good_rx" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\RP2350 main\main.py:272:0: C0103: Constant name "last_good_refresh" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\RP2350 main\main.py:273:0: C0103: Constant name "have_new_data" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\RP2350 main\main.py:295:31: E0602: Undefined variable 'last_good_tx' (undefined-variable)
+Inside Display\RP2350 main\main.py:300:12: C0103: Constant name "have_new_data" doesn't conform to UPPER_CASE naming style (invalid-name)
+Inside Display\RP2350 main\main.py:307:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Inside Display\RP2350 main\main.py:10:0: W0611: Unused import busio (unused-import)
+Inside Display\RP2350 main\main.py:12:0: W0611: Unused import terminalio (unused-import)
+Inside Display\RP2350 main\main.py:18:0: W0611: Unused import adafruit_requests (unused-import)
+************* Module Inside Display.RP2350 main.libs needed.helpers
+Inside Display\RP2350 main\libs needed\helpers.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:1:0: E0401: Unable to import 'digitalio' (import-error)
+Inside Display\RP2350 main\libs needed\helpers.py:5:0: C0115: Missing class docstring (missing-class-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:21:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:24:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:29:0: C0115: Missing class docstring (missing-class-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:42:52: E0602: Undefined variable 'self_active_low' (undefined-variable)
+Inside Display\RP2350 main\libs needed\helpers.py:44:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:47:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:50:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:53:4: C0116: Missing function or method docstring (missing-function-docstring)
+Inside Display\RP2350 main\libs needed\helpers.py:2:0: C0411: standard import "time" should be placed before third party import "digitalio" (wrong-import-order)
+************* Module Outside Box.fullHardwareTest
+Outside Box\fullHardwareTest.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Outside Box\fullHardwareTest.py:1:0: C0103: Module name "fullHardwareTest" doesn't conform to snake_case naming style (invalid-name)
+Outside Box\fullHardwareTest.py:5:0: E0401: Unable to import 'board' (import-error)
+Outside Box\fullHardwareTest.py:6:0: E0401: Unable to import 'busio' (import-error)
+Outside Box\fullHardwareTest.py:7:0: E0401: Unable to import 'digitalio' (import-error)
+Outside Box\fullHardwareTest.py:8:0: E0401: Unable to import 'neopixel' (import-error)
+Outside Box\fullHardwareTest.py:10:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Outside Box\fullHardwareTest.py:11:0: E0401: Unable to import 'cedargrove_nau7802' (import-error)
+Outside Box\fullHardwareTest.py:12:0: E0401: Unable to import 'adafruit_htu21d' (import-error)
+Outside Box\fullHardwareTest.py:13:0: E0401: Unable to import 'adafruit_max1704x' (import-error)
+Outside Box\fullHardwareTest.py:47:0: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\fullHardwareTest.py:55:0: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\fullHardwareTest.py:59:0: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\fullHardwareTest.py:6:0: W0611: Unused import busio (unused-import)
+************* Module Outside Box.main code.helpers
+Outside Box\main code\helpers.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Outside Box\main code\helpers.py:1:0: E0401: Unable to import 'digitalio' (import-error)
+Outside Box\main code\helpers.py:5:0: C0115: Missing class docstring (missing-class-docstring)
+Outside Box\main code\helpers.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\main code\helpers.py:21:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\main code\helpers.py:24:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\main code\helpers.py:29:0: C0115: Missing class docstring (missing-class-docstring)
+Outside Box\main code\helpers.py:42:52: E0602: Undefined variable 'self_active_low' (undefined-variable)
+Outside Box\main code\helpers.py:44:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\main code\helpers.py:47:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\main code\helpers.py:50:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\main code\helpers.py:53:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\main code\helpers.py:2:0: C0411: standard import "time" should be placed before third party import "digitalio" (wrong-import-order)
+************* Module Outside Box.main code.main
+Outside Box\main code\main.py:23:0: C0413: Import "import time" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:25:0: E0401: Unable to import 'board' (import-error)
+Outside Box\main code\main.py:25:0: C0413: Import "import board" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:26:0: E0401: Unable to import 'busio' (import-error)
+Outside Box\main code\main.py:26:0: C0413: Import "import busio" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:27:0: E0401: Unable to import 'digitalio' (import-error)
+Outside Box\main code\main.py:27:0: C0413: Import "import digitalio" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:29:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Outside Box\main code\main.py:29:0: C0413: Import "from adafruit_rfm9x import RFM9x" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:30:0: E0401: Unable to import 'cedargrove_nau7802' (import-error)
+Outside Box\main code\main.py:30:0: C0413: Import "from cedargrove_nau7802 import NAU7802" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:31:0: E0401: Unable to import 'adafruit_htu21d' (import-error)
+Outside Box\main code\main.py:31:0: C0413: Import "from adafruit_htu21d import HTU21D" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:32:0: E0401: Unable to import 'adafruit_max1704x' (import-error)
+Outside Box\main code\main.py:32:0: C0413: Import "from adafruit_max1704x import MAX17048" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:33:0: E0401: Unable to import 'adafruit_mcp9600' (import-error)
+Outside Box\main code\main.py:33:0: C0413: Import "from adafruit_mcp9600 import MCP9600" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:35:0: E0401: Unable to import 'helpers' (import-error)
+Outside Box\main code\main.py:35:0: C0413: Import "from helpers import RunningAverage, StatusLED" should be placed at the top of the module (wrong-import-position)
+Outside Box\main code\main.py:167:4: W0621: Redefining name 'last_good_tx' from outer scope (line 221) (redefined-outer-name)
+Outside Box\main code\main.py:26:0: W0611: Unused import busio (unused-import)
+************* Module Outside Box.no MAX17048.helpers
+Outside Box\no MAX17048\helpers.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Outside Box\no MAX17048\helpers.py:1:0: E0401: Unable to import 'digitalio' (import-error)
+Outside Box\no MAX17048\helpers.py:5:0: C0115: Missing class docstring (missing-class-docstring)
+Outside Box\no MAX17048\helpers.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\no MAX17048\helpers.py:21:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\no MAX17048\helpers.py:24:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\no MAX17048\helpers.py:29:0: C0115: Missing class docstring (missing-class-docstring)
+Outside Box\no MAX17048\helpers.py:42:52: E1101: Instance of 'StatusLED' has no 'active_low' member; maybe '_active_low'? (no-member)
+Outside Box\no MAX17048\helpers.py:44:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\no MAX17048\helpers.py:47:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\no MAX17048\helpers.py:50:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\no MAX17048\helpers.py:53:4: C0116: Missing function or method docstring (missing-function-docstring)
+Outside Box\no MAX17048\helpers.py:2:0: C0411: standard import "time" should be placed before third party import "digitalio" (wrong-import-order)
+************* Module Outside Box.no MAX17048.main
+Outside Box\no MAX17048\main.py:166:4: W0621: Redefining name 'last_good_tx' from outer scope (line 206) (redefined-outer-name)
+************* Module Range Tests.inside
+Range Tests\inside.py:10:0: E0401: Unable to import 'board' (import-error)
+Range Tests\inside.py:11:0: E0401: Unable to import 'digitalio' (import-error)
+Range Tests\inside.py:13:0: E0401: Unable to import 'sdcardio' (import-error)
+Range Tests\inside.py:14:0: E0401: Unable to import 'storage' (import-error)
+Range Tests\inside.py:18:0: E0401: Unable to import 'circuitpython_csv' (import-error)
+Range Tests\inside.py:21:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Range Tests\inside.py:23:0: E0401: Unable to import 'helpers' (import-error)
+Range Tests\inside.py:61:0: C0103: Constant name "test_msg" doesn't conform to UPPER_CASE naming style (invalid-name)
+Range Tests\inside.py:63:4: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Range Tests\inside.py:92:0: W0702: No exception type(s) specified (bare-except)
+Range Tests\inside.py:63:4: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+Range Tests\inside.py:16:0: C0411: standard import "sys" should be placed before third party imports "board", "digitalio", "sdcardio", "storage" (wrong-import-order)
+************* Module Range Tests.outside
+Range Tests\outside.py:9:0: E0401: Unable to import 'board' (import-error)
+Range Tests\outside.py:10:0: E0401: Unable to import 'busio' (import-error)
+Range Tests\outside.py:11:0: E0401: Unable to import 'digitalio' (import-error)
+Range Tests\outside.py:13:0: E0401: Unable to import 'adafruit_rfm9x' (import-error)
+Range Tests\outside.py:15:0: E0401: Unable to import 'helpers' (import-error)
+Range Tests\outside.py:28:37: E0602: Undefined variable 'LORA_FREQ' (undefined-variable)
+Range Tests\outside.py:10:0: W0611: Unused import busio (unused-import)
+************* Module Temp Calibration And Other Analysis.autoTester
+Temp Calibration And Other Analysis\autoTester.py:74:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:77:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:120:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:140:0: C0301: Line too long (102/100) (line-too-long)
+Temp Calibration And Other Analysis\autoTester.py:142:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:149:0: C0301: Line too long (107/100) (line-too-long)
+Temp Calibration And Other Analysis\autoTester.py:151:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:165:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:168:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:190:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:191:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:211:0: C0301: Line too long (108/100) (line-too-long)
+Temp Calibration And Other Analysis\autoTester.py:213:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\autoTester.py:220:0: C0301: Line too long (113/100) (line-too-long)
+Temp Calibration And Other Analysis\autoTester.py:247:0: C0304: Final newline missing (missing-final-newline)
+Temp Calibration And Other Analysis\autoTester.py:247:0: C0301: Line too long (133/100) (line-too-long)
+Temp Calibration And Other Analysis\autoTester.py:1:0: C0103: Module name "autoTester" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\autoTester.py:12:0: E0401: Unable to import 't0NumpyAnalysis' (import-error)
+Temp Calibration And Other Analysis\autoTester.py:12:0: W0401: Wildcard import t0NumpyAnalysis (wildcard-import)
+Temp Calibration And Other Analysis\autoTester.py:13:0: E0401: Unable to import 'trimCSV' (import-error)
+Temp Calibration And Other Analysis\autoTester.py:13:0: W0401: Wildcard import trimCSV (wildcard-import)
+Temp Calibration And Other Analysis\autoTester.py:19:0: C0103: Constant name "start_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\autoTester.py:20:0: C0103: Constant name "end_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\autoTester.py:22:0: C0103: Constant name "out_file" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\autoTester.py:32:13: E1101: Module 'datetime' has no 'strptime' member (no-member)
+Temp Calibration And Other Analysis\autoTester.py:32:43: E0602: Undefined variable 'input_time_format' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:33:11: E1101: Module 'datetime' has no 'strptime' member (no-member)
+Temp Calibration And Other Analysis\autoTester.py:33:39: E0602: Undefined variable 'input_time_format' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:40:5: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Temp Calibration And Other Analysis\autoTester.py:65:8: E0602: Undefined variable 'trim' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:67:32: E0602: Undefined variable 'import_data' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:73:36: E0602: Undefined variable 'filter_and_match' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:76:55: E0602: Undefined variable 'WEIGHT_ON_SCALE' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:80:55: E0602: Undefined variable 'find_best_r_t0' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:81:39: E0602: Undefined variable 'r_min' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:81:46: E0602: Undefined variable 'r_max' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:81:53: E0602: Undefined variable 'r_step' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:81:61: E0602: Undefined variable 't0_min' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:81:69: E0602: Undefined variable 't0_max' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:81:77: E0602: Undefined variable 't0_step' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:84:69: E0602: Undefined variable 'correct_readings' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:87:37: E0602: Undefined variable 'correct_readings' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:94:29: E0602: Undefined variable 'run_temp_estimation' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:95:19: E0602: Undefined variable 'fit_correction' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:121:22: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:124:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:125:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:131:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:136:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:139:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:140:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:141:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:143:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:144:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:145:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:146:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:147:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:148:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:149:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:150:12: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:153:24: E1102: datetime is not callable (not-callable)
+Temp Calibration And Other Analysis\autoTester.py:156:12: E0602: Undefined variable 'trim' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:158:36: E0602: Undefined variable 'import_data' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:164:40: E0602: Undefined variable 'filter_and_match' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:167:59: E0602: Undefined variable 'WEIGHT_ON_SCALE' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:170:59: E0602: Undefined variable 'find_best_r_t0' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:171:43: E0602: Undefined variable 'r_min' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:171:50: E0602: Undefined variable 'r_max' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:171:57: E0602: Undefined variable 'r_step' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:171:65: E0602: Undefined variable 't0_min' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:171:73: E0602: Undefined variable 't0_max' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:171:81: E0602: Undefined variable 't0_step' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:175:20: E0602: Undefined variable 'correct_readings' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:177:41: E0602: Undefined variable 'correct_readings' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:186:33: E0602: Undefined variable 'run_temp_estimation' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:189:23: E0602: Undefined variable 'fit_correction' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:192:26: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:195:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:196:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:202:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:207:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:210:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:211:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:212:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:214:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:215:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:216:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:217:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:218:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:219:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:220:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:221:16: E0602: Undefined variable 'plt' (undefined-variable)
+Temp Calibration And Other Analysis\autoTester.py:10:0: C0411: standard import "time" should be placed before third party import "numpy" (wrong-import-order)
+************* Module Temp Calibration And Other Analysis.batteryDischargeRate
+Temp Calibration And Other Analysis\batteryDischargeRate.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\batteryDischargeRate.py:1:0: C0103: Module name "batteryDischargeRate" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\batteryDischargeRate.py:9:0: C0103: Constant name "window_size" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\batteryDischargeRate.py:3:0: W0611: Unused cm imported from matplotlib (unused-import)
+Temp Calibration And Other Analysis\batteryDischargeRate.py:4:0: W0611: Unused interp1d imported from scipy.interpolate (unused-import)
+Temp Calibration And Other Analysis\batteryDischargeRate.py:5:0: W0611: Unused medfilt imported from scipy.signal (unused-import)
+************* Module Temp Calibration And Other Analysis.deltaTimeGraph
+Temp Calibration And Other Analysis\deltaTimeGraph.py:55:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:56:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:1:0: C0103: Module name "deltaTimeGraph" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:8:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:12:4: W0621: Redefining name 'scale_data' from outer scope (line 52) (redefined-outer-name)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:13:4: W0621: Redefining name 'temp_data' from outer scope (line 52) (redefined-outer-name)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:18:21: W0621: Redefining name 'scale_data' from outer scope (line 52) (redefined-outer-name)
+Temp Calibration And Other Analysis\deltaTimeGraph.py:18:33: W0621: Redefining name 'temp_data' from outer scope (line 52) (redefined-outer-name)
+************* Module Temp Calibration And Other Analysis.lbsPerDegree
+Temp Calibration And Other Analysis\lbsPerDegree.py:61:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\lbsPerDegree.py:65:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\lbsPerDegree.py:67:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\lbsPerDegree.py:104:0: C0301: Line too long (133/100) (line-too-long)
+Temp Calibration And Other Analysis\lbsPerDegree.py:1:0: C0103: Module name "lbsPerDegree" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\lbsPerDegree.py:12:0: E0401: Unable to import 't0NumpyAnalysis' (import-error)
+Temp Calibration And Other Analysis\lbsPerDegree.py:12:0: W0401: Wildcard import t0NumpyAnalysis (wildcard-import)
+Temp Calibration And Other Analysis\lbsPerDegree.py:13:0: E0401: Unable to import 'trimCSV' (import-error)
+Temp Calibration And Other Analysis\lbsPerDegree.py:13:0: W0401: Wildcard import trimCSV (wildcard-import)
+Temp Calibration And Other Analysis\lbsPerDegree.py:19:0: C0103: Constant name "start_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\lbsPerDegree.py:20:0: C0103: Constant name "end_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\lbsPerDegree.py:22:0: C0103: Constant name "out_file" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\lbsPerDegree.py:30:13: E1101: Module 'datetime' has no 'strptime' member (no-member)
+Temp Calibration And Other Analysis\lbsPerDegree.py:30:43: E0602: Undefined variable 'input_time_format' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:31:11: E1101: Module 'datetime' has no 'strptime' member (no-member)
+Temp Calibration And Other Analysis\lbsPerDegree.py:31:39: E0602: Undefined variable 'input_time_format' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:38:5: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Temp Calibration And Other Analysis\lbsPerDegree.py:56:8: E0602: Undefined variable 'trim' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:58:32: E0602: Undefined variable 'import_data' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:64:36: E0602: Undefined variable 'filter_and_match' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:69:55: E0602: Undefined variable 'WEIGHT_ON_SCALE' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:71:55: E0602: Undefined variable 'find_best_r_t0' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:72:39: E0602: Undefined variable 'r_min' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:72:46: E0602: Undefined variable 'r_max' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:72:53: E0602: Undefined variable 'r_step' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:72:61: E0602: Undefined variable 't0_min' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:72:69: E0602: Undefined variable 't0_max' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:72:77: E0602: Undefined variable 't0_step' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:75:69: E0602: Undefined variable 'correct_readings' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:78:37: E0602: Undefined variable 'correct_readings' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:85:29: E0602: Undefined variable 'run_temp_estimation' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:86:19: E0602: Undefined variable 'fit_correction' (undefined-variable)
+Temp Calibration And Other Analysis\lbsPerDegree.py:10:0: C0411: standard import "time" should be placed before third party import "numpy" (wrong-import-order)
+Temp Calibration And Other Analysis\lbsPerDegree.py:15:0: W0611: Unused matplotlib.dates imported as mdates (unused-import)
+************* Module Temp Calibration And Other Analysis.oldVsNew
+Temp Calibration And Other Analysis\oldVsNew.py:52:0: C0301: Line too long (102/100) (line-too-long)
+Temp Calibration And Other Analysis\oldVsNew.py:58:0: C0301: Line too long (122/100) (line-too-long)
+Temp Calibration And Other Analysis\oldVsNew.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\oldVsNew.py:1:0: C0103: Module name "oldVsNew" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\oldVsNew.py:8:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module Temp Calibration And Other Analysis.packetRecieveAnalysis
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:99:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:102:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:119:0: C0304: Final newline missing (missing-final-newline)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:1:0: C0103: Module name "packetRecieveAnalysis" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:7:0: E0401: Unable to import 'trimCSV' (import-error)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:7:0: W0401: Wildcard import trimCSV (wildcard-import)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:15:0: C0103: Constant name "start_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:16:0: C0103: Constant name "end_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:18:0: C0103: Constant name "out_file" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:27:4: W0621: Redefining name 'scale_data' from outer scope (line 96) (redefined-outer-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:28:4: W0621: Redefining name 'temp_data' from outer scope (line 96) (redefined-outer-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:33:21: W0621: Redefining name 'scale_data' from outer scope (line 96) (redefined-outer-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:33:33: W0621: Redefining name 'temp_data' from outer scope (line 96) (redefined-outer-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:69:13: E1101: Module 'datetime' has no 'strptime' member (no-member)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:69:43: E0602: Undefined variable 'input_time_format' (undefined-variable)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:70:11: E1101: Module 'datetime' has no 'strptime' member (no-member)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:70:39: E0602: Undefined variable 'input_time_format' (undefined-variable)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:77:5: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:78:13: E0602: Undefined variable 'csv' (undefined-variable)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:94:8: E0602: Undefined variable 'trim' (undefined-variable)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:107:12: C0103: Constant name "num_after_match" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\packetRecieveAnalysis.py:4:0: W0611: Unused matplotlib.pyplot imported as plt (unused-import)
+************* Module Temp Calibration And Other Analysis.plotAutoData
+Temp Calibration And Other Analysis\plotAutoData.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\plotAutoData.py:1:0: C0103: Module name "plotAutoData" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\plotAutoData.py:5:5: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Temp Calibration And Other Analysis\plotAutoData.py:3:0: W0611: Unused numpy imported as np (unused-import)
+************* Module Temp Calibration And Other Analysis.simpleNumpyAnalysis
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:1:0: C0103: Module name "simpleNumpyAnalysis" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:24:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:49:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:49:24: W0621: Redefining name 'scale_data' from outer scope (line 15) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:49:36: W0621: Redefining name 'temp_data' from outer scope (line 16) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:54:8: W0621: Redefining name 'i' from outer scope (line 117) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:49:24: W0613: Unused argument 'scale_data' (unused-argument)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:63:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:63:19: W0621: Redefining name 'temp_data' from outer scope (line 16) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:63:30: W0621: Redefining name 'scale_vals' from outer scope (line 41) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:64:4: W0621: Redefining name 'coef' from outer scope (line 125) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:68:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:68:30: W0621: Redefining name 'scale_data' from outer scope (line 15) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:69:4: W0621: Redefining name 'scale_vals' from outer scope (line 41) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:70:4: W0621: Redefining name 'coef' from outer scope (line 125) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:73:4: W0621: Redefining name 'avg_cal_val' from outer scope (line 129) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:74:4: W0621: Redefining name 'lbs_reading' from outer scope (line 130) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:76:4: W0621: Redefining name 'corrected_scale' from outer scope (line 132) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:78:4: W0621: Redefining name 'lbs_reading_corrected' from outer scope (line 134) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:74:4: W0612: Unused variable 'lbs_reading' (unused-variable)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:85:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:86:15: W0621: Redefining name 'scale_vals' from outer scope (line 41) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:86:27: W0621: Redefining name 'lbs_reading' from outer scope (line 130) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:86:40: W0621: Redefining name 'lbs_reading_corrected' from outer scope (line 134) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:86:63: W0621: Redefining name 'coef' from outer scope (line 125) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:102:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:102:21: W0621: Redefining name 'scale_data' from outer scope (line 15) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:102:33: W0621: Redefining name 'temp_data' from outer scope (line 16) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:103:4: W0621: Redefining name 'r_vals' from outer scope (line 114) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:104:4: W0621: Redefining name 'estimates' from outer scope (line 114) (redefined-outer-name)
+Temp Calibration And Other Analysis\simpleNumpyAnalysis.py:105:8: W0621: Redefining name 'i' from outer scope (line 117) (redefined-outer-name)
+************* Module Temp Calibration And Other Analysis.t0NumpyAnalysis
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:155:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:201:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:204:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:230:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:231:0: C0304: Final newline missing (missing-final-newline)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:1:0: C0103: Module name "t0NumpyAnalysis" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:21:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:25:4: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:26:4: W0621: Redefining name 'temp_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:31:21: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:31:33: W0621: Redefining name 'temp_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:46:8: W0621: Redefining name 'scores' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:66:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:66:24: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:66:36: W0621: Redefining name 'temp_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:66:24: W0613: Unused argument 'scale_data' (unused-argument)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:80:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:80:19: W0621: Redefining name 'temp_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:80:30: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:81:4: W0621: Redefining name 'coef' from outer scope (line 216) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:85:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:85:19: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:87:4: W0621: Redefining name 'coef' from outer scope (line 216) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:90:4: W0621: Redefining name 'avg_cal_val' from outer scope (line 202) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:91:4: W0621: Redefining name 'lbs_reading' from outer scope (line 210) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:95:4: W0621: Redefining name 'lbs_reading_corrected' from outer scope (line 210) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:91:4: W0612: Unused variable 'lbs_reading' (unused-variable)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:0: R0913: Too many arguments (8/5) (too-many-arguments)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:0: R0917: Too many positional arguments (8/5) (too-many-positional-arguments)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:18: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:30: W0621: Redefining name 'temp_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:41: W0621: Redefining name 'r_min' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:48: W0621: Redefining name 'r_max' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:55: W0621: Redefining name 'r_step' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:63: W0621: Redefining name 't0_min' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:71: W0621: Redefining name 't0_max' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:102:79: W0621: Redefining name 't0_step' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:103:4: W0621: Redefining name 'r_vals' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:104:4: W0621: Redefining name 't0_vals' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:114:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:114:0: R0913: Too many arguments (8/5) (too-many-arguments)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:114:0: R0917: Too many positional arguments (8/5) (too-many-positional-arguments)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:114:0: R0914: Too many local variables (19/15) (too-many-locals)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:4: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:16: W0621: Redefining name 'temp_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:27: W0621: Redefining name 'r_min' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:34: W0621: Redefining name 'r_max' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:41: W0621: Redefining name 'r_step' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:49: W0621: Redefining name 't0_min' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:57: W0621: Redefining name 't0_max' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:115:65: W0621: Redefining name 't0_step' from outer scope (line 14) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:117:4: W0621: Redefining name 'r_vals' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:117:12: W0621: Redefining name 't0_vals' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:121:4: W0621: Redefining name 'scores' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:129:4: W0621: Redefining name 'best_r' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:130:4: W0621: Redefining name 'best_t0' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:135:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:135:21: W0621: Redefining name 'scale_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:135:33: W0621: Redefining name 'temp_data' from outer scope (line 197) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:135:44: W0621: Redefining name 'best_r' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:135:52: W0621: Redefining name 'best_t0' from outer scope (line 206) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:136:4: W0621: Redefining name 'best_estimates' from outer scope (line 215) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:137:4: W0621: Redefining name 'coef' from outer scope (line 216) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:139:4: W0621: Redefining name 'avg_cal_val' from outer scope (line 202) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:140:4: W0621: Redefining name 'lbs_reading' from outer scope (line 210) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:144:4: W0621: Redefining name 'lbs_reading_corrected' from outer scope (line 210) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:149:4: W0621: Redefining name 'lbs_reading_simple' from outer scope (line 210) (redefined-outer-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:153:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:154:4: C0103: Variable name "Y" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:154:7: C0103: Variable name "X" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:154:23: E0606: Possibly using variable 't0_vals' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:154:32: E0606: Possibly using variable 'r_vals' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:161:14: E0606: Possibly using variable 'scores' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:161:27: E1101: Module 'matplotlib.cm' has no 'coolwarm' member (no-member)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:168:16: E0606: Possibly using variable 'temp_data' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:168:35: E0606: Possibly using variable 'scale_data' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:169:16: E0606: Possibly using variable 'best_estimates' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:170:32: E0606: Possibly using variable 'coef' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:179:33: E0606: Possibly using variable 'lbs_reading' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:181:28: E0606: Possibly using variable 'lbs_reading_corrected' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:184:28: E0606: Possibly using variable 'lbs_reading_simple' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:186:33: E0606: Possibly using variable 'lbs_reading_t0_0' before assignment (possibly-used-before-assignment)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:159:4: W0612: Unused variable 'fig' (unused-variable)
+Temp Calibration And Other Analysis\t0NumpyAnalysis.py:160:4: W0612: Unused variable 'surf' (unused-variable)
+************* Module Temp Calibration And Other Analysis.tempVsThermo
+Temp Calibration And Other Analysis\tempVsThermo.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\tempVsThermo.py:1:0: C0103: Module name "tempVsThermo" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\tempVsThermo.py:10:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\tempVsThermo.py:15:4: W0621: Redefining name 'temp_data' from outer scope (line 55) (redefined-outer-name)
+Temp Calibration And Other Analysis\tempVsThermo.py:20:33: W0621: Redefining name 'temp_data' from outer scope (line 55) (redefined-outer-name)
+Temp Calibration And Other Analysis\tempVsThermo.py:3:0: W0611: Unused cm imported from matplotlib (unused-import)
+Temp Calibration And Other Analysis\tempVsThermo.py:4:0: W0611: Unused interp1d imported from scipy.interpolate (unused-import)
+************* Module Temp Calibration And Other Analysis.trimCSV
+Temp Calibration And Other Analysis\trimCSV.py:34:0: C0303: Trailing whitespace (trailing-whitespace)
+Temp Calibration And Other Analysis\trimCSV.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\trimCSV.py:1:0: C0103: Module name "trimCSV" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\trimCSV.py:4:0: C0103: Constant name "input_time_format" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\trimCSV.py:5:0: C0103: Constant name "time_format" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\trimCSV.py:7:0: C0103: Constant name "start_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\trimCSV.py:8:0: C0103: Constant name "end_time" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\trimCSV.py:14:0: C0116: Missing function or method docstring (missing-function-docstring)
+Temp Calibration And Other Analysis\trimCSV.py:14:9: W0621: Redefining name 'start_time' from outer scope (line 7) (redefined-outer-name)
+Temp Calibration And Other Analysis\trimCSV.py:14:21: W0621: Redefining name 'end_time' from outer scope (line 8) (redefined-outer-name)
+Temp Calibration And Other Analysis\trimCSV.py:22:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Temp Calibration And Other Analysis\trimCSV.py:23:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+************* Module Temp Calibration And Other Analysis.viewFirstLines
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: C0103: Module name "viewFirstLines" doesn't conform to snake_case naming style (invalid-name)
+Temp Calibration And Other Analysis\viewFirstLines.py:4:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+Temp Calibration And Other Analysis\viewFirstLines.py:6:8: C0103: Constant name "line_count" doesn't conform to UPPER_CASE naming style (invalid-name)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Outside Box.main code.main:[62:165]
+==Outside Box.no MAX17048.main:[62:165]
+print("calibrate scale, remove weights")
+scale.channel = 1
+scale.calibrate("INTERNAL")
+scale.calibrate("OFFSET")
+
+scale_avg = RunningAverage()
+
+sens_good.on()
+
+# LoRa
+print("init lora")
+spi = board.SPI()
+rfm_cs = digitalio.DigitalInOut(board.D6)
+rfm_reset = digitalio.DigitalInOut(board.D9)
+
+lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
+lora.tx_power = 23
+lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1
+    print("low datarate on")
+else:
+    lora.low_datarate_optimize = 0
+    print("low datarate off")
+
+lora.xmit_timeout = 10
+
+lora_good.on()
+
+# --- end peripherals ---
+
+
+def c_to_f(deg):
+    """
+    Convert degrees Celsius to Fahrenheit.
+    """
+
+    return (deg * (9 / 5)) + 32
+
+
+def send(msg):
+    """
+    Send a message via LoRa.
+
+    Doesn't do anything fancy. Just sets the NeoPixel and prints to shell for debug.
+    """
+    lora_tx.on()
+    time.sleep(0.1)
+    print(f"Sending <{msg}>")
+    lora.send(msg)
+    lora_tx.off()
+
+
+def send_w_ack(msg, timeout=2, max_fails=3):
+    """
+    Try to send a message with ack via LoRa. Wants the message back as ack.
+
+    Returns a boolean of whether or not the transmission succeeded.
+
+    Max timeout can be calculated as (timeout + 2) * max_fails.
+
+    Default timeout 12 sec. (3 fails @ 4 secs per fail).
+    """
+
+    ack = ""
+    fails = 0
+    while fails < max_fails:
+        time.sleep(0.1)
+        send(msg)
+        lora_rx.on()
+        print("waiting for ack")
+        ack = lora.receive(timeout=timeout)
+        lora_rx.off()
+        if ack == msg:
+            print("good ack")
+            return True
+
+        fails = fails + 1
+
+        print(f"bad ack or got nothing: <{ack}>")
+        print(f"fails: {fails}")
+        print()
+        # alert user and retry
+        lora_rx.blink(2)
+
+    print("transmit failed, reached max fails with no good ack")
+    print()
+
+    lora_tx.blink(2)
+    return False
+
+
+def send_data():
+    """
+    Send the sensor data. Waits until the main box is ready.
+
+    Updates last_good_tx if transmit good.
+
+    Returns last_good_tx.
+    If tx is bad, returns 0.
+    """ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest3:[27:92]
+==Inside Display.display tests.displayTest4:[27:92]
+displayio.release_displays()
+
+# Define the pins needed for display use
+
+spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16)
+epd_cs = board.GP12
+epd_dc = board.GP13
+# Create the displayio connection to the display pins
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000,
+)
+
+g = displayio.Group()
+
+# Set everything white
+white_bitmap = displayio.Bitmap(display.width, display.height, 1)
+
+# Create a two color palette
+white = displayio.Palette(1)
+white[0] = 0xFFFFFF
+white_tilegrid = displayio.TileGrid(white_bitmap, pixel_shader=white)
+
+# Add the TileGrid to the Group
+g.append(white_tilegrid)
+
+roundrect = RoundRect(5, 5, 80, 20, 4, fill=0xFFFFFF, outline=0x000000, stroke=2)
+g.append(roundrect)
+
+roundrect2 = RoundRect(95, 5, 70, 20, 4, fill=0xFFFFFF, outline=0x000000, stroke=2)
+g.append(roundrect2)
+
+text = "Data Good"
+font = terminalio.FONT
+color = 0x000000
+
+# Create the text label
+text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
+
+# Set the location
+text_area.x = 20
+text_area.y = 15
+
+g.append(text_area)
+
+text = "Batt 76%"
+font = terminalio.FONT
+color = 0x000000
+
+# Create the text label
+text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
+
+# Set the location
+text_area.x = 105
+text_area.y = 15
+
+g.append(text_area)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest3:[35:92]
+==Inside Display.display tests.displayTest5:[36:93]
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000,
+)
+
+g = displayio.Group()
+
+# Set everything white
+white_bitmap = displayio.Bitmap(display.width, display.height, 1)
+
+# Create a two color palette
+white = displayio.Palette(1)
+white[0] = 0xFFFFFF
+white_tilegrid = displayio.TileGrid(white_bitmap, pixel_shader=white)
+
+# Add the TileGrid to the Group
+g.append(white_tilegrid)
+
+roundrect = RoundRect(5, 5, 80, 20, 4, fill=0xFFFFFF, outline=0x000000, stroke=2)
+g.append(roundrect)
+
+roundrect2 = RoundRect(95, 5, 70, 20, 4, fill=0xFFFFFF, outline=0x000000, stroke=2)
+g.append(roundrect2)
+
+text = "Data Good"
+font = terminalio.FONT
+color = 0x000000
+
+# Create the text label
+text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
+
+# Set the location
+text_area.x = 20
+text_area.y = 15
+
+g.append(text_area)
+
+text = "Batt 76%"
+font = terminalio.FONT
+color = 0x000000
+
+# Create the text label
+text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
+
+# Set the location
+text_area.x = 105
+text_area.y = 15
+
+g.append(text_area)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.libs needed.helpers:[4:60]
+==Outside Box.main code.helpers:[4:60]
+class RunningAverage:
+    def __init__(self, avg=0, nvalues=0):
+        self._avg = avg
+        self._nvalues = nvalues
+
+    def __str__(self):
+        return str(self.avg)
+
+    def __repr__(self):
+        return f"RunningAverage(avg={self._avg}, nvalues={self._nvalues})"
+
+    def update(self, value):
+        self._avg = self._avg + ((value - self._avg) / (self._nvalues + 1))
+        self._nvalues = self._nvalues + 1
+
+    @property
+    def avg(self):
+        return self._avg
+
+    def reset(self, avg=0):
+        self._avg = avg
+        self._nvalues = 0
+
+
+class StatusLED:
+    def __init__(self, pin, active_low=True):
+        self._pin = pin
+        self._active_low = active_low
+
+        self._io = digitalio.DigitalInOut(pin)
+        self._io.direction = digitalio.Direction.OUTPUT
+        self._io.value = int(active_low)
+
+    def __str__(self):
+        return f"Status LED Pin {self._pin}"
+
+    def __repr__(self):
+        return f"StatusLED({self._pin}, active_low={self_active_low})"
+
+    def on(self):
+        self._io.value = int(not self._active_low)
+
+    def off(self):
+        self._io.value = int(self._active_low)
+
+    def toggle(self):
+        self._io.value = 1 - self._io.value
+
+    def blink(self, num, delay=0.5, initial_delay=0.5):
+        self.off()
+        time.sleep(initial_delay)
+        for _ in range(num):
+            self.on()
+            time.sleep(delay)
+            self.off()
+            time.sleep(delay) (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.deltaTimeGraph:[4:51]
+==Temp Calibration And Other Analysis.oldVsNew:[4:51]
+BAD_TIMING_THRESHOLD = 10  # seconds
+
+
+def import_data(scale_file, temp_file):
+
+    dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
+
+    scale_data = np.genfromtxt(scale_file, delimiter=",", dtype=dtypes)
+    temp_data = np.genfromtxt(temp_file, delimiter=",", dtype=dtypes)
+
+    return scale_data, temp_data
+
+
+def filter_and_match(scale_data, temp_data):
+    """
+    Remove outliers with a median filter.
+    Matches timestamps to the accuracy above.
+    """
+    filtered_data = np.empty_like(scale_data)
+    filtered_data["vals"] = medfilt(scale_data["vals"], kernel_size=7)
+    filtered_data["dates"] = scale_data["dates"]
+
+    scale_data = filtered_data
+
+    match_indexes = np.zeros(len(scale_data))
+    match_scores = np.zeros(len(scale_data))
+
+    for scale_ind in range(len(scale_data)):
+        scores = np.zeros(len(temp_data))
+        for temp_ind in range(len(temp_data)):
+            scores[temp_ind] = np.abs(
+                (scale_data["dates"][scale_ind] - temp_data["dates"][temp_ind])
+                / np.timedelta64(1, "s")
+            )
+
+        match_indexes[scale_ind] = np.argmin(scores)
+        match_scores[scale_ind] = np.min(scores)
+
+    match_indexes = match_indexes[match_scores < BAD_TIMING_THRESHOLD]
+
+    match_indexes = match_indexes[match_indexes < min(len(temp_data), len(scale_data))]
+
+    scale_data = scale_data[match_indexes.astype(np.int64)]
+    temp_data = temp_data[match_indexes.astype(np.int64)]
+
+    return scale_data, temp_data
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.deltaTimeGraph:[9:51]
+==Temp Calibration And Other Analysis.packetRecieveAnalysis:[24:68]
+    dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
+
+    scale_data = np.genfromtxt(scale_file, delimiter=",", dtype=dtypes)
+    temp_data = np.genfromtxt(temp_file, delimiter=",", dtype=dtypes)
+
+    return scale_data, temp_data
+
+
+def filter_and_match(scale_data, temp_data):
+    """
+    Remove outliers with a median filter.
+    Matches timestamps to the accuracy above.
+    """
+    filtered_data = np.empty_like(scale_data)
+    filtered_data["vals"] = medfilt(scale_data["vals"], kernel_size=7)
+    filtered_data["dates"] = scale_data["dates"]
+
+    scale_data = filtered_data
+
+    match_indexes = np.zeros(len(scale_data))
+    match_scores = np.zeros(len(scale_data))
+
+    for scale_ind in range(len(scale_data)):
+        scores = np.zeros(len(temp_data))
+        for temp_ind in range(len(temp_data)):
+            scores[temp_ind] = np.abs(
+                (scale_data["dates"][scale_ind] - temp_data["dates"][temp_ind])
+                / np.timedelta64(1, "s")
+            )
+
+        match_indexes[scale_ind] = np.argmin(scores)
+        match_scores[scale_ind] = np.min(scores)
+
+    match_indexes = match_indexes[match_scores < BAD_TIMING_THRESHOLD]
+
+    match_indexes = match_indexes[match_indexes < min(len(temp_data), len(scale_data))]
+
+    scale_data = scale_data[match_indexes.astype(np.int64)]
+    temp_data = temp_data[match_indexes.astype(np.int64)]
+
+    return scale_data, temp_data
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[79:103]
+==Temp Calibration And Other Analysis.lbsPerDegree:[70:94]
+            r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
+                scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
+            )
+
+            lbs_reading, lbs_reading_corrected, lbs_reading_simple = correct_readings(
+                scale_data, temp_data, best_r, best_t0
+            )
+            _, lbs_reading_t0_0, _ = correct_readings(scale_data, temp_data, best_r, 0)
+
+            raw_ptp = np.ptp(lbs_reading)
+            corr_ptp = np.ptp(lbs_reading_corrected)
+            simple_ptp = np.ptp(lbs_reading_simple)
+            t0_0_ptp = np.ptp(lbs_reading_t0_0)
+
+            best_estimates = run_temp_estimation(scale_data, temp_data, best_r, best_t0)
+            coef = fit_correction(best_estimates, scale_data)
+
+            writer.writerow(
+                [
+                    str(start_time)[:10],
+                    str(end_time)[:10],
+                    "temp",
+                    best_r,
+                    best_t0, (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.deltaTimeGraph:[24:51]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[37:66]
+    filtered_data["dates"] = scale_data["dates"]
+
+    scale_data = filtered_data
+
+    match_indexes = np.zeros(len(scale_data))
+    match_scores = np.zeros(len(scale_data))
+
+    for scale_ind in range(len(scale_data)):
+        scores = np.zeros(len(temp_data))
+        for temp_ind in range(len(temp_data)):
+            scores[temp_ind] = np.abs(
+                (scale_data["dates"][scale_ind] - temp_data["dates"][temp_ind])
+                / np.timedelta64(1, "s")
+            )
+
+        match_indexes[scale_ind] = np.argmin(scores)
+        match_scores[scale_ind] = np.min(scores)
+
+    match_indexes = match_indexes[match_scores < BAD_TIMING_THRESHOLD]
+
+    match_indexes = match_indexes[match_indexes < min(len(temp_data), len(scale_data))]
+
+    scale_data = scale_data[match_indexes.astype(np.int64)]
+    temp_data = temp_data[match_indexes.astype(np.int64)]
+
+    return scale_data, temp_data
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.libs needed.helpers:[4:41]
+==Outside Box.no MAX17048.helpers:[4:41]
+class RunningAverage:
+    def __init__(self, avg=0, nvalues=0):
+        self._avg = avg
+        self._nvalues = nvalues
+
+    def __str__(self):
+        return str(self.avg)
+
+    def __repr__(self):
+        return f"RunningAverage(avg={self._avg}, nvalues={self._nvalues})"
+
+    def update(self, value):
+        self._avg = self._avg + ((value - self._avg) / (self._nvalues + 1))
+        self._nvalues = self._nvalues + 1
+
+    @property
+    def avg(self):
+        return self._avg
+
+    def reset(self, avg=0):
+        self._avg = avg
+        self._nvalues = 0
+
+
+class StatusLED:
+    def __init__(self, pin, active_low=True):
+        self._pin = pin
+        self._active_low = active_low
+
+        self._io = digitalio.DigitalInOut(pin)
+        self._io.direction = digitalio.Direction.OUTPUT
+        self._io.value = int(active_low)
+
+    def __str__(self):
+        return f"Status LED Pin {self._pin}"
+
+    def __repr__(self): (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Outside Box.main code.main:[72:101]
+==Range Tests.outside:[22:43]
+print("init lora")
+spi = board.SPI()
+rfm_cs = digitalio.DigitalInOut(board.D6)
+rfm_reset = digitalio.DigitalInOut(board.D9)
+
+lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
+lora.tx_power = 23
+lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1
+    print("low datarate on")
+else:
+    lora.low_datarate_optimize = 0
+    print("low datarate off")
+
+lora.xmit_timeout = 10
+
+lora_good.on()
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[29:48]
+==Temp Calibration And Other Analysis.lbsPerDegree:[27:46]
+processing_start = time.time()
+
+start_time = datetime.strptime(start_time, input_time_format)
+end_time = datetime.strptime(end_time, input_time_format)
+
+date_range = np.arange(start_time, end_time, dtype="datetime64[D]")
+date_range = np.append(date_range, np.datetime64(end_time, "D")).astype("datetime64[s]")
+
+date_pairs = list(zip(date_range, date_range[DAYS_PER_SIM:]))
+
+with open(out_file, "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(
+        [
+            "start date",
+            "end date",
+            "data source",
+            "R",
+            "t0", (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Outside Box.main code.main:[12:57]
+==Outside Box.no MAX17048.main:[12:62]
+DATA_SEND_INTERVAL = 120  # seconds, update every 5 minutes
+AVERAGE_UPDATE_INTERVAL = 10  # seconds
+LORA_FREQ = 915.0
+
+# --- END USER INPUT ---
+
+print("Bee Box Monitor")
+
+# Import Libraries
+print("import libraries")
+import time
+
+import board
+import busio
+import digitalio
+
+from adafruit_rfm9x import RFM9x
+from cedargrove_nau7802 import NAU7802
+from adafruit_htu21d import HTU21D
+from adafruit_max1704x import MAX17048
+from adafruit_mcp9600 import MCP9600
+
+from helpers import RunningAverage, StatusLED
+
+# --- Set up peripherals ---
+
+# status leds
+# fmt: off
+batt_low   = StatusLED(board.A0)
+sens_good  = StatusLED(board.A1)
+lora_good  = StatusLED(board.A2)
+lora_tx    = StatusLED(board.A3)
+lora_rx    = StatusLED(board.D24)
+# fmt: on
+
+# start setup
+
+print("init sensors")
+sens_good.off()
+i2c = board.STEMMA_I2C()
+
+# sensors
+
+scale = NAU7802(i2c)
+temp = HTU21D(i2c) (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest2:[71:99]
+==Inside Display.display tests.displayTest3:[64:92]
+g.append(roundrect2)
+
+text = "Data Good"
+font = terminalio.FONT
+color = 0x000000
+
+# Create the text label
+text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
+
+# Set the location
+text_area.x = 20
+text_area.y = 15
+
+g.append(text_area)
+
+text = "Batt 76%"
+font = terminalio.FONT
+color = 0x000000
+
+# Create the text label
+text_area = label.Label(font, text=text, color=color, background_color=0xFFFFFF)
+
+# Set the location
+text_area.x = 105
+text_area.y = 15
+
+g.append(text_area)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest3:[27:50]
+==Inside Display.display tests.displayTest:[22:49]
+displayio.release_displays()
+
+# Define the pins needed for display use
+
+spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16)
+epd_cs = board.GP12
+epd_dc = board.GP13
+# Create the displayio connection to the display pins
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000,
+)
+
+g = displayio.Group()
+
+# Set everything white (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Outside Box.main code.main:[166:186]
+==Outside Box.no MAX17048.main:[165:185]
+    last_good_tx = 0
+
+    for i in range(3):  # wait for inside ready
+        good_hail = send_w_ack("data ready")
+        if good_hail:  # inside ready
+            print("good hail")
+            break
+
+        print(f"failed hails: {i+1}")
+        time.sleep(10)  # wait and retry
+
+    if not good_hail:  # couldn't hail inside, flash led and exit
+        print("couldn't hail inside box, retrying")
+        lora_rx.blink(4)
+        return last_good_tx
+
+    # if here, got inside box
+
+    # so send data
+    good_sends = [] (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[224:239]
+==Inside Display.only aio transmit.main:[205:227]
+            io.send_data(feed_key, float(v))
+            if k == "Battery %":
+                batt_percent = float(v)
+            if k == "Batt Chg Rate":
+                chg_rate = float(v)
+
+    if chg_rate > 0:
+        ttd = (100 - batt_percent) / chg_rate
+    elif chg_rate == 0:
+        ttd = 0
+    else:
+        ttd = batt_percent / chg_rate
+
+    logger.debug(f"Sending data {ttd} to feed hm-ttd")
+    io.send_data(ttd_feed["key"], ttd) (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest:[22:46]
+==Inside Display.display tests.displayTestMemoryProblem:[29:49]
+displayio.release_displays()
+
+# Define the pins needed for display use
+# This pinout is for a Feather M4 and may be different for other boards
+spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16)
+epd_cs = board.GP12
+epd_dc = board.GP13
+
+
+# Create the displayio connection to the display pins
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000,
+)
+
+
+# Create a display group for our screen objects (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[71:88]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[198:214]
+    print('filtering and matching')
+    scale_data, temp_data = filter_and_match(scale_data, temp_data)
+
+    avg_cal_val = np.mean(scale_data["vals"])
+    scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
+
+    print('finding best r, t0')
+    r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
+        scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
+    )
+
+    lbs_reading, lbs_reading_corrected, lbs_reading_simple = correct_readings(
+        scale_data, temp_data, best_r, best_t0
+    )
+    _, lbs_reading_t0_0, _ = correct_readings(scale_data, temp_data, best_r, 0)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[58:74]
+==Temp Calibration And Other Analysis.lbsPerDegree:[49:65]
+        ]
+    )
+
+    for start_time, end_time in date_pairs:
+        print(f"Running with {str(start_time)[:10]} to {str(end_time)[:10]} temp")
+
+        trim(start_time, end_time)
+
+        scale_data, temp_data = import_data(
+            r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
+        )
+
+        if (scale_data.size > 10) and (temp_data.size > 10):
+            print('filtering and matching')
+            scale_data, temp_data = filter_and_match(scale_data, temp_data)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Outside Box.main code.main:[220:235]
+==Outside Box.no MAX17048.main:[205:220]
+last_good_tx = time.time() - DATA_SEND_INTERVAL
+
+while True:
+    # update scale avg
+    sens_good.blink(1)
+    sens_good.on()
+
+    scale_val = scale.read()
+    if scale_val > -500000:  # only update if reasonable
+        print(f"update average: {scale_val}")
+        scale_avg.update(scale_val)
+        print(f"new avg: {scale_avg.avg}")
+    else:
+        print(f"unreasonable reading: {scale_val}")
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.only aio transmit.main:[75:91]
+==Outside Box.main code.main:[77:91]
+lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
+lora.tx_power = 23
+lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1
+    print("low datarate on")
+else:
+    lora.low_datarate_optimize = 0
+    print("low datarate off")
+
+lora.xmit_timeout = 10
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest:[27:46]
+==Inside Display.main code.main:[71:89]
+epd_cs = board.GP12
+epd_dc = board.GP13
+
+
+# Create the displayio connection to the display pins
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000,
+)
+
+
+# Create a display group for our screen objects (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.libs needed.helpers:[44:60]
+==Outside Box.no MAX17048.helpers:[44:60]
+        self._io.value = int(not self._active_low)
+
+    def off(self):
+        self._io.value = int(self._active_low)
+
+    def toggle(self):
+        self._io.value = 1 - self._io.value
+
+    def blink(self, num, delay=0.5, initial_delay=0.5):
+        self.off()
+        time.sleep(initial_delay)
+        for _ in range(num):
+            self.on()
+            time.sleep(delay)
+            self.off()
+            time.sleep(delay) (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.only aio transmit.main:[76:91]
+==Range Tests.inside:[37:50]
+lora.tx_power = 23
+lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1
+    print("low datarate on")
+else:
+    lora.low_datarate_optimize = 0
+    print("low datarate off")
+
+lora.xmit_timeout = 10
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest5:[36:51]
+==Inside Display.display tests.displayTest:[32:49]
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000,
+)
+
+g = displayio.Group()
+
+# Set everything white (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[57:70]
+==Temp Calibration And Other Analysis.packetRecieveAnalysis:[86:99]
+            "percentage correct after match",
+        ]
+    )
+
+    for start_time, end_time in date_pairs:
+        print(f"Running with {str(start_time)[:10]} to {str(end_time)[:10]} temp")
+
+        trim(start_time, end_time)
+
+        scale_data, temp_data = import_data(
+            r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
+        )
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Outside Box.main code.main:[193:212]
+==Outside Box.no MAX17048.main:[190:205]
+    send_w_ack("data done")
+
+    if all(
+        good_sends
+    ):  # if all sends were good, update last_good_tx and reset scale avg
+        scale_avg.reset()
+        last_good_tx = time.time()
+    else:  # missed a send
+        lora_tx.blink(4)
+
+    return last_good_tx
+
+
+def update_batt_light(threshold=20):
+    """
+    Update the battery LOW light.
+    Default threshold 20%.
+    """
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[159:171]
+==Inside Display.only aio transmit.main:[127:137]
+feed_keys = {
+    "Battery %": batt_feed,  # for decoding when we rx data
+    "Scale RAW": scale_feed,
+    "Temp F": temp_feed,
+    "Humidity": hum_feed,
+    "Batt Chg Rate": chg_feed,
+    "CPU T F": cpu_feed,
+    "Thermo T F": therm_feed,
+}
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.crashTestDummy:[17:35]
+==Inside Display.only aio transmit.crashTestDummy:[4:22]
+    with open(filename, "w") as f:
+        json.dump(data, f)
+
+
+def crash_recovery(filename="/sd/reload.json"):
+    try:
+        with open(filename, "r") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return []
+
+
+# Example usage
+# Save the data
+handle_crash({"data": ["Test: 1", "Test: 2"], "last_tx": "12:30 PM"})
+
+# Reload the data
+reloaded_data = crash_recovery() (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest5:[36:48]
+==Inside Display.display tests.displayTestMemoryProblem:[37:49]
+display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, baudrate=1000000)
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000,
+)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.simpleNumpyAnalysis:[50:63]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[67:80]
+    state_estimates = np.zeros(len(temp_data))
+    state_estimates[0] = scale_temp
+
+    for i, air_temp in enumerate(temp_data["vals"]):
+        t_diff = air_temp - scale_temp
+        delta_temp = r * t_diff
+        scale_temp += delta_temp
+        state_estimates[i] = scale_temp
+
+    return state_estimates
+
+
+def fit_correction(temp_data, scale_data): (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.lbsPerDegree:[49:61]
+==Temp Calibration And Other Analysis.packetRecieveAnalysis:[87:99]
+        ]
+    )
+
+    for start_time, end_time in date_pairs:
+        print(f"Running with {str(start_time)[:10]} to {str(end_time)[:10]} temp")
+
+        trim(start_time, end_time)
+
+        scale_data, temp_data = import_data(
+            r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
+        )
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[162:173]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[198:209]
+    print('filtering and matching')
+    scale_data, temp_data = filter_and_match(scale_data, temp_data)
+
+    avg_cal_val = np.mean(scale_data["vals"])
+    scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
+
+    print('finding best r, t0')
+    r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
+        scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
+    )
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[147:156]
+==Inside Display.only aio transmit.main:[118:127]
+scale_feed = get_feed("hm-scale")
+batt_feed = get_feed("hm-batt")
+temp_feed = get_feed("hm-temp")
+hum_feed = get_feed("hm-humid")
+chg_feed = get_feed("hm-chg-rate")
+ttd_feed = get_feed("hm-time-to-discharge")
+cpu_feed = get_feed("hm-cpu-temp")
+therm_feed = get_feed("hm-thermo")
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.lbsPerDegree:[70:79]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[205:214]
+    r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
+        scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
+    )
+
+    lbs_reading, lbs_reading_corrected, lbs_reading_simple = correct_readings(
+        scale_data, temp_data, best_r, best_t0
+    )
+    _, lbs_reading_t0_0, _ = correct_readings(scale_data, temp_data, best_r, 0)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[215:223]
+==Inside Display.only aio transmit.main:[197:205]
+    batt_percent = 0
+    chg_rate = 0
+
+    for data in datas:
+        if ": " in data:
+            k, v = data.split(": ")
+            feed_key = feed_keys[k]["key"]
+            logger.debug(f"Sending data {v} to feed {feed_key}") (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[186:194]
+==Inside Display.only aio transmit.main:[160:168]
+        if data:
+            try:
+                data = data.decode()
+            except UnicodeError:
+                logger.warning(f"got bad data: {data}")
+                continue  # throw out this iteration, keep looping
+            logger.debug(f"LoRa decoded: {data}")
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.main code.main:[113:124]
+==Inside Display.only aio transmit.main:[107:120]
+    try:
+        feed = io.get_feed(feed_id)
+    except AdafruitIO_RequestError:
+        # if no feed exists, create one
+        feed = io.create_new_feed(feed_id)
+
+    return feed
+
+
+# grab the feeds
+
+scale_feed = get_feed("hm-scale")
+batt_feed = get_feed("hm-batt") (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.main code.main:[45:56]
+==Inside Display.only aio transmit.main:[54:65]
+aio_un, aio_key = os.getenv("ADAFRUIT_AIO_USERNAME"), os.getenv("ADAFRUIT_AIO_KEY")
+
+pool = socketpool.SocketPool(wifi.radio)
+requests = adafruit_requests.Session(pool, ssl.create_default_context())
+# Initialize an Adafruit IO HTTP API object
+io = IO_HTTP(aio_un, aio_key, requests)
+
+TIME_URL = f"https://io.adafruit.com/api/v2/{aio_un}/integrations/time/strftime?x-aio-key={aio_key}&tz={TIMEZONE}"
+TIME_FORMAT = "&fmt=%25I%3A%25M+%25P"
+TIME_URL += TIME_FORMAT
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest2:[52:67]
+==Inside Display.display tests.displayTest3:[45:60]
+)
+
+g = displayio.Group()
+
+# Set everything white
+white_bitmap = displayio.Bitmap(display.width, display.height, 1)
+
+# Create a two color palette
+white = displayio.Palette(1)
+white[0] = 0xFFFFFF
+white_tilegrid = displayio.TileGrid(white_bitmap, pixel_shader=white)
+
+# Add the TileGrid to the Group
+g.append(white_tilegrid)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest2:[42:51]
+==Inside Display.display tests.displayTest:[33:42]
+time.sleep(1)  # Wait a bit
+
+# Create the display object - the third color is red (0xff0000)
+display = adafruit_uc8151d.UC8151D(
+    display_bus,
+    width=296,
+    height=128,
+    rotation=270,
+    highlight_color=0xFF0000, (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[142:148]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[167:173]
+            plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
+            plt.scatter(best_estimates, scale_data["vals"], label="est temp")
+            plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
+            plt.xlabel('temperature [deg F]')
+            plt.ylabel('reading [lbs]')
+            plt.legend(loc="upper left") (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[39:45]
+==Temp Calibration And Other Analysis.packetRecieveAnalysis:[76:82]
+with open(out_file, "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(
+        [
+            "start date",
+            "end date", (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Outside Box.main code.main:[240:248]
+==Outside Box.no MAX17048.main:[220:229]
+    print(f"time since last tx: {(time.time() - last_good_tx)}")
+    # try to tx data
+    if (time.time() - last_good_tx) > DATA_SEND_INTERVAL:
+        print("attempting data tx")
+        last_good_tx = send_data()
+
+    print("loop wait")
+    time.sleep(AVERAGE_UPDATE_INTERVAL - 1.5)  # subtract light blink time (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[276:286]
+==Inside Display.only aio transmit.main:[259:269]
+        data = lora.receive(timeout=5)
+        if data is not None:
+            try:
+                data = data.decode()
+            except UnicodeError:
+                logger.warning(f"got bad data: {data}")
+                continue  # throw out this iteration, keep looping
+            logger.debug(f"LoRa decoded: {data}")
+
+        if data == "data ready":  # drop everything else and grab latest update (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[187:194]
+==Inside Display.only aio transmit.main:[261:268]
+            try:
+                data = data.decode()
+            except UnicodeError:
+                logger.warning(f"got bad data: {data}")
+                continue  # throw out this iteration, keep looping
+            logger.debug(f"LoRa decoded: {data}")
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[278:285]
+==Inside Display.only aio transmit.main:[161:168]
+            try:
+                data = data.decode()
+            except UnicodeError:
+                logger.warning(f"got bad data: {data}")
+                continue  # throw out this iteration, keep looping
+            logger.debug(f"LoRa decoded: {data}")
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[109:116]
+==Inside Display.only aio transmit.main:[75:82]
+lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ)
+lora.tx_power = 23
+lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1 (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest5:[114:121]
+==Inside Display.display tests.displayTestMemoryProblem:[74:81]
+display.root_group = g
+
+input("Press enter to refresh")
+print("start refresh")
+display.refresh()
+print("refreshed")
+time.sleep(12) (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest2:[54:67]
+==Inside Display.display tests.displayTestMemoryProblem:[51:63]
+g = displayio.Group()
+
+# Set everything white
+white_bitmap = displayio.Bitmap(display.width, display.height, 1)
+
+# Create a two color palette
+white = displayio.Palette(1)
+white[0] = 0xFFFFFF
+white_tilegrid = displayio.TileGrid(white_bitmap, pixel_shader=white)
+
+g.append(white_tilegrid)
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest2:[23:35]
+==Inside Display.display tests.displayTest:[16:32]
+try:
+    from fourwire import FourWire
+except ImportError:
+    from displayio import FourWire
+
+displayio.release_displays()
+
+# Define the pins needed for display use
+
+spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16)
+epd_cs = board.GP12
+epd_dc = board.GP13 (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.deltaTimeGraph:[9:23]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[22:36]
+    dtypes = [("vals", "<f8"), ("dates", "datetime64[s]")]
+
+    scale_data = np.genfromtxt(scale_file, delimiter=",", dtype=dtypes)
+    temp_data = np.genfromtxt(temp_file, delimiter=",", dtype=dtypes)
+
+    return scale_data, temp_data
+
+
+def filter_and_match(scale_data, temp_data):
+    """
+    Remove outliers with a median filter.
+    Matches timestamps to the accuracy above.
+    """
+    filtered_data = np.empty_like(scale_data) (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Temp Calibration And Other Analysis.autoTester:[120:125]
+==Temp Calibration And Other Analysis.t0NumpyAnalysis:[175:180]
+            fig, ax = plt.subplots()
+            ax.xaxis.set_major_locator(hrs)
+            ax.xaxis.set_major_formatter(date_fmt)
+            plt.plot(temp_data["dates"], lbs_reading, "g", label="reading [lbs]")
+            plt.plot( (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[110:116]
+==Range Tests.inside:[37:43]
+lora.tx_power = 23
+lora.spreading_factor = 11
+
+symbolDuration = 1000 / (lora.signal_bandwidth / (1 << lora.spreading_factor))
+if symbolDuration > 16:
+    lora.low_datarate_optimize = 1 (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.main:[177:183]
+==Inside Display.only aio transmit.main:[153:159]
+    logger.info("RXing data")
+    datas = []
+    data = ""
+    rx_time = time.time()
+
+    while (data != "data done") and ((time.time() - rx_time) < TIMEOUT): (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.RP2350 main.airSupportTest:[30:38]
+==Inside Display.main code.main:[113:122]
+    try:
+        feed = io.get_feed(feed_id)
+    except AdafruitIO_RequestError:
+        # if no feed exists, create one
+        feed = io.create_new_feed(feed_id)
+    return feed
+
+ (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.main code.main:[59:68]
+==Inside Display.only aio transmit.main:[68:76]
+displayio.release_displays()
+
+# LoRa
+spi = busio.SPI(board.GP18, board.GP19, board.GP16)
+rfm_cs = digitalio.DigitalInOut(board.GP21)
+rfm_reset = digitalio.DigitalInOut(board.GP20)
+
+lora = RFM9x(spi, rfm_cs, rfm_reset, LORA_FREQ) (duplicate-code)
+Temp Calibration And Other Analysis\viewFirstLines.py:1:0: R0801: Similar lines in 2 files
+==Inside Display.display tests.displayTest3:[107:115]
+==Inside Display.display tests.displayTest4:[102:110]
+display.root_group = g
+
+# Refresh the display to have it actually show the image
+# NOTE: Do not refresh eInk displays sooner than 180 seconds
+input("Press enter to refresh")
+print("start refresh")
+display.refresh()
+print("refreshed") (duplicate-code)
+
+------------------------------------------------------------------
+Your code has been rated at 1.33/10 (previous run: 1.33/10, +0.00)
+

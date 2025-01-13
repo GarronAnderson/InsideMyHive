@@ -49,19 +49,26 @@ def filter_and_match(scale_data, temp_data):
 
     return scale_data, temp_data
 
-old_scale_data, old_temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
+
+old_scale_data, old_temp_data = import_data(
+    r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
+)
 old_scale_data, old_temp_data = filter_and_match(old_scale_data, old_temp_data)
 
-#scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
-#scale_data, temp_data = filter_and_match(scale_data, temp_data)
+# scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
+# scale_data, temp_data = filter_and_match(scale_data, temp_data)
 
-thermo_scale_data, thermo_temp_data = import_data(r"Data\hm-thermo-scale-trimmed.csv", r"Data\hm-thermo-temp-trimmed.csv")
-thermo_scale_data, thermo_temp_data = filter_and_match(thermo_scale_data, thermo_temp_data)
+thermo_scale_data, thermo_temp_data = import_data(
+    r"Data\hm-thermo-scale-trimmed.csv", r"Data\hm-thermo-temp-trimmed.csv"
+)
+thermo_scale_data, thermo_temp_data = filter_and_match(
+    thermo_scale_data, thermo_temp_data
+)
 
 # === DATAS READY ===
 
-plt.scatter(old_temp_data["vals"], old_scale_data['vals'], label="outside temp data")
-#plt.scatter(temp_data["vals"], scale_data['vals'], label="scale temp data")
-plt.scatter(thermo_temp_data['vals'], thermo_scale_data['vals'], label='thermo data')
+plt.scatter(old_temp_data["vals"], old_scale_data["vals"], label="outside temp data")
+# plt.scatter(temp_data["vals"], scale_data['vals'], label="scale temp data")
+plt.scatter(thermo_temp_data["vals"], thermo_scale_data["vals"], label="thermo data")
 plt.legend(loc="upper left")
 plt.show()

@@ -21,7 +21,7 @@ sma = np.convolve(diffs, weights, mode="valid")
 
 # sma_filt = medfilt(sma, kernel_size=41)
 
-plt.plot(batt_data["dates"][:-window_size][sma<0], sma[sma<0])
+plt.plot(batt_data["dates"][:-window_size][sma < 0], sma[sma < 0])
 # plt.plot(batt_data['dates'][:-window_size], sma_filt)
 
 plt.axhline(y=0, color="k", linestyle="-")

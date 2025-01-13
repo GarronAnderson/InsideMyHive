@@ -64,6 +64,7 @@ def filter_and_match(scale_data, temp_data):
 
     return scale_data, temp_data
 
+
 # RUN ANALYSIS
 
 start_time = datetime.strptime(start_time, input_time_format)
@@ -96,10 +97,10 @@ with open(out_file, "w", newline="") as f:
         scale_data, temp_data = import_data(
             r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
         )
-        
+
         num_scale = scale_data.size
         num_temp = temp_data.size
-        
+
         if (scale_data.size > 10) and (temp_data.size > 10):
             scale_data, temp_data = filter_and_match(scale_data, temp_data)
             num_after_match = scale_data.size
@@ -107,13 +108,13 @@ with open(out_file, "w", newline="") as f:
             num_after_match = 0
 
         writer.writerow(
-                [
-                    str(start_time)[:10],
-                    str(end_time)[:10],
-                    num_scale,
-                    num_temp,
-                    (num_scale/PACKETS_PER_DAY),
-                    num_after_match,
-                    (num_after_match/PACKETS_PER_DAY),
-                ]
-            )
+            [
+                str(start_time)[:10],
+                str(end_time)[:10],
+                num_scale,
+                num_temp,
+                (num_scale / PACKETS_PER_DAY),
+                num_after_match,
+                (num_after_match / PACKETS_PER_DAY),
+            ]
+        )

@@ -150,10 +150,11 @@ def correct_readings(scale_data, temp_data, best_r, best_t0):
 
     return lbs_reading, lbs_reading_corrected, lbs_reading_simple
 
+
 def plot():
     Y, X = np.meshgrid(t0_vals, r_vals)
-    
-    date_fmt = mdates.DateFormatter('%m/%d %H')
+
+    date_fmt = mdates.DateFormatter("%m/%d %H")
     hrs = mdates.HourLocator(interval=4)
 
     fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
@@ -168,8 +169,8 @@ def plot():
     plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
     plt.scatter(best_estimates, scale_data["vals"], label="est temp")
     plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
-    plt.xlabel('temperature [deg F]')
-    plt.ylabel('reading [lbs]')
+    plt.xlabel("temperature [deg F]")
+    plt.ylabel("reading [lbs]")
     plt.legend(loc="upper left")
     plt.show()
 
@@ -184,8 +185,8 @@ def plot():
         temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
     )
     plt.plot(temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]")
-    plt.xlabel('date')
-    plt.ylabel('reading [lbs]')
+    plt.xlabel("date")
+    plt.ylabel("reading [lbs]")
     plt.legend(loc="upper left")
     plt.show()
 
@@ -193,16 +194,18 @@ def plot():
 # USE THIS CODE WHEN NOT IMPORTING
 
 if __name__ == "__main__":
-    print('importing')
-    scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
+    print("importing")
+    scale_data, temp_data = import_data(
+        r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
+    )
 
-    print('filtering and matching')
+    print("filtering and matching")
     scale_data, temp_data = filter_and_match(scale_data, temp_data)
-    
+
     avg_cal_val = np.mean(scale_data["vals"])
-    scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
-    
-    print('finding best r, t0')
+    scale_data["vals"] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
+
+    print("finding best r, t0")
     r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
         scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
     )
@@ -227,5 +230,5 @@ if __name__ == "__main__":
     print(f"MAX DEVIATION:           {np.ptp(lbs_reading_corrected):.03f} lbs")
     print(f"SIMPLE MAX DEVIATION:    {np.ptp(lbs_reading_simple):.03f} lbs")
     print(f"NO t0 DEVIATION:         {np.ptp(lbs_reading_t0_0):.03f} lbs")
-    
+
     plot()

@@ -31,7 +31,7 @@ def trim(start_time, end_time):
                     if line_count == 0:
                         line_count += 1
                         continue
-                    
+
                     val, date = row[1], row[3][:-4]
 
                     date_parsed = datetime.strptime(date, time_format)

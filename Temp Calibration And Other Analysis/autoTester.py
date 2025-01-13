@@ -17,7 +17,7 @@ import matplotlib.dates as mdates
 # === USER INPUT ===
 
 start_time = "2024-12-10"  # YYYY-MM-DD
-end_time = "2025-01-12" # ditto
+end_time = "2025-01-12"  # ditto
 
 out_file = r"Data\autoTestTwoDaysMoreData.csv"
 
@@ -69,15 +69,13 @@ with open(out_file, "w", newline="") as f:
         )
 
         if (scale_data.size > 10) and (temp_data.size > 10):
-            print('filtering and matching')
+            print("filtering and matching")
             scale_data, temp_data = filter_and_match(scale_data, temp_data)
-            
-            num_after_match = scale_data.size
-            
+
             avg_cal_val = np.mean(scale_data["vals"])
-            scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
-            
-            print('finding best r, t0')
+            scale_data["vals"] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
+
+            print("finding best r, t0")
 
             r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
                 scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
@@ -110,16 +108,15 @@ with open(out_file, "w", newline="") as f:
                     coef[0],
                     coef[1],
                     len(scale_data),
-                    np.ptp(temp_data['vals']),
+                    np.ptp(temp_data["vals"]),
                     np.ptp(best_estimates),
-                    (num_after_match/PACKETS_PER_DAY),
+                    (len(scale_data) / PACKETS_PER_DAY),
                 ]
             )
 
+            date_fmt = mdates.DateFormatter("%m/%d %H")
+            hrs = mdates.HourLocator(interval=4 * DAYS_PER_SIM)
 
-            date_fmt = mdates.DateFormatter('%m/%d %H')
-            hrs = mdates.HourLocator(interval=4)
-    
             fig, ax = plt.subplots()
             ax.xaxis.set_major_locator(hrs)
             ax.xaxis.set_major_formatter(date_fmt)
@@ -139,18 +136,22 @@ with open(out_file, "w", newline="") as f:
                 temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]"
             )
             plt.legend(loc="upper left")
-            plt.savefig(f"images/{str(start_time)[:10]} to {str(end_time)[:10]} temp data correction")
+            plt.savefig(
+                f"images/{str(start_time)[:10]} to {str(end_time)[:10]} temp data correction"
+            )
             plt.clf()
-            
+
             plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
             plt.scatter(best_estimates, scale_data["vals"], label="est temp")
             plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
-            plt.xlabel('temperature [deg F]')
-            plt.ylabel('reading [lbs]')
+            plt.xlabel("temperature [deg F]")
+            plt.ylabel("reading [lbs]")
             plt.legend(loc="upper left")
-            plt.savefig(f'images/{str(start_time)[:10]} to {str(end_time)[:10]} temp data correction loop')
+            plt.savefig(
+                f"images/{str(start_time)[:10]} to {str(end_time)[:10]} temp data correction loop"
+            )
             plt.clf()
-            
+
     for start_time, end_time in date_pairs:
         if start_time > datetime(2024, 12, 17, 0, 0, 0):
             print(f"Running with {str(start_time)[:10]} to {str(end_time)[:10]} thermo")
@@ -162,15 +163,15 @@ with open(out_file, "w", newline="") as f:
             )
 
             if (scale_data.size > 10) and (temp_data.size > 10):
-                print('filtering and matching')
+                print("filtering and matching")
                 scale_data, temp_data = filter_and_match(scale_data, temp_data)
-                
-                num_after_match = scale_data.shape
-                
+
                 avg_cal_val = np.mean(scale_data["vals"])
-                scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
-                
-                print('finding best r, t0')
+                scale_data["vals"] = (
+                    scale_data["vals"] * WEIGHT_ON_SCALE
+                ) / avg_cal_val
+
+                print("finding best r, t0")
                 r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
                     scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
                 )
@@ -191,8 +192,7 @@ with open(out_file, "w", newline="") as f:
                     scale_data, temp_data, best_r, best_t0
                 )
                 coef = fit_correction(best_estimates, scale_data)
-                
-                
+
                 fig, ax = plt.subplots()
                 ax.xaxis.set_major_locator(hrs)
                 ax.xaxis.set_major_formatter(date_fmt)
@@ -212,16 +212,22 @@ with open(out_file, "w", newline="") as f:
                     temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]"
                 )
                 plt.legend(loc="upper left")
-                plt.savefig(f"images/{str(start_time)[:10]} to {str(end_time)[:10]} thermo data correction")
+                plt.savefig(
+                    f"images/{str(start_time)[:10]} to {str(end_time)[:10]} thermo data correction"
+                )
                 plt.clf()
-                
+
                 plt.scatter(temp_data["vals"], scale_data["vals"], label="raw temp")
                 plt.scatter(best_estimates, scale_data["vals"], label="est temp")
-                plt.plot(temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--")
-                plt.xlabel('temperature [deg F]')
-                plt.ylabel('reading [lbs]')
+                plt.plot(
+                    temp_data["vals"], coef[1] + coef[0] * temp_data["vals"], "k--"
+                )
+                plt.xlabel("temperature [deg F]")
+                plt.ylabel("reading [lbs]")
                 plt.legend(loc="upper left")
-                plt.savefig(f'images/{str(start_time)[:10]} to {str(end_time)[:10]} thermo data correction loop')
+                plt.savefig(
+                    f"images/{str(start_time)[:10]} to {str(end_time)[:10]} thermo data correction loop"
+                )
                 plt.clf()
 
                 writer.writerow(
@@ -238,14 +244,16 @@ with open(out_file, "w", newline="") as f:
                         coef[0],
                         coef[1],
                         len(scale_data),
-                        np.ptp(temp_data['vals']),
+                        np.ptp(temp_data["vals"]),
                         np.ptp(best_estimates),
-                        (num_after_match/PACKETS_PER_DAY),
+                        (len(scale_data) / PACKETS_PER_DAY),
                     ]
                 )
 
 
 processing_end = time.time()
 
-print('\n=== SIM DONE ===\n')
-print(f'proccessing took {round((processing_end - processing_start)//60)} mins {round((processing_end - processing_start)%60)} secs')
+print("\n=== SIM DONE ===\n")
+print(
+    f"proccessing took {round((processing_end - processing_start)//60)} mins {round((processing_end - processing_start)%60)} secs"
+)

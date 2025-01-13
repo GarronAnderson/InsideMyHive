@@ -17,7 +17,7 @@ import matplotlib.dates as mdates
 # === USER INPUT ===
 
 start_time = "2024-12-17"  # YYYY-MM-DD
-end_time = "2025-01-08" # ditto
+end_time = "2025-01-08"  # ditto
 
 out_file = r"Data\lbsPerDegree.csv"
 
@@ -46,7 +46,7 @@ with open(out_file, "w", newline="") as f:
             "t0",
             "data points",
             "lbs per degree",
-            'offset',
+            "offset",
         ]
     )
 
@@ -58,15 +58,15 @@ with open(out_file, "w", newline="") as f:
         scale_data, temp_data = import_data(
             r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
         )
-        
+
         if (scale_data.size > 10) and (temp_data.size > 10):
-            print('filtering and matching')
+            print("filtering and matching")
             scale_data, temp_data = filter_and_match(scale_data, temp_data)
-            
-            print('finding best r, t0')
-            
+
+            print("finding best r, t0")
+
             avg_cal_val = np.mean(scale_data["vals"])
-            scale_data['vals'] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
+            scale_data["vals"] = (scale_data["vals"] * WEIGHT_ON_SCALE) / avg_cal_val
 
             r_vals, t0_vals, scores, best_r, best_t0 = find_best_r_t0(
                 scale_data, temp_data, r_min, r_max, r_step, t0_min, t0_max, t0_step
@@ -100,5 +100,7 @@ with open(out_file, "w", newline="") as f:
 
 processing_end = time.time()
 
-print('\n=== SIM DONE ===\n')
-print(f'proccessing took {round((processing_end - processing_start)//60)} mins {round((processing_end - processing_start)%60)} secs')
+print("\n=== SIM DONE ===\n")
+print(
+    f"proccessing took {round((processing_end - processing_start)//60)} mins {round((processing_end - processing_start)%60)} secs"
+)

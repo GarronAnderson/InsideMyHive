@@ -1,3 +1,7 @@
+"""
+Helper code for Bee Hive Monitor v4.
+"""
+
 import digitalio
 import time
 

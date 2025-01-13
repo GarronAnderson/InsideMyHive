@@ -52,7 +52,9 @@ def filter_and_match(scale_data, temp_data):
     return scale_data, temp_data
 
 
-thermo_data, temp_data = import_data(r"Data\hm-thermo-trimmed.csv", r"Data\hm-temp-trimmed.csv")
+thermo_data, temp_data = import_data(
+    r"Data\hm-thermo-trimmed.csv", r"Data\hm-temp-trimmed.csv"
+)
 
 thermo_data, temp_data = filter_and_match(thermo_data, temp_data)
 

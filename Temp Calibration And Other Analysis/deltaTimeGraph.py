@@ -49,11 +49,14 @@ def filter_and_match(scale_data, temp_data):
 
     return scale_data, temp_data
 
-scale_data, temp_data = import_data(r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv")
+
+scale_data, temp_data = import_data(
+    r"Data\hm-scale-trimmed.csv", r"Data\hm-temp-trimmed.csv"
+)
 
 scale_data, temp_data = filter_and_match(scale_data, temp_data)
-    
-    
+
+
 print(f"scale len {len(scale_data)}")
 print(f"temp len  {len(temp_data)}")
 

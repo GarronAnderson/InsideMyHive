@@ -1,4 +1,7 @@
-# RP2350 FULL CODE
+"""
+Bee Hive Monitor v4
+By Garron Anderson, 2024
+"""
 
 # core libs
 import time
