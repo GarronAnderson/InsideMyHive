@@ -181,10 +181,10 @@ def plot():
     plt.plot(
         temp_data["dates"], lbs_reading_corrected, "b", label="reading corrected [lbs]"
     )
-    plt.plot(
-        temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
-    )
-    plt.plot(temp_data["dates"], lbs_reading_t0_0, label="no t0 correction [lbs]")
+    #plt.plot(
+    #    temp_data["dates"], lbs_reading_simple, label="reading corrected simple [lbs]"
+    #)
+    plt.plot(temp_data["dates"], lbs_reading_t0_0, 'darkorange', label="no t0 correction [lbs]")
     plt.xlabel("date")
     plt.ylabel("reading [lbs]")
     plt.legend(loc="upper left")
