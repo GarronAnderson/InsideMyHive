@@ -11,6 +11,8 @@ WEIGHT_ON_SCALE = 50.09  #  lbs, 50 before 11/21/2024
 
 BAD_TIMING_THRESHOLD = 10  # seconds
 
+TZ_OFFSET = -6 # hrs
+
 r_min, r_max, r_step, t0_min, t0_max, t0_step = 0.0025, 0.015, 0.0001, -12, 15, 0.5
 
 # ===== END INPUT =====
@@ -24,7 +26,10 @@ def import_data(scale_file, temp_file):
 
     scale_data = np.genfromtxt(scale_file, delimiter=",", dtype=dtypes)
     temp_data = np.genfromtxt(temp_file, delimiter=",", dtype=dtypes)
-
+    
+    scale_data['dates'] = scale_data['dates'] + np.timedelta64(TZ_OFFSET, 'h')
+    temp_data['dates'] = temp_data['dates'] + np.timedelta64(TZ_OFFSET, 'h')
+                                                            
     return scale_data, temp_data
 
 

@@ -1,11 +1,14 @@
 import csv
 from datetime import datetime
+import datetime as dt
 
 input_time_format = "%Y-%m-%d"
 time_format = "%Y-%m-%d %H:%M:%S"
 
-start_time = "2025-01-01"
-end_time = "2025-01-02"
+TZ_OFFSET = -6
+
+start_time = "2025-01-13"
+end_time = "2025-01-14"
 
 start_time = datetime.strptime(start_time, input_time_format)
 end_time = datetime.strptime(end_time, input_time_format)
@@ -34,7 +37,7 @@ def trim(start_time, end_time):
 
                     val, date = row[1], row[3][:-4]
 
-                    date_parsed = datetime.strptime(date, time_format)
+                    date_parsed = datetime.strptime(date, time_format) + dt.timedelta(hours=TZ_OFFSET)
 
                     if start_time < date_parsed < end_time:
                         csv_writer.writerow([val, date_parsed])
