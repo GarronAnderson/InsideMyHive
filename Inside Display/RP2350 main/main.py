@@ -40,6 +40,7 @@ logger.info("have imports")
 LORA_FREQ = 915.0  # MHz
 TIMEZONE = "America/Chicago"  # see https://worldtimeapi.org/api/timezone/
 RX_EXPECTED_TIMING = 2  # minutes, adds 30sec margin automatically
+AVG_CAL_VAL =  # from spreadsheet
 
 # === END USER INPUT ===
 
@@ -154,8 +155,8 @@ temp_feed = get_feed("hm-temp")
 hum_feed = get_feed("hm-humid")
 chg_feed = get_feed("hm-chg-rate")
 ttd_feed = get_feed("hm-time-to-discharge")
-cpu_feed = get_feed("hm-cpu-temp")
 therm_feed = get_feed("hm-thermo")
+scale_corr_feed = get_feed("hm-scale-corr")
 
 logger.debug("got feeds")
 io_led.on()
@@ -230,6 +231,8 @@ def aio_tx(datas):
                 batt_percent = float(v)
             if k == "Batt Chg Rate":
                 chg_rate = float(v)
+            if k == "Scale RAW":
+                scale_val = float(v)
 
     if chg_rate > 0:
         ttd = (100 - batt_percent) / chg_rate
@@ -241,7 +244,12 @@ def aio_tx(datas):
     logger.debug(f"Sending data {ttd} to feed hm-ttd")
     io.send_data(ttd_feed["key"], ttd)
     io_tx_led.off()
-
+    
+    scale_corr = scale_val / AVG_CAL_VAL
+    logger.debug(f'Sending data {scale_corr} to feed hm-scale-corr')
+    io.send_data(scale_corr_feed["key"], scale_corr)
+    io_tx_led.off()
+    
 
 def get_time():
     """

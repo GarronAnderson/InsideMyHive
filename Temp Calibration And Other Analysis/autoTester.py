@@ -17,9 +17,9 @@ import matplotlib.dates as mdates
 # === USER INPUT ===
 
 start_time = "2024-11-20"  # YYYY-MM-DD
-end_time = "2024-12-01"  # ditto
+end_time = "2025-01-04"  # ditto
 
-out_file = r"Data\autoTestforOldSimple.csv"
+out_file = r"Data\autoTestforAvgCalVal.csv"
 
 DAYS_PER_SIM = 1
 
@@ -56,6 +56,7 @@ with open(out_file, "w", newline="") as f:
             "temp raw ptp",
             "temp corr ptp",
             "percentage correct after match",
+            "avg cal val",
         ]
     )
 
@@ -111,6 +112,7 @@ with open(out_file, "w", newline="") as f:
                     np.ptp(temp_data["vals"]),
                     np.ptp(best_estimates),
                     (len(scale_data) / PACKETS_PER_DAY),
+                    avg_cal_val,
                 ]
             )
 
@@ -247,6 +249,7 @@ with open(out_file, "w", newline="") as f:
                         np.ptp(temp_data["vals"]),
                         np.ptp(best_estimates),
                         (len(scale_data) / PACKETS_PER_DAY),
+                        avg_cal_val,
                     ]
                 )
 
