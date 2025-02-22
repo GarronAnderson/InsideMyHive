@@ -7,8 +7,8 @@ time_format = "%Y-%m-%d %H:%M:%S"
 
 TZ_OFFSET = -6
 
-start_time = "2025-01-13"
-end_time = "2025-01-14"
+start_time = "2025-01-01"
+end_time = "2025-01-02"
 
 start_time = datetime.strptime(start_time, input_time_format)
 end_time = datetime.strptime(end_time, input_time_format)

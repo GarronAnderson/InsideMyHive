@@ -16,12 +16,12 @@ import matplotlib.dates as mdates
 
 # === USER INPUT ===
 
-start_time = "2024-12-10"  # YYYY-MM-DD
-end_time = "2025-01-12"  # ditto
+start_time = "2024-11-20"  # YYYY-MM-DD
+end_time = "2024-12-01"  # ditto
 
-out_file = r"Data\autoTestTwoDaysMoreData.csv"
+out_file = r"Data\autoTestforOldSimple.csv"
 
-DAYS_PER_SIM = 2
+DAYS_PER_SIM = 1
 
 PACKETS_PER_DAY = 644
 
