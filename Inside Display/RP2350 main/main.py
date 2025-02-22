@@ -40,7 +40,8 @@ logger.info("have imports")
 LORA_FREQ = 915.0  # MHz
 TIMEZONE = "America/Chicago"  # see https://worldtimeapi.org/api/timezone/
 RX_EXPECTED_TIMING = 2  # minutes, adds 30sec margin automatically
-AVG_CAL_VAL =  # from spreadsheet
+AVG_CAL_VAL = 1180410.545  # from spreadsheet, raw to lbs
+WEIGHT_ON_SCALE = 50.09  # lbs during cal
 
 # === END USER INPUT ===
 
@@ -167,7 +168,6 @@ feed_keys = {
     "Temp F": temp_feed,
     "Humidity": hum_feed,
     "Batt Chg Rate": chg_feed,
-    "CPU T F": cpu_feed,
     "Thermo T F": therm_feed,
 }
 
@@ -245,7 +245,7 @@ def aio_tx(datas):
     io.send_data(ttd_feed["key"], ttd)
     io_tx_led.off()
     
-    scale_corr = scale_val / AVG_CAL_VAL
+    scale_corr = scale_val / (AVG_CAL_VAL / WEIGHT_ON_SCALE)
     logger.debug(f'Sending data {scale_corr} to feed hm-scale-corr')
     io.send_data(scale_corr_feed["key"], scale_corr)
     io_tx_led.off()
@@ -303,7 +303,7 @@ while True:
         datas, have_new_data = grab_datas()
         logger.debug(f"latest datas: {datas}")
         last_good_rx = time.time()
-        logger.info(f"rx took {last_good_tx - rx_start} secs")
+        logger.info(f"rx took {last_good_rx - rx_start} secs")
 
     if have_new_data:
         try:
